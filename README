@@ -1,0 +1,29 @@
+This program is set up for the following assignment:
+
+
+For these exercises we will use Selenium to test the GUI of a web-application. Selenium is a powerful open-source
+framework for automated web testing. It has two different versions, 1) the WebDriver, and 2) the IDE.
+1. Selenium IDE
+Using the Selenium IDE we can easily record and playback scripts. However, we cannot (yet) export them.
+We will thus use a different tool called Katalon. You can install this tool by searching the Add-on’s in Firefox.
+
+These exercises will be verified using Ubuntu and Firefox. Feel free to use your favourite browser,
+but make sure that your scripts work with Firefox on Ubuntu.
+
+Keep in mind that the goal of these exercises is to test the interface, not the implementation.
+
+For this particular exercise, u need to use a framework for Behaviour-Driven Development (BDD) and
+a scripting language, e.g. JBehave and Groovy together with JUnit Stories (or Gherkin, ....).
+you can use the Selenium IDE to export code, but these scripts should be runnable java programs (use maven).
+U can also use the Selenium webdriver if u want to.
+Use a recent version of firefox and Selenium that are compatible with each other.
+
+Create the following script and export its code. You need to make sure that the script can run using javac.
+The script is the following:
+Create a test script that navigates to all the different courses from the menu (the menu is left on the
+homepage of the site http://ansymore.uantwerpen.be/, then u click on courses in the menu,
+u come on a site where there is a link to all different courses with the professor(s) underneath it,
+when u click on each course there opens a page with more information eg about the professor name(s)).
+The script should loop over the different menu items and verify that each page is loaded.
+Verify that each course has a professor (field not empty).
+The script should only fail when a page cannot be loaded or when the course does not have a professor.”

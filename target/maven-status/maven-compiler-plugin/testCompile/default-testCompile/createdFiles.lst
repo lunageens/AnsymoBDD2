@@ -1,0 +1,3 @@
+com\Ansymo\cucumber\stepdefinitions\BrowseCoursesSteps.class
+com\Ansymo\cucumber\stepdefinitions\pages\HomePage.class
+com\Ansymo\cucumber\runners\RunnerTest.class
