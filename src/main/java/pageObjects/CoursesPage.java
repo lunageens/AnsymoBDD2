@@ -1,6 +1,7 @@
 package pageObjects;
 
 import dataProviders.ConfigFileReader;
+import managers.FileReaderManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,19 +16,18 @@ import java.util.List;
 public class CoursesPage {
 
     private WebDriver driver;
-    private ConfigFileReader configFileReader;
 
     public CoursesPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        configFileReader = new ConfigFileReader();
     }
 
     @FindAll(@FindBy(css = "div.views-field"))
     private List<WebElement> courseElements;
 
     public void navigateToCoursesPage() {
-        driver.get(configFileReader.getApplicationCoursesUrl());
+        // instead of making instance of configfile reader everytime -> use file reader manager with singleton pattern
+        driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationCoursesUrl());
     }
 
     public List<WebElement> getAllCourses() {

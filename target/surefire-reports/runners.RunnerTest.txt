@@ -1,13 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: runners.RunnerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 25.949 sec <<< FAILURE!
-Verify all courses from homepages (names and professors)(Browse from home page to all course pages)  Time elapsed: 18.631 sec  <<< FAILURE!
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 21.431 sec <<< FAILURE!
+Verify all courses from homepages (names and professors)(Browse from home page to all course pages)  Time elapsed: 14.813 sec  <<< FAILURE!
 java.lang.AssertionError: Course does not have a professor
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertFalse(Assert.java:65)
 	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:71)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:69)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:68)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:18)
 

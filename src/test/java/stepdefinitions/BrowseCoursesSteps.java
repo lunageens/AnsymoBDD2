@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import managers.FileReaderManager;
 import managers.PageObjectManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +26,7 @@ public class BrowseCoursesSteps {
     private HomePage homePage;
     private CoursesPage coursesPage;
     private PageObjectManager pageObjectManager;
-    private ConfigFileReader configFileReader;
+
 
     @Before
     public void setUp() {
@@ -38,12 +39,10 @@ public class BrowseCoursesSteps {
         // for creating pages with this driver
         pageObjectManager = new PageObjectManager(driver);
 
-        // for getting properties
-        configFileReader = new ConfigFileReader();
-
-        // config
+        // configs
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(configFileReader.getImplicitlyWait(), TimeUnit.SECONDS);
+        // instead of making instance of configfile reader everytime -> use file reader manager with singleton pattern
+        driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
 
     }
 

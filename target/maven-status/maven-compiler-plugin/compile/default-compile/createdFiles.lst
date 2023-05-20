@@ -1,5 +1,6 @@
+pageObjects\CourseDetailsPage.class
+pageObjects\HomePage.class
 dataProviders\ConfigFileReader.class
 managers\PageObjectManager.class
-pageObjects\CourseDetailsPage.class
+managers\FileReaderManager.class
 pageObjects\CoursesPage.class
-pageObjects\HomePage.class
