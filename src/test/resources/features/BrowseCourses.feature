@@ -15,7 +15,7 @@ Feature: Browse from home page to all course pages
     Given the user navigates to <url> homepage
     When the user clicks the <linkText> link in the menu section
     Then the user should see a page with all the courses listed
-    And for each course, the user should see the name of the course and the name of the professor teaching the course
+    And for each course, there should be a page that is loaded and there should be a professor
     Examples:
       | url                              | linkText  |
       | "https://ansymore.uantwerpen.be" | "Courses" |

@@ -1,5 +1,6 @@
 package com.Ansymo.cucumber.stepdefinitions;
 
+import com.Ansymo.cucumber.stepdefinitions.pages.*;
 // annotations
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
@@ -7,11 +8,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 // driver set up and functions
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import java.util.List;
 
 // this class is stepdefinitions - stepdefinionts written in java? with help selenium?
 // location in project: src/test/java/com.Ansymo.cucumber.stepdefinitions package
@@ -22,48 +26,38 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class BrowseCoursesSteps {
 
     private WebDriver driver;
+    private HomePage homePage;
+    private CoursesPage coursesPage;
+    private CourseDetailsPage courseDetailsPage;
 
     @Before
     public void setUp() {
-        // geckodriver is an application server implementing selenium protocol, translated the the selenium commands
-        // and forwards them to the marionette driver
-        // this marionette is het new driver that is included with firefox,
-        // has own protocol that is not directly compatible with the selenium webdriver protocol
-        //  for my specific project, might need to change paths in order for program to work
-        // setting path is not really needed for firefox version > 79
-        // TODO -> change paths to actual project directory you saved the project in!!
-        System.setProperty("webdriver.gecko.driver", "C:\\ST\\AnsymoBDD2\\drivers\\geckodriver.exe");
-        driver = new FirefoxDriver();
-
-        // for debugging purposes - remove later
-        String currentURL = driver.getCurrentUrl();
-        System.out.println("Current URL: " + currentURL);
-
+        FirefoxOptions options = new FirefoxOptions();
+        options.setHeadless(true); // Run firefox in headless mode (without GUI)
+        driver = new FirefoxDriver(options);
+        driver.manage().window().maximize();
     }
 
-    // TODO - add pages pattern and change all methods in this class accordingly
-    // real scenario exercise 5 in BrowseCourses.feature
     @Given("the user navigates to {string} homepage")
     public void navigateToHomepage(String url) {
-        // Implementation for navigating to the homepage
-        driver.get(url);
+        homePage = new HomePage(driver);
+        homePage.navigateToHomePage(url);
     }
 
     @When("the user clicks the {string} link in the menu section")
     public void clickCoursesLink(String linkText) {
-        // Implementation for clicking the "Courses" link
-        WebElement coursesLink = driver.findElement(By.linkText(linkText));
-        coursesLink.click();
+        homePage.clickMenuItem(linkText);
     }
 
     @Then("the user should see a page with all the courses listed")
     public void verifyCoursesPage() {
-        // TODO implementation for verifying the courses page
+        coursesPage = new CoursesPage(driver);
+        Assert.assertTrue("There are no courses", coursesPage.areCoursesListed());
     }
 
-    @Then("for each course, the user should see the name of the course and the name of the professor teaching the course")
+    @Then("for each course, there should be a page that is loaded and there should be a professor")
     public void verifyCourseAndProfessorNames() {
-        // TODO implementation for verifying course and professor names, maybe in two methods?
+        coursesPage.selectEachCourseAndVerifyDetails();
     }
 
     // dummy scenario for exercise 5 in BrowseCourses.feature
@@ -74,10 +68,7 @@ public class BrowseCoursesSteps {
 
     @After
     public void tearDown() {
-        // Clean up WebDriver
-        if (driver != null) {
-            driver.quit();
-        }
+        driver.quit();
     }
 
 }

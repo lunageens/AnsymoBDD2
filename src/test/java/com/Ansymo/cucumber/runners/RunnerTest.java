@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/resources/features/BrowseCourses.feature"}, //specify the .feature file
-        glue = {"com.Ansymo.cucumber.stepdefinitions"}, // specify the package with step definitions
+        glue = {"com.Ansymo.cucumber.stepdefinitions", "com.Ansymo.cucumber.stepdefinitions.pages"}, // specify the package with step definitions
         plugin = {"pretty","json:target/cucumber-reports/reports.json"})
 public class RunnerTest {
     // this may be empty
