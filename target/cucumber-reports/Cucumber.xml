@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="26.199">
-    <testcase classname="Browse from home page to all course pages" name="Dummy scenario" time="8.691">
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="24.434">
+    <testcase classname="Browse from home page to all course pages" name="Dummy scenario" time="7.296">
         <system-out><![CDATA[Given a dummy scenario......................................................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="Browse from home page to all course pages" name="Verify all courses from homepages (names and professors)" time="17.212">
+    <testcase classname="Browse from home page to all course pages" name="Verify all courses from homepages (names and professors)" time="16.656">
         <failure message="Course does not have a professor" type="java.lang.AssertionError"><![CDATA[Given the user is on the Ansymo homepage....................................passed
 When the user clicks the "Courses" link in the menu section.................passed
 Then the user should see a page with all the courses listed.................passed
@@ -15,8 +15,8 @@ java.lang.AssertionError: Course does not have a professor
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:71)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:64)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:72)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:58)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:18)
 ]]></failure>
     </testcase>

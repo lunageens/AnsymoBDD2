@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="1" name="runners.RunnerTest" time="26.084" errors="0" skipped="0">
+<testsuite tests="2" failures="1" name="runners.RunnerTest" time="24.242" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,14 +61,14 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Browse from home page to all course pages" name="Dummy scenario" time="8.835"/>
-  <testcase classname="Browse from home page to all course pages" name="Verify all courses from homepages (names and professors)" time="17.249">
+  <testcase classname="Browse from home page to all course pages" name="Dummy scenario" time="7.553"/>
+  <testcase classname="Browse from home page to all course pages" name="Verify all courses from homepages (names and professors)" time="16.689">
     <failure message="Course does not have a professor" type="java.lang.AssertionError">java.lang.AssertionError: Course does not have a professor
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:71)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:64)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:72)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:58)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:18)
 </failure>
     <system-out>
@@ -88,38 +88,28 @@ The professor(s), if any, is :[]
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:71)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:64)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:72)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:58)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:18)
 
 </system-out>
-    <system-err>1684621400195	geckodriver	INFO	Listening on 127.0.0.1:56821
-1684621400288	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5486 ... ow-origins&quot; &quot;http://localhost:54866/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofilebD9U9a&quot;
+    <system-err>1684624733739	geckodriver	INFO	Listening on 127.0.0.1:61870
+1684624733863	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5446 ... ow-origins&quot; &quot;http://localhost:54467/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileymeNq1&quot;
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1684621401356	Marionette	INFO	Marionette enabled
+1684624734835	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1684621401382	Marionette	INFO	Listening on port 56558
-Read port: 56558
-WebDriver BiDi listening on ws://127.0.0.1:54866
-1684621401619	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1684624734849	Marionette	INFO	Listening on port 55121
+Read port: 55121
+WebDriver BiDi listening on ws://127.0.0.1:54467
+1684624735041	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 [ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
 console.error: ({})
-DevTools listening on ws://127.0.0.1:54866/devtools/browser/826706ee-5dc5-4e8f-bb77-510a54d5cfe1
-mei 21, 2023 12:23:23 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+DevTools listening on ws://127.0.0.1:54467/devtools/browser/51e8a8a5-4225-4f6d-aad6-35947b008a2a
+mei 21, 2023 1:18:57 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-1684621416133	Marionette	INFO	Stopped listening on port 56558
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 22076, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-Dynamically enable window occlusion 1
 </system-err>
   </testcase>
 </testsuite>

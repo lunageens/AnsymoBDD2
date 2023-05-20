@@ -1,5 +1,6 @@
 package pageObjects;
 
+import cucumber.TestContext;
 import dataProviders.ConfigFileReader;
 import managers.FileReaderManager;
 import org.junit.Assert;
@@ -47,7 +48,7 @@ public class CoursesPage {
         return !courseNameElements.isEmpty();
     }
 
-    public void selectEachCourseAndVerifyDetails() {
+    public void selectEachCourseAndVerifyDetails(TestContext testContext) {
         // first, calculate number of courses if we are on the Courses Page the first time.
         List<WebElement> courseElements = getAllCourses();
         int index = 0;
@@ -59,7 +60,7 @@ public class CoursesPage {
 
             // go to specific course page
             courseElement.click();
-            CourseDetailsPage courseDetailsPage = new CourseDetailsPage(driver); // no page object manager
+            CourseDetailsPage courseDetailsPage = testContext.getPageObjectManager().getNewCourseDetailsPage();
             System.out.println("For the course " + courseDetailsPage.getCourseTitle() + ":");
 
             // Verify course page load for each course

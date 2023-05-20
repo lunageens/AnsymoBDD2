@@ -1,2 +1,3 @@
-runners\RunnerTest.class
 stepdefinitions\BrowseCoursesSteps.class
+stepdefinitions\DummySteps.class
+runners\RunnerTest.class

@@ -1,6 +1,7 @@
 package managers;
 
 import org.openqa.selenium.WebDriver;
+import pageObjects.CourseDetailsPage;
 import pageObjects.CoursesPage;
 import pageObjects.HomePage;
 
@@ -17,6 +18,7 @@ import pageObjects.HomePage;
 public class PageObjectManager {
 
     private WebDriver driver;
+    private CourseDetailsPage courseDetailsPage;
     private CoursesPage coursesPage;
     private HomePage homePage;
 
@@ -32,5 +34,8 @@ public class PageObjectManager {
         return (coursesPage == null) ? coursesPage = new CoursesPage(driver) : coursesPage;
     }
 
-    // not implemented for CourseDetailsPage because it is needed that we make an instance every time
+    public CourseDetailsPage getNewCourseDetailsPage(){
+        courseDetailsPage = new CourseDetailsPage(driver); // do make new page every time -> changes url per course
+        return courseDetailsPage;
+    }
 }
