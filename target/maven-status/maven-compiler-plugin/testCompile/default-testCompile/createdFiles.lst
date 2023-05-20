@@ -1,5 +1,2 @@
-com\Ansymo\cucumber\stepdefinitions\BrowseCoursesSteps.class
-com\Ansymo\cucumber\stepdefinitions\pages\CourseDetailsPage.class
-com\Ansymo\cucumber\stepdefinitions\pages\CoursesPage.class
-com\Ansymo\cucumber\stepdefinitions\pages\HomePage.class
-com\Ansymo\cucumber\runners\RunnerTest.class
+runners\RunnerTest.class
+stepdefinitions\BrowseCoursesSteps.class

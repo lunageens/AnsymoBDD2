@@ -12,11 +12,11 @@ Feature: Browse from home page to all course pages
 
   # press ctrl to hover over steps and go to step definitions
   Scenario Outline: Verify all courses from homepages (names and professors)
-    Given the user navigates to <url> homepage
+    Given the user is on the Ansymo homepage
     When the user clicks the <linkText> link in the menu section
     Then the user should see a page with all the courses listed
     And for each course, there should be a page that is loaded and there should be a professor
     Examples:
-      | url                              | linkText  |
-      | "https://ansymore.uantwerpen.be" | "Courses" |
+      | linkText  |
+      | "Courses" |
 

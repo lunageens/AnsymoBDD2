@@ -1,0 +1,5 @@
+dataProviders\ConfigFileReader.class
+managers\PageObjectManager.class
+pageObjects\CourseDetailsPage.class
+pageObjects\CoursesPage.class
+pageObjects\HomePage.class
