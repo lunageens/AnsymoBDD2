@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import enums.*;
+
 // class avoids hardcoding urls in code
 public class ConfigFileReader {
 
@@ -47,4 +49,40 @@ public class ConfigFileReader {
         if(url != null) return url;
         else throw new RuntimeException("urlCourses not specified in the Configuration.properties file.");
     }
+
+    public DriverType getBrowser() {
+        String browserName = properties.getProperty("browser");
+        if(browserName == null || browserName.equals("chrome")) return DriverType.CHROME;
+        else if(browserName.equalsIgnoreCase("firefox")) return DriverType.FIREFOX;
+        else if(browserName.equals("iexplorer")) return DriverType.INTERNETEXPLORER;
+        else if(browserName.equals("edge") )return DriverType.EDGE;
+        else if(browserName.equals("safari")) return DriverType.SAFARI;
+        else throw new RuntimeException("Browser Name Key value in Configuration.properties is not matched : " + browserName);
+    }
+
+    public EnvironmentType getEnvironment() {
+        String environmentName = properties.getProperty("environment");
+        if(environmentName == null || environmentName.equalsIgnoreCase("local")) return EnvironmentType.LOCAL;
+        else if(environmentName.equals("remote")) return EnvironmentType.REMOTE;
+        else throw new RuntimeException("Environment Type Key value in Configuration.properties is not matched : " + environmentName);
+    }
+
+    public Boolean getBrowserWindowSize() {
+        String windowSize = properties.getProperty("windowMaximize");
+        if(windowSize != null) return Boolean.valueOf(windowSize);
+        return true;
+    }
+
+    public String getDriverPath(){
+        String driverPath = properties.getProperty("driverPath");
+        if(driverPath!= null) return driverPath;
+        else throw new RuntimeException("Driver Path not specified in the Configuration.properties file for the Key:driverPath");
+    }
+
+    public Boolean getHeadLess(){
+        String headLess = properties.getProperty("headless");
+        if(headLess!= null) return Boolean.valueOf(headLess);
+        return true;
+    }
+
 }

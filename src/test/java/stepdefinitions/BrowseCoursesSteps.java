@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import managers.FileReaderManager;
 import managers.PageObjectManager;
+import managers.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,23 +27,18 @@ public class BrowseCoursesSteps {
     private HomePage homePage;
     private CoursesPage coursesPage;
     private PageObjectManager pageObjectManager;
+    private WebDriverManager webDriverManager;
 
 
     @Before
     public void setUp() {
 
-        // driver
-        FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(true); // Run firefox in headless mode (without GUI)
-        driver = new FirefoxDriver(options);
+        // driver set up according to configuration file
+        webDriverManager = new WebDriverManager();
+        driver = webDriverManager.getDriver();
 
         // for creating pages with this driver
         pageObjectManager = new PageObjectManager(driver);
-
-        // configs
-        driver.manage().window().maximize();
-        // instead of making instance of configfile reader everytime -> use file reader manager with singleton pattern
-        driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
 
     }
 

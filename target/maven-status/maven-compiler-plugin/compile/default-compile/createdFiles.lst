@@ -1,5 +1,9 @@
+managers\WebDriverManager$1.class
+managers\WebDriverManager.class
+enums\DriverType.class
 pageObjects\CourseDetailsPage.class
 pageObjects\HomePage.class
+enums\EnvironmentType.class
 dataProviders\ConfigFileReader.class
 managers\PageObjectManager.class
 managers\FileReaderManager.class
