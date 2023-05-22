@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="1" name="runners.RunnerTest" time="24.242" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="runners.RunnerTest" time="1.975" errors="1" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,55 +61,192 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Browse from home page to all course pages" name="Dummy scenario" time="7.553"/>
-  <testcase classname="Browse from home page to all course pages" name="Verify all courses from homepages (names and professors)" time="16.689">
-    <failure message="Course does not have a professor" type="java.lang.AssertionError">java.lang.AssertionError: Course does not have a professor
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:72)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:58)
-	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:18)
-</failure>
-    <system-out>
-@Exercise5
-Scenario Outline: Verify all courses from homepages (names and professors)                   # src/test/resources/features/BrowseCourses.feature:21
-When using an old version of firefox, specify path to geckodriver in Configuration file.
-This means there is a need for an additional geckodriver (such as installed in for windows 64 in the drivers directory). 
-Adjust the code in WebDriverManager.java as follows:
-add line: System.set.Property(webdriver.chrome.driver; FileReaderManager.getInstance().getConfigReader.getDriverPath()) before initializing new driver
-  Given the user is on the Ansymo homepage                                                   # stepdefinitions.BrowseCoursesSteps.navigateToHomepage()
-  When the user clicks the &quot;Courses&quot; link in the menu section                                # stepdefinitions.BrowseCoursesSteps.clickCoursesLink(java.lang.String)
-  Then the user should see a page with all the courses listed                                # stepdefinitions.BrowseCoursesSteps.verifyCoursesPage()
-For the course Master thesis:
-The professor(s), if any, is :[]
-  And for each course, there should be a page that is loaded and there should be a professor # stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames()
-      java.lang.AssertionError: Course does not have a professor
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:72)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:58)
-	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:18)
+  <testcase classname="runners.RunnerTest" name="runners.RunnerTest" time="1.975">
+    <error message="A method annotated with BeforeAll or AfterAll must have one of these signatures:
+ * public static void before_or_after_all()
+at stepdefinitions.Hooks.tearDown()
+
+" type="io.cucumber.java.InvalidMethodSignatureException">io.cucumber.java.InvalidMethodSignatureException: A method annotated with BeforeAll or AfterAll must have one of these signatures:
+ * public static void before_or_after_all()
+at stepdefinitions.Hooks.tearDown()
+
+
+	at io.cucumber.java.InvalidMethodSignatureException$InvalidMethodSignatureExceptionBuilder.build(InvalidMethodSignatureException.java:52)
+	at io.cucumber.java.JavaStaticHookDefinition.createInvalidSignatureException(JavaStaticHookDefinition.java:44)
+	at io.cucumber.java.JavaStaticHookDefinition.requireValidMethod(JavaStaticHookDefinition.java:28)
+	at io.cucumber.java.JavaStaticHookDefinition.&lt;init&gt;(JavaStaticHookDefinition.java:17)
+	at io.cucumber.java.GlueAdaptor.addDefinition(GlueAdaptor.java:37)
+	at io.cucumber.java.JavaBackend.lambda$loadGlue$1(JavaBackend.java:42)
+	at io.cucumber.java.MethodScanner.scan(MethodScanner.java:67)
+	at io.cucumber.java.MethodScanner.scan(MethodScanner.java:58)
+	at io.cucumber.java.MethodScanner.scan(MethodScanner.java:33)
+	at io.cucumber.java.JavaBackend.lambda$loadGlue$2(JavaBackend.java:40)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at io.cucumber.java.JavaBackend.loadGlue(JavaBackend.java:40)
+	at io.cucumber.core.runner.Runner.&lt;init&gt;(Runner.java:56)
+	at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:47)
+	at java.base/java.lang.ThreadLocal$SuppliedThreadLocal.initialValue(ThreadLocal.java:305)
+	at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:195)
+	at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+	at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:40)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:35)
+	at io.cucumber.core.runtime.CucumberExecutionContext.getRunner(CucumberExecutionContext.java:155)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runAfterAllHooks(CucumberExecutionContext.java:111)
+	at io.cucumber.junit.Cucumber$RunAfterAllHooks.evaluate(Cucumber.java:283)
+	at io.cucumber.junit.Cucumber$StartTestRun.evaluate(Cucumber.java:233)
+	at io.cucumber.junit.Cucumber$FinishTestRun.evaluate(Cucumber.java:248)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>      io.cucumber.core.exception.CompositeCucumberException: There were 2 exceptions. The details are in the stacktrace below.
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.getThrowable(RethrowingThrowableCollector.java:57)
+	at io.cucumber.core.runtime.CucumberExecutionContext.getThrowable(CucumberExecutionContext.java:122)
+	at io.cucumber.core.runtime.CucumberExecutionContext.finishTestRun(CucumberExecutionContext.java:117)
+	at io.cucumber.junit.Cucumber$FinishTestRun.evaluate(Cucumber.java:250)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+	Suppressed: io.cucumber.java.InvalidMethodSignatureException: A method annotated with BeforeAll or AfterAll must have one of these signatures:
+ * public static void before_or_after_all()
+at stepdefinitions.Hooks.tearDown()
+
+
+		at io.cucumber.java.InvalidMethodSignatureException$InvalidMethodSignatureExceptionBuilder.build(InvalidMethodSignatureException.java:52)
+		at io.cucumber.java.JavaStaticHookDefinition.createInvalidSignatureException(JavaStaticHookDefinition.java:44)
+		at io.cucumber.java.JavaStaticHookDefinition.requireValidMethod(JavaStaticHookDefinition.java:28)
+		at io.cucumber.java.JavaStaticHookDefinition.&lt;init&gt;(JavaStaticHookDefinition.java:17)
+		at io.cucumber.java.GlueAdaptor.addDefinition(GlueAdaptor.java:37)
+		at io.cucumber.java.JavaBackend.lambda$loadGlue$1(JavaBackend.java:42)
+		at io.cucumber.java.MethodScanner.scan(MethodScanner.java:67)
+		at io.cucumber.java.MethodScanner.scan(MethodScanner.java:58)
+		at io.cucumber.java.MethodScanner.scan(MethodScanner.java:33)
+		at io.cucumber.java.JavaBackend.lambda$loadGlue$2(JavaBackend.java:40)
+		at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+		at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+		at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+		at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+		at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+		at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+		at io.cucumber.java.JavaBackend.loadGlue(JavaBackend.java:40)
+		at io.cucumber.core.runner.Runner.&lt;init&gt;(Runner.java:56)
+		at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:47)
+		at java.base/java.lang.ThreadLocal$SuppliedThreadLocal.initialValue(ThreadLocal.java:305)
+		at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:195)
+		at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+		at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:40)
+		at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:35)
+		at io.cucumber.core.runtime.CucumberExecutionContext.getRunner(CucumberExecutionContext.java:155)
+		at io.cucumber.core.runtime.CucumberExecutionContext.runBeforeAllHooks(CucumberExecutionContext.java:106)
+		at io.cucumber.junit.Cucumber$RunBeforeAllHooks.evaluate(Cucumber.java:265)
+		at io.cucumber.junit.Cucumber$RunAfterAllHooks.evaluate(Cucumber.java:281)
+		at io.cucumber.junit.Cucumber$StartTestRun.evaluate(Cucumber.java:233)
+		at io.cucumber.junit.Cucumber$FinishTestRun.evaluate(Cucumber.java:248)
+		... 14 more
+	Suppressed: io.cucumber.java.InvalidMethodSignatureException: A method annotated with BeforeAll or AfterAll must have one of these signatures:
+ * public static void before_or_after_all()
+at stepdefinitions.Hooks.tearDown()
+
+
+		at io.cucumber.java.InvalidMethodSignatureException$InvalidMethodSignatureExceptionBuilder.build(InvalidMethodSignatureException.java:52)
+		at io.cucumber.java.JavaStaticHookDefinition.createInvalidSignatureException(JavaStaticHookDefinition.java:44)
+		at io.cucumber.java.JavaStaticHookDefinition.requireValidMethod(JavaStaticHookDefinition.java:28)
+		at io.cucumber.java.JavaStaticHookDefinition.&lt;init&gt;(JavaStaticHookDefinition.java:17)
+		at io.cucumber.java.GlueAdaptor.addDefinition(GlueAdaptor.java:37)
+		at io.cucumber.java.JavaBackend.lambda$loadGlue$1(JavaBackend.java:42)
+		at io.cucumber.java.MethodScanner.scan(MethodScanner.java:67)
+		at io.cucumber.java.MethodScanner.scan(MethodScanner.java:58)
+		at io.cucumber.java.MethodScanner.scan(MethodScanner.java:33)
+		at io.cucumber.java.JavaBackend.lambda$loadGlue$2(JavaBackend.java:40)
+		at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+		at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+		at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+		at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+		at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+		at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+		at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+		at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+		at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+		at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+		at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+		at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+		at io.cucumber.java.JavaBackend.loadGlue(JavaBackend.java:40)
+		at io.cucumber.core.runner.Runner.&lt;init&gt;(Runner.java:56)
+		at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:47)
+		at java.base/java.lang.ThreadLocal$SuppliedThreadLocal.initialValue(ThreadLocal.java:305)
+		at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:195)
+		at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+		at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:40)
+		at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:35)
+		at io.cucumber.core.runtime.CucumberExecutionContext.getRunner(CucumberExecutionContext.java:155)
+		at io.cucumber.core.runtime.CucumberExecutionContext.runAfterAllHooks(CucumberExecutionContext.java:111)
+		at io.cucumber.junit.Cucumber$RunAfterAllHooks.evaluate(Cucumber.java:283)
+		at io.cucumber.junit.Cucumber$StartTestRun.evaluate(Cucumber.java:233)
+		at io.cucumber.junit.Cucumber$FinishTestRun.evaluate(Cucumber.java:248)
+		... 14 more
 
 </system-out>
-    <system-err>1684624733739	geckodriver	INFO	Listening on 127.0.0.1:61870
-1684624733863	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5446 ... ow-origins&quot; &quot;http://localhost:54467/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileymeNq1&quot;
-*** You are running in headless mode.
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1684624734835	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1684624734849	Marionette	INFO	Listening on port 55121
-Read port: 55121
-WebDriver BiDi listening on ws://127.0.0.1:54467
-1684624735041	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-[ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
-console.error: ({})
-DevTools listening on ws://127.0.0.1:54467/devtools/browser/51e8a8a5-4225-4f6d-aad6-35947b008a2a
-mei 21, 2023 1:18:57 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected upstream dialect: W3C
+    <system-err>?????????????????????????????????????????????????????????????????????????????????????
+? Share your Cucumber Report with your team at https://reports.cucumber.io          ?
+? Activate publishing with one of the following:                                    ?
+?                                                                                   ?
+? src/test/resources/cucumber.properties:          cucumber.publish.enabled=true    ?
+? src/test/resources/junit-platform.properties:    cucumber.publish.enabled=true    ?
+? Environment variable:                            CUCUMBER_PUBLISH_ENABLED=true    ?
+? JUnit:                                           @CucumberOptions(publish = true) ?
+?                                                                                   ?
+? More information at https://cucumber.io/docs/cucumber/environment-variables/      ?
+?                                                                                   ?
+? Disable this message with one of the following:                                   ?
+?                                                                                   ?
+? src/test/resources/cucumber.properties:          cucumber.publish.quiet=true      ?
+? src/test/resources/junit-platform.properties:    cucumber.publish.quiet=true      ?
+?????????????????????????????????????????????????????????????????????????????????????
 </system-err>
   </testcase>
 </testsuite>

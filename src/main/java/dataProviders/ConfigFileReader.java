@@ -50,6 +50,12 @@ public class ConfigFileReader {
         else throw new RuntimeException("urlCourses not specified in the Configuration.properties file.");
     }
 
+    public String getSoftwareTestingUrl(){
+        String url = properties.getProperty("urlSoftwareTesting");
+        if(url != null) return url;
+        else throw new RuntimeException("urlSoftwareTesting is not specified in the Configuration.properties file.");
+    }
+
     public DriverType getBrowser() {
         String browserName = properties.getProperty("browser");
         if(browserName == null || browserName.equals("chrome")) return DriverType.CHROME;
@@ -83,6 +89,12 @@ public class ConfigFileReader {
         String headLess = properties.getProperty("headless");
         if(headLess!= null) return Boolean.valueOf(headLess);
         return true;
+    }
+
+    public String getReportConfigPath(){
+        String reportConfigPath = properties.getProperty("reportConfigPath");
+        if(reportConfigPath!= null) return reportConfigPath;
+        else throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");
     }
 
 }

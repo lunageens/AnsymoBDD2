@@ -11,6 +11,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import enums.*;
+import pageObjects.CoursesPage;
 
 public class WebDriverManager {
 
@@ -30,8 +31,7 @@ public class WebDriverManager {
      * @return driver from type and environment specified in config
      */
     public WebDriver getDriver() {
-        if(driver == null) driver = createDriver();
-        return driver;
+        return (driver == null) ? driver = createDriver() : driver;
     }
 
     /**
@@ -40,6 +40,7 @@ public class WebDriverManager {
      * @return driver from type and environment specified in config
      */
     private WebDriver createDriver() {
+        System.out.println("A driver is created");
         switch (environmentType) {
             case LOCAL : driver = createLocalDriver();
                 break;
@@ -90,6 +91,7 @@ public class WebDriverManager {
     }
 
     public void closeDriver() {
+        System.out.println("A driver is closed.");
         driver.close();
         driver.quit();
     }

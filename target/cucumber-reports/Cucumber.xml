@@ -1,23 +1,136 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="24.434">
-    <testcase classname="Browse from home page to all course pages" name="Dummy scenario" time="7.296">
-        <system-out><![CDATA[Given a dummy scenario......................................................passed
-]]></system-out>
-    </testcase>
-    <testcase classname="Browse from home page to all course pages" name="Verify all courses from homepages (names and professors)" time="16.656">
-        <failure message="Course does not have a professor" type="java.lang.AssertionError"><![CDATA[Given the user is on the Ansymo homepage....................................passed
+<testsuite errors="0" failures="10" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="10" time="111.049">
+    <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="18.596">
+        <failure message="Course Master thesis does not have a professor." type="java.lang.AssertionError"><![CDATA[Given the user is on the Ansymo homepage....................................passed
 When the user clicks the "Courses" link in the menu section.................passed
 Then the user should see a page with all the courses listed.................passed
 And for each course, there should be a page that is loaded and there should be a professor.failed
 
 StackTrace:
-java.lang.AssertionError: Course does not have a professor
+java.lang.AssertionError: Course Master thesis does not have a professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:72)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:58)
-	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:18)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:73)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:62)
+	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:13)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="7.269">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user sees the links for each assignment............................skipped
+Then the user should verify the link format of each assignment link.........skipped
+And the user should verify the document existence of each assignment link...skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:20)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course" time="6.404">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student "Luna Geens" belongs to student group 1...skipped
+Then the user should be in a student group..................................skipped
+And the user should receive a warning when he does not belong to that student group number..skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:27)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 2" time="3.949">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student "Luna Geens" belongs to student group 2...skipped
+Then the user should be in a student group..................................skipped
+And the user should receive a warning when he does not belong to that student group number..skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:27)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 3" time="8.915">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student "Luna Geens" belongs to student group 3...skipped
+Then the user should be in a student group..................................skipped
+And the user should receive a warning when he does not belong to that student group number..skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:27)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 4" time="11.215">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student " Thimoty Smet" belongs to student group 1.skipped
+Then the user should be in a student group..................................skipped
+And the user should receive a warning when he does not belong to that student group number..skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:27)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course" time="8.912">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student "Luna Geens" belongs to student group 1...skipped
+Then the user should see his mandatory presence as presenter................skipped
+And the user should see his mandatory presence as opponent..................skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:41)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 2" time="15.212">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student "Luna Geens" belongs to student group 2...skipped
+Then the user should see his mandatory presence as presenter................skipped
+And the user should see his mandatory presence as opponent..................skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:41)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 3" time="18.797">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student "Luna Geens" belongs to student group 3...skipped
+Then the user should see his mandatory presence as presenter................skipped
+And the user should see his mandatory presence as opponent..................skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:41)
+]]></failure>
+    </testcase>
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 4" time="11.024">
+        <failure message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[Given the user is on the Software Testing course page.......................failed
+When the user says that a student " Thimoty Smet" belongs to student group 1.skipped
+Then the user should see his mandatory presence as presenter................skipped
+And the user should see his mandatory presence as opponent..................skipped
+
+StackTrace:
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at pageObjects.SoftwareTestingPage.navigateToSoftWareTesting(SoftwareTestingPage.java:23)
+	at stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage(BrowseCoursesSteps.java:68)
+	at ✽.the user is on the Software Testing course page(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:41)
 ]]></failure>
     </testcase>
 </testsuite>

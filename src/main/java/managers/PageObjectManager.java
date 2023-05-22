@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.CourseDetailsPage;
 import pageObjects.CoursesPage;
 import pageObjects.HomePage;
+import pageObjects.SoftwareTestingPage;
 
 /**
  * Makes new page instance or returns the one already made.
@@ -18,6 +19,7 @@ import pageObjects.HomePage;
 public class PageObjectManager {
 
     private WebDriver driver;
+    private SoftwareTestingPage softwareTestingPage;
     private CourseDetailsPage courseDetailsPage;
     private CoursesPage coursesPage;
     private HomePage homePage;
@@ -37,5 +39,9 @@ public class PageObjectManager {
     public CourseDetailsPage getNewCourseDetailsPage(){
         courseDetailsPage = new CourseDetailsPage(driver); // do make new page every time -> changes url per course
         return courseDetailsPage;
+    }
+
+    public SoftwareTestingPage getSoftwareTestingPage(){
+        return (softwareTestingPage == null) ? softwareTestingPage = new SoftwareTestingPage(driver) : softwareTestingPage;
     }
 }

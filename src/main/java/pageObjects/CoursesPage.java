@@ -69,7 +69,8 @@ public class CoursesPage {
             //Verify professor information for each course
             List<String> professorNames = courseDetailsPage.getProfessorName();
             System.out.println("The professor(s), if any, is :" + professorNames);
-            Assert.assertFalse("Course does not have a professor", professorNames.isEmpty());
+            String assertionText = "Course " + courseDetailsPage.getCourseTitle() + " does not have a professor.";
+            Assert.assertFalse(assertionText, professorNames.isEmpty());
 
             System.out.println("Course passed all assertions");
 
@@ -80,5 +81,4 @@ public class CoursesPage {
             navigateToCoursesPage();
         }
     }
-
 }

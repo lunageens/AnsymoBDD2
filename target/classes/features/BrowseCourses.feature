@@ -1,15 +1,10 @@
 # Created by lunag at 17/05/2023
   # This is Gherkin file for BDD scenario
-  @Exercise5
+  @CompleteTest
 
-Feature: Browse from home page to all course pages
-  As a user of the ansymore.uantwerpen.be site
-  I want to navigate to all the courses listed in the "menu" section of the homepage
-  So that I can see information about each course and verify that each course has a professor.
+Feature: Verify the Ansymo Web application
 
-  Scenario: Dummy scenario
-    Given a dummy scenario
-
+    @Exercise5
   # press ctrl to hover over steps and go to step definitions
   Scenario Outline: Verify all courses from homepages (names and professors)
     Given the user is on the Ansymo homepage
@@ -19,4 +14,38 @@ Feature: Browse from home page to all course pages
     Examples:
       | linkText  |
       | "Courses" |
+
+  @Exercise6
+  Scenario: Verify Assignment Links in Software Testing Course
+    Given the user is on the Software Testing course page
+    When the user sees the links for each assignment
+    Then the user should verify the link format of each assignment link
+    And the user should verify the document existence of each assignment link
+
+  @Exercise7
+  Scenario Outline: Verify Student Groups in Software Testing Course
+    Given the user is on the Software Testing course page
+    When the user says that a student <name> belongs to student group <number>
+    Then the user should be in a student group
+    And the user should receive a warning when he does not belong to that student group number.
+    Examples:
+      | name            | number |
+      | "Luna Geens"    | 1      |
+      | "Luna Geens"    | 2      |
+      | "Luna Geens"    | 3      |
+      | " Thimoty Smet" | 1      |
+
+
+  @Exercise8
+  Scenario Outline: Verify Mandatory Presence of a student in Software Testing Course
+    Given the user is on the Software Testing course page
+    When the user says that a student <name> belongs to student group <number>
+    Then the user should see his mandatory presence as presenter
+    And the user should see his mandatory presence as opponent
+    Examples:
+      | name            | number |
+      | "Luna Geens"    | 1      |
+      | "Luna Geens"    | 2      |
+      | "Luna Geens"    | 3      |
+      | " Thimoty Smet" | 1      |
 

@@ -15,7 +15,7 @@ public class FileReaderManager {
     private static FileReaderManager fileReaderManager = new FileReaderManager(); // only instance of this class
     private static ConfigFileReader configFileReader;
 
-    private FileReaderManager() { // private constructor to restrict intiation of the class from other claess
+    private FileReaderManager() { // private constructor to restrict initiation of the class from other classes
     }
 
     public static FileReaderManager getInstance( ) { // this is public, only global access point to get the instance
