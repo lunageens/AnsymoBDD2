@@ -10,16 +10,20 @@ public class Hooks {
     static TestContext testContext;
 
     public Hooks(TestContext context){
+        System.out.println("Hooks constructor is called");
         testContext = context;
     }
 
     @Before
     public void beforeScenario(){
+        System.out.println("Method beforeScenario of Hooks is called");
         System.out.println("------------------------------------------------------start of scenario------------------------------------------------------");
     }
 
     @After
     public void afterScenario(){
+        System.out.println("Method afterScenario of Hooks is called");
+        testContext.getWebDriverManager().closeDriver();
         System.out.println("------------------------------------------------------end of scenario------------------------------------------------------");
     }
 

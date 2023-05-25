@@ -1,7 +1,6 @@
 # Created by lunag at 17/05/2023
   # This is Gherkin file for BDD scenario
   @CompleteTest
-
 Feature: Verify the Ansymo Web application
 
     @Exercise5

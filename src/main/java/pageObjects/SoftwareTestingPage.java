@@ -16,9 +16,11 @@ public class SoftwareTestingPage extends CourseDetailsPage {
 
     public SoftwareTestingPage(WebDriver driver) {
         super(driver);
+        System.out.println("a new software testing page is called by calling constructor of coursedetialspage");
     }
 
     public void navigateToSoftWareTesting() {
+        System.out.println("method navigate to software testing method of software testing page is called");
         // instead of making instance of configfile reader everytime -> use file reader manager with singleton pattern
         driver.get(FileReaderManager.getInstance().getConfigReader().getSoftwareTestingUrl());
     }
@@ -26,6 +28,7 @@ public class SoftwareTestingPage extends CourseDetailsPage {
     @FindAll(@FindBy(css = "html > body > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul:nth-of-type(6)"))
     List <WebElement> AssignmentsElements;
     public List<WebElement> getAssignmentsLinkElements() {
+        System.out.println("method get assingmentlsinkelement in softwaretestingpage is being called");
         // TODO check if this is the right list
         List<WebElement> assignmentsLinkElements = new ArrayList<>();
         for (WebElement assignmentElement : AssignmentsElements) {
@@ -37,10 +40,12 @@ public class SoftwareTestingPage extends CourseDetailsPage {
     }
 
     public boolean verifyAssignmentsLinkPresent(){
-           return !getAssignmentsLinkElements().isEmpty();
+        System.out.println("method verify assingmentlink present is being called of software testing page");
+        return !getAssignmentsLinkElements().isEmpty();
     }
 
     public void verifyAssignmentsLinkFormat(){
+        System.out.println("method verify assingment link format is being called of softwaretesting page");
         List <WebElement> Links = getAssignmentsLinkElements();
         // TODO actual implementation of this method
     }

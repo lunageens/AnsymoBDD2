@@ -19,6 +19,7 @@ public class CourseDetailsPage {
     private WebDriver driver;
 
     public CourseDetailsPage(WebDriver driver) {
+        System.out.println("A new coursedetails page is created");
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -27,6 +28,7 @@ public class CourseDetailsPage {
     WebElement titleElement;
 
     public String getCourseTitle() {
+        System.out.println(" method getcourse title of coursedetailspage is called");
         return titleElement.getText();
     }
 
@@ -34,6 +36,7 @@ public class CourseDetailsPage {
     List<WebElement> professorElements;
 
     public List<String> getProfessorName() {
+        System.out.println(" method get professor name of coursedetailspage is called");
         List<String> professorNames = new ArrayList<>();
         for (WebElement professorElement : professorElements) {
             professorNames.add(professorElement.getText());
@@ -45,6 +48,7 @@ public class CourseDetailsPage {
     WebElement body;
 
     public boolean isCoursePageLoaded() {
+        System.out.println("method is Course Page loaded is called");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Maximum wait time of 10 seconds
 
         // Define the expected condition for the page to be loaded

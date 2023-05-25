@@ -19,6 +19,7 @@ public class CoursesPage {
     private WebDriver driver;
 
     public CoursesPage(WebDriver driver) {
+        System.out.println("A new courses page is created");
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -27,11 +28,13 @@ public class CoursesPage {
     private List<WebElement> courseElements;
 
     public void navigateToCoursesPage() {
+        System.out.println("method navigate to courses page is called");
         // instead of making instance of configfile reader everytime -> use file reader manager with singleton pattern
         driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationCoursesUrl());
     }
 
     public List<WebElement> getAllCourses() {
+        System.out.println("method get all courses of courses page is called");
         // following gets the names of courses but also professors underneath it.
         // Make new list with only web-elements that are courses themselves
         List<WebElement> courseNameElements = new ArrayList<>();
@@ -44,11 +47,13 @@ public class CoursesPage {
     }
 
     public boolean areCoursesListed() {
+        System.out.println("mehtod are courses listed of coursespage is called");
         List<WebElement> courseNameElements = getAllCourses();
         return !courseNameElements.isEmpty();
     }
 
     public void selectEachCourseAndVerifyDetails(TestContext testContext) {
+        System.out.println("method select each course and verify details is called in courses page");
         // first, calculate number of courses if we are on the Courses Page the first time.
         List<WebElement> courseElements = getAllCourses();
         int index = 0;
@@ -60,6 +65,7 @@ public class CoursesPage {
 
             // go to specific course page
             courseElement.click();
+            // TODO maybe fault here?
             CourseDetailsPage courseDetailsPage = testContext.getPageObjectManager().getNewCourseDetailsPage();
             System.out.println("For the course " + courseDetailsPage.getCourseTitle() + ":");
 
@@ -68,6 +74,7 @@ public class CoursesPage {
 
             //Verify professor information for each course
             List<String> professorNames = courseDetailsPage.getProfessorName();
+            // TODO fix als het lege lijst is dat er niet zo een haakjes komen
             System.out.println("The professor(s), if any, is :" + professorNames);
             String assertionText = "Course " + courseDetailsPage.getCourseTitle() + " does not have a professor.";
             Assert.assertFalse(assertionText, professorNames.isEmpty());

@@ -57,6 +57,7 @@ public class ConfigFileReader {
     }
 
     public DriverType getBrowser() {
+        System.out.println("Type of browser is getting read.");
         String browserName = properties.getProperty("browser");
         if(browserName == null || browserName.equals("chrome")) return DriverType.CHROME;
         else if(browserName.equalsIgnoreCase("firefox")) return DriverType.FIREFOX;
@@ -67,6 +68,7 @@ public class ConfigFileReader {
     }
 
     public EnvironmentType getEnvironment() {
+        System.out.println("Type of enviroment is getting read.");
         String environmentName = properties.getProperty("environment");
         if(environmentName == null || environmentName.equalsIgnoreCase("local")) return EnvironmentType.LOCAL;
         else if(environmentName.equals("remote")) return EnvironmentType.REMOTE;
@@ -92,6 +94,7 @@ public class ConfigFileReader {
     }
 
     public String getReportConfigPath(){
+        // TODO use this
         String reportConfigPath = properties.getProperty("reportConfigPath");
         if(reportConfigPath!= null) return reportConfigPath;
         else throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");

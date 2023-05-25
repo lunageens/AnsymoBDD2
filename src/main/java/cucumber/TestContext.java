@@ -13,15 +13,19 @@ import managers.WebDriverManager;
  * 3) Properties: provided by FileReaderManager (already in Singleton Class, and to use we use getInstance() method so no need to add)
  */
 public class TestContext {
+
+    private TestContext testContext = new TestContext(); // only instance of this class
     private WebDriverManager webDriverManager;
     private PageObjectManager pageObjectManager;
 
-    public TestContext(){
+    public TestContext(){ // to restrict outside
+        System.out.println("A new Test Context is created.");
         webDriverManager = new WebDriverManager();
         pageObjectManager = new PageObjectManager(webDriverManager.getDriver());
     }
 
     public WebDriverManager getWebDriverManager() {
+        System.out.println("The method getWebDriverManager is called.");
         return webDriverManager;
     }
 

@@ -20,6 +20,7 @@ public class WebDriverManager {
     private static EnvironmentType environmentType;
 
     public WebDriverManager() { // read drivertype from config file, with singleton pattern of filereadermanager
+        System.out.println("A new webdrivermanager is being created.");
         driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
         environmentType = FileReaderManager.getInstance().getConfigReader().getEnvironment();
     }
@@ -31,6 +32,7 @@ public class WebDriverManager {
      * @return driver from type and environment specified in config
      */
     public WebDriver getDriver() {
+        System.out.print("The method getDriver() of the webdrivermanager is called");
         return (driver == null) ? driver = createDriver() : driver;
     }
 
@@ -40,7 +42,7 @@ public class WebDriverManager {
      * @return driver from type and environment specified in config
      */
     private WebDriver createDriver() {
-        System.out.println("A driver is created");
+        System.out.println("A driver is created, according to enviromnet type");
         switch (environmentType) {
             case LOCAL : driver = createLocalDriver();
                 break;
@@ -55,6 +57,7 @@ public class WebDriverManager {
     }
 
     private WebDriver createLocalDriver() {
+        System.out.print("A local driver is created");
         switch (driverType) {
             case FIREFOX :
                 System.out.println("When using an old version of firefox, specify path to geckodriver in Configuration file.");
@@ -92,7 +95,6 @@ public class WebDriverManager {
 
     public void closeDriver() {
         System.out.println("A driver is closed.");
-        driver.close();
         driver.quit();
     }
 

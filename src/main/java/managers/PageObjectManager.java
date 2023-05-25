@@ -25,23 +25,28 @@ public class PageObjectManager {
     private HomePage homePage;
 
     public PageObjectManager(WebDriver driver) {
+        System.out.println("A new page object manager is made");
         this.driver = driver;
     }
 
     public HomePage getHomePage() {
+        System.out.println("getHomePage() of page object class is called with webdriver of pageobjectmanager ");
         return (homePage == null) ? homePage = new HomePage(driver) : homePage;
     }
 
     public CoursesPage getCoursesPage() {
+        System.out.println("getCoursesPage() of page object class is called with webdriver of pageobjectmanager ");
         return (coursesPage == null) ? coursesPage = new CoursesPage(driver) : coursesPage;
     }
 
     public CourseDetailsPage getNewCourseDetailsPage(){
+        System.out.println("getNewCourseDetailsPage() of page object class is called with webdriver of pageobjectmanager ");
         courseDetailsPage = new CourseDetailsPage(driver); // do make new page every time -> changes url per course
         return courseDetailsPage;
     }
 
     public SoftwareTestingPage getSoftwareTestingPage(){
+        System.out.println("getSoftwareTestingPage() of page object class is called with webdriver of pageobjectmanager ");
         return (softwareTestingPage == null) ? softwareTestingPage = new SoftwareTestingPage(driver) : softwareTestingPage;
     }
 }
