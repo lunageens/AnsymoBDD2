@@ -1,8 +1,7 @@
 package pageObjects;
 
-import cucumber.TestContext;
-import dataProviders.ConfigFileReader;
 import managers.FileReaderManager;
+import managers.PageObjectManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,60 +12,88 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Applying the page pattern, all the methods related to the page where all the courses are listed
+ * are specified are implemented in this class.
+ * This is a Selenium Page Object.
+ */
 // page_url = https://ansymore.uantwerpen.be/courses
 public class CoursesPage {
 
+    /**
+     * WebDriver used to create page and execute methods.
+     */
     private WebDriver driver;
 
+    /**
+     * Constructor of CoursesPage
+     *
+     * @param driver WebDriver used to create page and execute methods.
+     */
     public CoursesPage(WebDriver driver) {
-        System.out.println("A new courses page is created");
         this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(this.driver, this);
+        Assert.assertNotNull("The webdriver in CoursesPage constructor is null", driver);
     }
 
+    /**
+     * Driver goes to CoursesPage.
+     */
+    public void navigateToCoursesPage() {
+        driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationCoursesUrl());  // instead of making instance of configfile reader everytime -> use file reader manager with singleton pattern
+    }
+
+    /**
+     * List of WebElements where each item is a text on the course page (either a professor or the link to the course itself), found by css operator.
+     */
     @FindAll(@FindBy(css = "div.views-field"))
     private List<WebElement> courseElements;
 
-    public void navigateToCoursesPage() {
-        System.out.println("method navigate to courses page is called");
-        // instead of making instance of configfile reader everytime -> use file reader manager with singleton pattern
-        driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationCoursesUrl());
-    }
-
+    /**
+     * Get all courses listed on the courses page.
+     *
+     * @return List<WebElement> List with as each item the WebElement that is a link to each course.
+     */
     public List<WebElement> getAllCourses() {
-        System.out.println("method get all courses of courses page is called");
-        // following gets the names of courses but also professors underneath it.
-        // Make new list with only web-elements that are courses themselves
         List<WebElement> courseNameElements = new ArrayList<>();
-        for (WebElement courseElement : courseElements) {
+        for (WebElement courseElement : courseElements) {  // gets the names of courses but also professors underneath it.
             if (!courseElement.getText().contains("Professor:")) {
-                courseNameElements.add(courseElement); // get only the courses
+                courseNameElements.add(courseElement); // Make new list with only web-elements that are courses themselves
             }
         }
         return courseNameElements;
     }
 
+    /**
+     * Checks if there are any courses listed at all on the CoursesPage
+     *
+     * @return boolean True if there are 1 or more courses listed on the CoursesPage.
+     */
     public boolean areCoursesListed() {
-        System.out.println("mehtod are courses listed of coursespage is called");
         List<WebElement> courseNameElements = getAllCourses();
         return !courseNameElements.isEmpty();
     }
 
-    public void selectEachCourseAndVerifyDetails(TestContext testContext) {
-        System.out.println("method select each course and verify details is called in courses page");
-        // first, calculate number of courses if we are on the Courses Page the first time.
+    /**
+     * Checks for each course on the coursesPage if the details page of that course loads. Gives assertion if that's not the case.
+     * Checks for each course on that details page if there is 1 or more professor specified. Gives assertion if that's not the case.
+     * Prints the names of the professor for each course.
+     *
+     * @param pageObjectManager Instance of pageObjectManager that is currently in use.
+     */
+    public void selectEachCourseAndVerifyDetails(PageObjectManager pageObjectManager) {
+        // First, calculate number of courses if we are on the Courses Page the first time.
         List<WebElement> courseElements = getAllCourses();
-        int index = 0;
+        int index;
         int numberOfCourses = courseElements.size();
         for (index = 0; index < numberOfCourses; index++) {
-            // get web-element of this course with correct ID
+            // Get web-element of this course with correct ID
             List<WebElement> courseElementsThisDom = getAllCourses();
             WebElement courseElement = courseElementsThisDom.get(index);
 
-            // go to specific course page
+            // Go to specific course page
             courseElement.click();
-            // TODO maybe fault here?
-            CourseDetailsPage courseDetailsPage = testContext.getPageObjectManager().getNewCourseDetailsPage();
+            CourseDetailsPage courseDetailsPage = pageObjectManager.getNewCourseDetailsPage();
             System.out.println("For the course " + courseDetailsPage.getCourseTitle() + ":");
 
             // Verify course page load for each course
@@ -74,17 +101,15 @@ public class CoursesPage {
 
             //Verify professor information for each course
             List<String> professorNames = courseDetailsPage.getProfessorName();
-            // TODO fix als het lege lijst is dat er niet zo een haakjes komen
+            // TODO Fix als het lege lijst is, dat er niet zo een haakjes rond komen in output
             System.out.println("The professor(s), if any, is :" + professorNames);
             String assertionText = "Course " + courseDetailsPage.getCourseTitle() + " does not have a professor.";
             Assert.assertFalse(assertionText, professorNames.isEmpty());
 
-            System.out.println("Course passed all assertions");
-
             // Back to courses page
-            // if we navigate back to other page, web-element shall not be found anymore.
-            // This is because driver creates reference ID for the element and its place to find in the dom
-            // shall not find the element in the dom of the new courses page since it does not have identical id
+            // if we navigate 'back' to other page, web-element shall not be found anymore.
+            // This is because driver creates reference ID for the element and its place to find in the dom.
+            // Shall not find the element in the dom of the new courses page since it does not have identical ID.
             navigateToCoursesPage();
         }
     }

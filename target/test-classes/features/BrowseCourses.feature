@@ -26,7 +26,7 @@ Feature: Verify the Ansymo Web application
     Given the user is on the Software Testing course page
     When the user says that a student <name> belongs to student group <number>
     Then the user should be in a student group
-    And the user should receive a warning when he does not belong to that student group number.
+    And the user should receive a warning when he does not belong to that student group number
     Examples:
       | name            | number |
       | "Luna Geens"    | 1      |

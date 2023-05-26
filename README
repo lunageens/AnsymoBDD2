@@ -18,6 +18,7 @@ you can use the Selenium IDE to export code, but these scripts should be runnabl
 U can also use the Selenium webdriver if u want to.
 Use a recent version of firefox and Selenium that are compatible with each other.
 
+//TODO Alter this to all scripts.
 Create the following script and export its code. You need to make sure that the script can run using javac.
 The script is the following:
 Create a test script that navigates to all the different courses from the menu (the menu is left on the
