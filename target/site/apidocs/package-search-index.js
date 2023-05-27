@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"dataProviders"},{"l":"enums"},{"l":"managers"},{"l":"pageObjects"}];updateSearchResults();
