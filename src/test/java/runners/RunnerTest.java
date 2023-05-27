@@ -7,7 +7,6 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 // TODO Implement Extent reports and alter this class.
-// TODO Check out online reports of Cucumber themselves
 // TODO BrowserStack? How with Config file?
 // TODO How to suppress the warnings I get?
 /**
