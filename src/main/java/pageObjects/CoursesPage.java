@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Applying the page pattern, all the methods related to the page where all the courses are listed
@@ -101,8 +102,11 @@ public class CoursesPage {
 
             //Verify professor information for each course
             List<String> professorNames = courseDetailsPage.getProfessorName();
+            String formattedNames;
+            if (professorNames.isEmpty()) { formattedNames = " None"; }
+            else { formattedNames = professorNames.stream().collect(Collectors.joining(", ")); }
             // TODO Fix als het lege lijst is, dat er niet zo een haakjes rond komen in output
-            System.out.println("The professor(s), if any, is :" + professorNames);
+            System.out.println("The professor(s), if any, is :" + formattedNames);
             String assertionText = "Course " + courseDetailsPage.getCourseTitle() + " does not have a professor.";
             Assert.assertFalse(assertionText, professorNames.isEmpty());
 

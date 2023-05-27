@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="10" failures="5" name="runners.RunnerTest" time="77.163" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="2022.3.2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="17+35-LTS-2724"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\ST\AnsymoBDD2"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="BE"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\ST\AnsymoBDD2"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="17+35-LTS-2724"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\lunag\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Tools\apache-maven-3.9.1\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Tools\Python\Python311\Scripts\;C:\Tools\Python\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program\bin;C:\Program Files\Git\cmd;c:\WINDOWS\System32\WBem;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\ST\AnsymoBDD\drivers\;C:\ST\AnsymoBDD2\drivers;C:\Users\lunag\AppData\Local\Microsoft\WindowsApps;C:\Users\lunag\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\lunag\AppData\Local\Pandoc\;;."/>
+    <property name="jansi.passthrough" value="true"/>
+    <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\plugins\maven\lib\maven3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="61.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\lunag"/>
+    <property name="user.timezone" value="Europe/Brussels"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="user.name" value="lunag"/>
+    <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.3.2 install"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="user.language" value="nl"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="17"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-09-14"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="20.52">
+    <failure message="Course Master thesis does not have a professor." type="java.lang.AssertionError">java.lang.AssertionError: Course Master thesis does not have a professor.
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:111)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:106)
+	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:12)
+</failure>
+    <system-out>When using an old version of firefox, specify path to geckodriver in Configuration file.
+This means there is a need for an additional geckodriver (such as installed in for windows 64 in the drivers directory). 
+Adjust the code in WebDriverManager.java as follows:
+add line: System.set.Property(webdriver.chrome.driver; FileReaderManager.getInstance().getConfigReader.getDriverPath()) before initializing new driver
+
+@CompleteTest @Exercise5
+Scenario Outline: Verify all courses from homepages (names and professors)                   # src/test/resources/features/BrowseCourses.feature:15
+------------------------------------------------------start of scenario------------------------------------------------------
+  Given the user is on the Ansymo homepage                                                   # stepdefinitions.BrowseCoursesSteps.navigateToHomepage()
+  When the user clicks the &quot;Courses&quot; link in the menu section                                # stepdefinitions.BrowseCoursesSteps.clickCoursesLink(java.lang.String)
+  Then the user should see a page with all the courses listed                                # stepdefinitions.BrowseCoursesSteps.verifyCoursesPage()
+For the course Master thesis:
+The professor(s), if any, is : None
+  And for each course, there should be a page that is loaded and there should be a professor # stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames()
+      java.lang.AssertionError: Course Master thesis does not have a professor.
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:111)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:106)
+	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:12)
+
+------------------------------------------------------end of scenario------------------------------------------------------
+</system-out>
+    <system-err>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+1685190146156	geckodriver	INFO	Listening on 127.0.0.1:51546
+1685190146711	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5405 ... ow-origins&quot; &quot;http://localhost:54055/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileFqPNB3&quot;
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685190147450	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1685190147464	Marionette	INFO	Listening on port 51552
+Read port: 51552
+WebDriver BiDi listening on ws://127.0.0.1:54055
+1685190147664	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:54055/devtools/browser/cd351834-70cc-4a1e-bcc1-0d9c579843b4
+mei 27, 2023 2:22:30 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+1685190163164	Marionette	INFO	Stopped listening on port 51552
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 18760, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function
+</system-err>
+  </testcase>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.784"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="6.125">
+    <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+</failure>
+    <system-out>
+@CompleteTest @Exercise7
+Scenario Outline: Verify Student Groups in Software Testing Course                           # src/test/resources/features/BrowseCourses.feature:32
+------------------------------------------------------start of scenario------------------------------------------------------
+  Given the user is on the Software Testing course page                                      # stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage()
+  When the user says that a student &quot;Luna Geens&quot; belongs to student group 1                  # stepdefinitions.BrowseCoursesSteps.userInput(java.lang.String,java.lang.String)
+  Then the user should be in a student group                                                 # stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup()
+      java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+
+  And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
+------------------------------------------------------end of scenario------------------------------------------------------
+</system-out>
+    <system-err>1685190172008	geckodriver	INFO	Listening on 127.0.0.1:60285
+1685190172072	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5841 ... ow-origins&quot; &quot;http://localhost:58412/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofilenRIclf&quot;
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685190172819	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1685190172834	Marionette	INFO	Listening on port 51871
+Read port: 51871
+WebDriver BiDi listening on ws://127.0.0.1:58412
+1685190173063	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:58412/devtools/browser/77eb2f46-04c0-4f02-a3c1-83fbc4ae1f58
+mei 27, 2023 2:22:55 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+1685190176533	Marionette	INFO	Stopped listening on port 51871
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 32504, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+Dynamically enable window occlusion 1
+</system-err>
+  </testcase>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="6.544">
+    <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+</failure>
+    <system-out>
+@CompleteTest @Exercise7
+Scenario Outline: Verify Student Groups in Software Testing Course                           # src/test/resources/features/BrowseCourses.feature:33
+------------------------------------------------------start of scenario------------------------------------------------------
+  Given the user is on the Software Testing course page                                      # stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage()
+  When the user says that a student &quot;Luna Geens&quot; belongs to student group 2                  # stepdefinitions.BrowseCoursesSteps.userInput(java.lang.String,java.lang.String)
+  Then the user should be in a student group                                                 # stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup()
+      java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+
+  And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
+------------------------------------------------------end of scenario------------------------------------------------------
+</system-out>
+    <system-err>1685190178144	geckodriver	INFO	Listening on 127.0.0.1:53517
+1685190178193	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5599 ... ow-origins&quot; &quot;http://localhost:55990/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileciluLu&quot;
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685190178905	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1685190178921	Marionette	INFO	Listening on port 52034
+Read port: 52034
+WebDriver BiDi listening on ws://127.0.0.1:55990
+1685190179149	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:55990/devtools/browser/4b22bff4-430a-4980-9169-c0dda432f32e
+mei 27, 2023 2:23:01 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+1685190182832	Marionette	INFO	Stopped listening on port 52034
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49580, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function
+</system-err>
+  </testcase>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="7.235">
+    <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+</failure>
+    <system-out>
+@CompleteTest @Exercise7
+Scenario Outline: Verify Student Groups in Software Testing Course                           # src/test/resources/features/BrowseCourses.feature:34
+------------------------------------------------------start of scenario------------------------------------------------------
+  Given the user is on the Software Testing course page                                      # stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage()
+  When the user says that a student &quot;Luna Geens&quot; belongs to student group 3                  # stepdefinitions.BrowseCoursesSteps.userInput(java.lang.String,java.lang.String)
+  Then the user should be in a student group                                                 # stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup()
+      java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+
+  And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
+------------------------------------------------------end of scenario------------------------------------------------------
+</system-out>
+    <system-err>1685190184740	geckodriver	INFO	Listening on 127.0.0.1:53942
+1685190184820	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5169 ... ow-origins&quot; &quot;http://localhost:51697/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileCovfp2&quot;
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685190185589	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1685190185609	Marionette	INFO	Listening on port 52218
+Read port: 52218
+WebDriver BiDi listening on ws://127.0.0.1:51697
+1685190185974	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51697/devtools/browser/eb27cc31-daee-4d96-8ea9-0732b50602bb
+mei 27, 2023 2:23:08 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+1685190190112	Marionette	INFO	Stopped listening on port 52218
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45772, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+Dynamically enable window occlusion 1
+</system-err>
+  </testcase>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="6.533">
+    <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+</failure>
+    <system-out>
+@CompleteTest @Exercise7
+Scenario Outline: Verify Student Groups in Software Testing Course                           # src/test/resources/features/BrowseCourses.feature:35
+------------------------------------------------------start of scenario------------------------------------------------------
+  Given the user is on the Software Testing course page                                      # stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage()
+  When the user says that a student &quot; Thimoty Smet&quot; belongs to student group 1               # stepdefinitions.BrowseCoursesSteps.userInput(java.lang.String,java.lang.String)
+  Then the user should be in a student group                                                 # stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup()
+      java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
+
+  And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
+------------------------------------------------------end of scenario------------------------------------------------------
+</system-out>
+    <system-err>1685190191890	geckodriver	INFO	Listening on 127.0.0.1:50784
+1685190191953	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;6431 ... ow-origins&quot; &quot;http://localhost:64310/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofiletJUi3I&quot;
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685190192791	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1685190192816	Marionette	INFO	Listening on port 52288
+Read port: 52288
+WebDriver BiDi listening on ws://127.0.0.1:64310
+1685190193102	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:64310/devtools/browser/3ed8ad4a-fdce-4fa3-a430-821f0ad251a7
+mei 27, 2023 2:23:15 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected upstream dialect: W3C
+1685190196848	Marionette	INFO	Stopped listening on port 52288
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11984, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function
+</system-err>
+  </testcase>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="5.777"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="6.192"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="5.783"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #4" time="5.67"/>
+</testsuite>

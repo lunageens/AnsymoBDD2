@@ -7,8 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AnsymoBDD" />
+        <module name="AnsymoBDD2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AnsymoBDD" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
