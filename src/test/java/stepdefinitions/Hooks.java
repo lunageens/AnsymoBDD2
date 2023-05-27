@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import enums.DriverType;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import managers.FileReaderManager;
@@ -64,4 +65,6 @@ public class Hooks extends BaseClass {
         System.out.println("------------------------------------------------------end of scenario------------------------------------------------------");
     }
 
+    @AfterAll
+    public static void tearDownAll(){ WebDriverManager.killBrowserProcesses();}
 }

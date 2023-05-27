@@ -2,6 +2,7 @@ package managers;
 
 import enums.DriverType;
 import enums.EnvironmentType;
+import enums.OperatingSystemType;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +14,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.io.IOException;
 import java.time.Duration;
 
 
@@ -141,5 +143,58 @@ public class WebDriverManager {
         this.driver = null;
     }
 
+    /**
+     * It's essential to ensure that you are closing the browser instances correctly to prevent unnecessary memory usage.
+     * I encountered multiple Firefox applications or instances of the Windows Driver Foundation after running the tests,
+     * which indicates that the browser processes are not being terminated properly.
+     * <p>
+     * To address this, I modified WebDriverManager and Hooks class to explicitly kill any remaining browser processes
+     * after each test.
+     * </p>
+     */
+    public static void killBrowserProcesses() {
+        DriverType driverType = FileReaderManager.getInstance().getConfigReader().getBrowser(); // Get the current driver type
+        OperatingSystemType operatingSystemType = FileReaderManager.getInstance().getConfigReader().getOperatingSystem(); // Get the operating system
+        try {
+            switch (driverType) {
+                case FIREFOX:
+                    switch (operatingSystemType){
+                        case WINDOWS ->  Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
+                        case LINUX, UBUNTU, MACOS -> Runtime.getRuntime().exec("pkill firefox");
+                    }
+                    break;
+                case CHROME:
+                    switch (operatingSystemType){
+                        case WINDOWS -> Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+                        case LINUX, UBUNTU, MACOS -> Runtime.getRuntime().exec("pkill chrome");
+                    }
+                    break;
+                case EDGE:
+                    switch (operatingSystemType) {
+                        case WINDOWS-> Runtime.getRuntime().exec("taskkill /F /IM msedge.exe");
+                        case LINUX, UBUNTU, MACOS -> System.out.println("Handling Edge termination on this operating system is not yet implemented. Program could take up a lot of memory.");
+                    }
+                    break;
+                case SAFARI:
+                    switch (operatingSystemType){
+                        case WINDOWS -> Runtime.getRuntime().exec("taskkill /F /IM Safari.exe");
+                        case MACOS -> Runtime.getRuntime().exec("pkill Safari");
+                        case LINUX, UBUNTU -> System.out.println("Handling Safari termination on this operating system is not yet implemented. Program could take up a lot of memory.");
+                    }
+                    break;
+                case INTERNETEXPLORER:
+                    switch (operatingSystemType){
+                        case WINDOWS -> Runtime.getRuntime().exec("taskkill /F /IM iexplore.exe");
+                        case MACOS -> System.out.println("Internet Explorer is not available on macOS");
+                        case LINUX, UBUNTU -> System.out.println("Handling Internet Explorer termination on this operating system is not yet implemented. Program could take up a lot of memory.");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

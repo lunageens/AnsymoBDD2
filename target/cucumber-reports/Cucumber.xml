@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="5" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="10" time="75.341">
-    <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="20.481">
+<testsuite errors="0" failures="5" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="10" time="72.28">
+    <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="19.976">
         <failure message="Course Master thesis does not have a professor." type="java.lang.AssertionError"><![CDATA[Given the user is on the Ansymo homepage....................................passed
 When the user clicks the "Courses" link in the menu section.................passed
 Then the user should see a page with all the courses listed.................passed
@@ -16,14 +16,14 @@ java.lang.AssertionError: Course Master thesis does not have a professor.
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:12)
 ]]></failure>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.607">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.321">
         <system-out><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user sees the links for each assignment............................passed
 Then the user should verify the link format of each assignment link.........passed
 And the user should verify the document existence of each assignment link...passed
 ]]></system-out>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course" time="6.737">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course" time="5.414">
         <failure message="The student is not in any group" type="java.lang.AssertionError"><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 1...passed
 Then the user should be in a student group..................................failed
@@ -38,7 +38,7 @@ java.lang.AssertionError: The student is not in any group
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
 ]]></failure>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 2" time="5.863">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 2" time="5.761">
         <failure message="The student is not in any group" type="java.lang.AssertionError"><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 2...passed
 Then the user should be in a student group..................................failed
@@ -53,7 +53,7 @@ java.lang.AssertionError: The student is not in any group
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
 ]]></failure>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 3" time="5.45">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 3" time="6.565">
         <failure message="The student is not in any group" type="java.lang.AssertionError"><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 3...passed
 Then the user should be in a student group..................................failed
@@ -68,7 +68,7 @@ java.lang.AssertionError: The student is not in any group
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
 ]]></failure>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 4" time="6.093">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course 4" time="5.982">
         <failure message="The student is not in any group" type="java.lang.AssertionError"><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student " Thimoty Smet" belongs to student group 1.passed
 Then the user should be in a student group..................................failed
@@ -83,28 +83,28 @@ java.lang.AssertionError: The student is not in any group
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
 ]]></failure>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course" time="5.326">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course" time="5.217">
         <system-out><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 1...passed
 Then the user should see his mandatory presence as presenter................passed
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 2" time="5.528">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 2" time="5.108">
         <system-out><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 2...passed
 Then the user should see his mandatory presence as presenter................passed
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 3" time="6.712">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 3" time="5.743">
         <system-out><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 3...passed
 Then the user should see his mandatory presence as presenter................passed
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 4" time="5.654">
+    <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course 4" time="5.591">
         <system-out><![CDATA[Given the user is on the Software Testing course page.......................passed
 When the user says that a student " Thimoty Smet" belongs to student group 1.passed
 Then the user should see his mandatory presence as presenter................passed

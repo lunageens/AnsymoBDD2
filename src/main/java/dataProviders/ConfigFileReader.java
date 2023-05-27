@@ -2,6 +2,8 @@ package dataProviders;
 
 import enums.DriverType;
 import enums.EnvironmentType;
+import enums.OperatingSystemType;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -177,4 +179,18 @@ public class ConfigFileReader {
             throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");
     }
 
+    /**
+     * Specifies the operating system on which the program should run.
+     *
+     * @return
+     */
+    public OperatingSystemType getOperatingSystem(){
+        String operatingSystemName = properties.getProperty("operatingSystem");
+        if (operatingSystemName == null || operatingSystemName.equals("windows")) return OperatingSystemType.WINDOWS;
+        else if (operatingSystemName.equalsIgnoreCase("ubuntu")) return OperatingSystemType.UBUNTU;
+        else if (operatingSystemName.equalsIgnoreCase("linux")) return OperatingSystemType.LINUX;
+        else if (operatingSystemName.equalsIgnoreCase("macos")) return OperatingSystemType.MACOS;
+        else
+            throw new RuntimeException("Browser Name Key value in Configuration.properties is not matched : " + operatingSystemName);
+    }
 }

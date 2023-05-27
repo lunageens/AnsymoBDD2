@@ -28,3 +28,5 @@ when u click on each course there opens a page with more information eg about th
 The script should loop over the different menu items and verify that each page is loaded.
 Verify that each course has a professor (field not empty).
 The script should only fail when a page cannot be loaded or when the course does not have a professor.”
+
+//TODO Add explanation about Configuration.properties

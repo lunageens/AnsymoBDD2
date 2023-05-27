@@ -1,11 +1,12 @@
 managers\WebDriverManager$1.class
-managers\WebDriverManager.class
-pageObjects\SoftwareTestingPage.class
-enums\DriverType.class
 pageObjects\CourseDetailsPage.class
 pageObjects\HomePage.class
 enums\EnvironmentType.class
+managers\FileReaderManager.class
+enums\OperatingSystemType.class
+managers\WebDriverManager.class
+pageObjects\SoftwareTestingPage.class
+enums\DriverType.class
 dataProviders\ConfigFileReader.class
 managers\PageObjectManager.class
-managers\FileReaderManager.class
 pageObjects\CoursesPage.class

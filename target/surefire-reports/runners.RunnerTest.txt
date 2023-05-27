@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: runners.RunnerTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 79.949 sec <<< FAILURE!
-Verify all courses from homepages (names and professors)(Verify the Ansymo Web application)  Time elapsed: 20.52 sec  <<< FAILURE!
+Tests run: 10, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 75.052 sec <<< FAILURE!
+Verify all courses from homepages (names and professors)(Verify the Ansymo Web application)  Time elapsed: 20.288 sec  <<< FAILURE!
 java.lang.AssertionError: Course Master thesis does not have a professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -11,7 +11,7 @@ java.lang.AssertionError: Course Master thesis does not have a professor.
 	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:106)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:12)
 
-Verify Student Groups in Software Testing Course #1(Verify the Ansymo Web application)  Time elapsed: 6.125 sec  <<< FAILURE!
+Verify Student Groups in Software Testing Course #1(Verify the Ansymo Web application)  Time elapsed: 5.429 sec  <<< FAILURE!
 java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -19,7 +19,7 @@ java.lang.AssertionError: The student is not in any group
 	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
 
-Verify Student Groups in Software Testing Course #2(Verify the Ansymo Web application)  Time elapsed: 6.544 sec  <<< FAILURE!
+Verify Student Groups in Software Testing Course #2(Verify the Ansymo Web application)  Time elapsed: 5.772 sec  <<< FAILURE!
 java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -27,7 +27,7 @@ java.lang.AssertionError: The student is not in any group
 	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
 
-Verify Student Groups in Software Testing Course #3(Verify the Ansymo Web application)  Time elapsed: 7.235 sec  <<< FAILURE!
+Verify Student Groups in Software Testing Course #3(Verify the Ansymo Web application)  Time elapsed: 6.574 sec  <<< FAILURE!
 java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -35,7 +35,7 @@ java.lang.AssertionError: The student is not in any group
 	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:162)
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:28)
 
-Verify Student Groups in Software Testing Course #4(Verify the Ansymo Web application)  Time elapsed: 6.533 sec  <<< FAILURE!
+Verify Student Groups in Software Testing Course #4(Verify the Ansymo Web application)  Time elapsed: 6.001 sec  <<< FAILURE!
 java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
