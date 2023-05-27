@@ -72,7 +72,23 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
+            <!-- Maven Javadoc plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <show>private</show>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <resources>
             <resource>
@@ -83,4 +99,5 @@
             </resource>
         </resources>
     </build>
+
 </project>

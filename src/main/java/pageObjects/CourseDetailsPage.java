@@ -62,7 +62,7 @@ public class CourseDetailsPage {
     /**
      * Get the names of all professors teaching this course.
      *
-     * @return List<String> List where each name of professor as string is a different item.
+     * @return List where each name of professor as string is a different item.
      */
     public List<String> getProfessorName() {
         List<String> professorNames = new ArrayList<>();

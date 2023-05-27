@@ -52,7 +52,7 @@ public class CoursesPage {
     /**
      * Get all courses listed on the courses page.
      *
-     * @return List<WebElement> List with as each item the WebElement that is a link to each course.
+     * @return List with as each item the WebElement that is a link to each course.
      */
     public List<WebElement> getAllCourses() {
         List<WebElement> courseNameElements = new ArrayList<>();

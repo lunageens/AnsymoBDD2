@@ -50,7 +50,7 @@ public class SoftwareTestingPage extends CourseDetailsPage {
     /**
      * Get all assignment links that are specified for the course.
      *
-     * @return List<WebElement> A list with each WebElement the link to particular assignment on the Software Testing course page.
+     * @return List A list with each WebElement the link to particular assignment on the Software Testing course page.
      */
     public List<WebElement> getAssignmentsLinkElements() {
         // TODO Check if this is the right list & alter description of the method accordingly.

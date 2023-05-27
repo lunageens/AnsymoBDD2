@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="5" name="runners.RunnerTest" time="68.268" errors="0" skipped="0">
+<testsuite tests="10" failures="5" name="runners.RunnerTest" time="85.189" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,7 +61,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="19.737">
+  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="24.206">
     <failure message="Course Master thesis does not have a professor." type="java.lang.AssertionError">java.lang.AssertionError: Course Master thesis does not have a professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -97,37 +97,38 @@ The professor(s), if any, is :[]
     <system-err>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-1685140563536	geckodriver	INFO	Listening on 127.0.0.1:58395
-1685140564143	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;6520 ... ow-origins&quot; &quot;http://localhost:65202/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileGsbo9N&quot;
+1685181954609	geckodriver	INFO	Listening on 127.0.0.1:56529
+1685181955119	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5188 ... ow-origins&quot; &quot;http://localhost:51885/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileu2ejhu&quot;
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1685140564895	Marionette	INFO	Marionette enabled
+1685181955831	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1685140564909	Marionette	INFO	Listening on port 53943
-Read port: 53943
-WebDriver BiDi listening on ws://127.0.0.1:65202
-1685140565115	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685181955845	Marionette	INFO	Listening on port 63921
+Read port: 63921
+WebDriver BiDi listening on ws://127.0.0.1:51885
+1685181956026	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 [ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
 console.error: ({})
-DevTools listening on ws://127.0.0.1:65202/devtools/browser/7def9396-c112-47e1-8a3a-4d50fa57a022
-mei 27, 2023 12:36:07 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+DevTools listening on ws://127.0.0.1:51885/devtools/browser/db138804-ac53-4a11-a1ef-6da139c632ed
+mei 27, 2023 12:05:58 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-1685140580389	Marionette	INFO	Stopped listening on port 53943
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685181970840	Marionette	INFO	Stopped listening on port 63921
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(!!! error running onStopped callback: TypeError: callback is not a function
+): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45428, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
 Dynamically enable window occlusion 1
 </system-err>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.606"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="5.871">
+  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="9.968"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="6.324">
     <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -152,36 +153,36 @@ Scenario Outline: Verify Student Groups in Software Testing Course              
   And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
 ------------------------------------------------------end of scenario------------------------------------------------------
 </system-out>
-    <system-err>1685140588602	geckodriver	INFO	Listening on 127.0.0.1:65252
-1685140588684	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5990 ... ow-origins&quot; &quot;http://localhost:59904/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileGHiHrm&quot;
+    <system-err>1685181987430	geckodriver	INFO	Listening on 127.0.0.1:50091
+1685181987524	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5175 ... ow-origins&quot; &quot;http://localhost:51751/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileJauPKV&quot;
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1685140589469	Marionette	INFO	Marionette enabled
+1685181988187	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1685140589483	Marionette	INFO	Listening on port 54257
-Read port: 54257
-WebDriver BiDi listening on ws://127.0.0.1:59904
-1685140589706	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685181988202	Marionette	INFO	Listening on port 64346
+Read port: 64346
+WebDriver BiDi listening on ws://127.0.0.1:51751
+1685181988379	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 [ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
 console.error: ({})
-DevTools listening on ws://127.0.0.1:59904/devtools/browser/d2d90f3a-a0f4-4cc5-8976-57bce2e1f2a1
-mei 27, 2023 12:36:32 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+DevTools listening on ws://127.0.0.1:51751/devtools/browser/7782418c-4e1f-47e9-be1e-f8d1c793e06b
+mei 27, 2023 12:06:30 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-1685140592992	Marionette	INFO	Stopped listening on port 54257
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 27308, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685181991980	Marionette	INFO	Stopped listening on port 64346
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 37844, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
 Dynamically enable window occlusion 1
 </system-err>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="4.905">
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="7.187">
     <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -206,36 +207,36 @@ Scenario Outline: Verify Student Groups in Software Testing Course              
   And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
 ------------------------------------------------------end of scenario------------------------------------------------------
 </system-out>
-    <system-err>1685140594446	geckodriver	INFO	Listening on 127.0.0.1:55427
-1685140594491	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5038 ... ow-origins&quot; &quot;http://localhost:50387/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileXVAkvU&quot;
+    <system-err>1685181993761	geckodriver	INFO	Listening on 127.0.0.1:54968
+1685181993827	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;4944 ... ow-origins&quot; &quot;http://localhost:49441/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileY5sstv&quot;
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1685140595067	Marionette	INFO	Marionette enabled
+1685181994941	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1685140595078	Marionette	INFO	Listening on port 54358
-Read port: 54358
-WebDriver BiDi listening on ws://127.0.0.1:50387
-1685140595257	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685181994971	Marionette	INFO	Listening on port 64514
+Read port: 64514
+WebDriver BiDi listening on ws://127.0.0.1:49441
+1685181995229	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 [ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
 console.error: ({})
-DevTools listening on ws://127.0.0.1:50387/devtools/browser/07f5bcfc-0cdb-45ed-b0a3-dd8b63b87896
-mei 27, 2023 12:36:36 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+DevTools listening on ws://127.0.0.1:49441/devtools/browser/96645588-cec6-4aac-9ba7-8409d1e15a50
+mei 27, 2023 12:06:37 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-1685140597968	Marionette	INFO	Stopped listening on port 54358
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 48948, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685181998924	Marionette	INFO	Stopped listening on port 64514
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 23432, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
 Dynamically enable window occlusion 1
 </system-err>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="5.086">
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="6.438">
     <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -260,36 +261,36 @@ Scenario Outline: Verify Student Groups in Software Testing Course              
   And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
 ------------------------------------------------------end of scenario------------------------------------------------------
 </system-out>
-    <system-err>1685140599330	geckodriver	INFO	Listening on 127.0.0.1:52467
-1685140599390	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5751 ... ow-origins&quot; &quot;http://localhost:57513/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileMa1dhm&quot;
+    <system-err>1685182000899	geckodriver	INFO	Listening on 127.0.0.1:59798
+1685182001014	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5628 ... ow-origins&quot; &quot;http://localhost:56289/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofile6Cc6sU&quot;
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1685140599958	Marionette	INFO	Marionette enabled
+1685182001924	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1685140599970	Marionette	INFO	Listening on port 54428
-Read port: 54428
-WebDriver BiDi listening on ws://127.0.0.1:57513
-1685140600146	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685182001947	Marionette	INFO	Listening on port 64603
+Read port: 64603
+WebDriver BiDi listening on ws://127.0.0.1:56289
+1685182002223	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 [ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
 console.error: ({})
-DevTools listening on ws://127.0.0.1:57513/devtools/browser/c32520d5-5446-486c-9dc8-d5082113c040
-mei 27, 2023 12:36:42 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+DevTools listening on ws://127.0.0.1:56289/devtools/browser/8e22e8ff-ead1-4e9b-a01e-f66ea1136b8c
+mei 27, 2023 12:06:44 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-1685140603102	Marionette	INFO	Stopped listening on port 54428
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 12716, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685182005657	Marionette	INFO	Stopped listening on port 64603
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 49140, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
 Dynamically enable window occlusion 1
 </system-err>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="5.05">
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="6.534">
     <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -314,37 +315,37 @@ Scenario Outline: Verify Student Groups in Software Testing Course              
   And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
 ------------------------------------------------------end of scenario------------------------------------------------------
 </system-out>
-    <system-err>1685140604412	geckodriver	INFO	Listening on 127.0.0.1:49228
-1685140604478	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5661 ... ow-origins&quot; &quot;http://localhost:56613/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofileJU8gyX&quot;
+    <system-err>1685182007385	geckodriver	INFO	Listening on 127.0.0.1:58664
+1685182007483	mozrunner::runner	INFO	Running command: &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe&quot; &quot;--marionette&quot; &quot;-headless&quot; &quot;--remote-debugging-port&quot; &quot;5089 ... ow-origins&quot; &quot;http://localhost:50896/&quot; &quot;-no-remote&quot; &quot;-profile&quot; &quot;C:\\Users\\lunag\\AppData\\Local\\Temp\\rust_mozprofilegxBken&quot;
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1685140605044	Marionette	INFO	Marionette enabled
+1685182008186	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1685140605056	Marionette	INFO	Listening on port 54481
-Read port: 54481
-WebDriver BiDi listening on ws://127.0.0.1:56613
-1685140605233	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685182008214	Marionette	INFO	Listening on port 64786
+Read port: 64786
+WebDriver BiDi listening on ws://127.0.0.1:50896
+1685182008482	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 [ERROR glean_core] Error setting metrics feature config: Json(Error(&quot;EOF while parsing a value&quot;, line: 1, column: 0))
 console.error: ({})
-DevTools listening on ws://127.0.0.1:56613/devtools/browser/5717ff77-8231-4767-8cb2-ae191c939493
-mei 27, 2023 12:36:47 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+DevTools listening on ws://127.0.0.1:50896/devtools/browser/7a39eb67-d2fa-40a0-8e80-0367d7aeffe0
+mei 27, 2023 12:06:50 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected upstream dialect: W3C
-1685140608046	Marionette	INFO	Stopped listening on port 54481
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
-[Child 50112, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685182012201	Marionette	INFO	Stopped listening on port 64786
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41640, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager-&gt;CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
 Dynamically enable window occlusion 1
 </system-err>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="5.152"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="5.503"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="5.281"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #4" time="5.077"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="5.617"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="6.345"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="6.657"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #4" time="5.913"/>
 </testsuite>
