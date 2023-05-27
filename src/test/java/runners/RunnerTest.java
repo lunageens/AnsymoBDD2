@@ -12,8 +12,6 @@ import org.junit.runner.RunWith;
 /**
  * JUnit class that specifies how Cucumber should run tests.
  */
-
-@SuppressWarnings("unchecked")
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features", //specify the .feature file

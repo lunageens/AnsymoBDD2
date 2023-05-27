@@ -73,16 +73,7 @@
                 </configuration>
             </plugin>
             <!-- Maven Javadoc plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.4.3</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.3</version>
-            </plugin>
+           <!-- Maven surefire plugin, executes test in maven build process -->
         </plugins>
         <resources>
             <resource>
