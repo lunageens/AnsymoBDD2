@@ -44,7 +44,7 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency> <!-- what does this do? -->
+        <dependency> <!-- manages compatibilities of all these cucumber dependencies -->
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-jvm-deps</artifactId>
             <version>1.0.6</version>
@@ -57,6 +57,13 @@
             <scope>test</scope>
         </dependency>
         <!-- Extra reporting dependencies-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.11</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

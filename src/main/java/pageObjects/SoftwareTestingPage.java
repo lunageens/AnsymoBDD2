@@ -91,8 +91,9 @@ public class SoftwareTestingPage extends CourseDetailsPage {
         return true;
     }
 
-    public void verifyStudentGroup() {
+    public boolean verifyStudentGroup() {
         // TODO actual implementation of this method
+        return false;
     }
 
     public void presencePresenter() {

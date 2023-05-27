@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -167,7 +168,8 @@ public class BrowseCoursesSteps extends BaseClass {
      */
     @And("the user should receive a warning when he does not belong to that student group number")
     public void theUserIsInThatStudentGroup() {
-        softwareTestingPage.verifyStudentGroup();
+        boolean isInThatStudentGroup = softwareTestingPage.verifyStudentGroup();
+        if (!isInThatStudentGroup) { System.out.println("Student not in that group");}
     }
 
     /**

@@ -1,0 +1,11 @@
+<configuration>
+    <logger name="org.openqa.selenium" level="ERROR" />
+    <logger name="io.github.bonigarcia" level="ERROR" />
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
+<!-- Surpress warnings by underling logging framewerok of selenium webdriver (i thinkkk SLF4J)
+sets the logging level for org.openqa.selenium and io.github.bonigarcia to "ERROR,"
+which will suppress warnings from these loggers.
+It also sets the root logger level to "INFO" to ensure other log messages are still displayed. -->
