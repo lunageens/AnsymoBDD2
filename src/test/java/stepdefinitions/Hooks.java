@@ -38,7 +38,7 @@ public class Hooks extends BaseClass {
             System.out.println("When using an old version of firefox, specify path to geckodriver in Configuration file.");
             System.out.println("This means there is a need for an additional geckodriver (such as installed in for windows 64 in the drivers directory). ");
             System.out.println("Adjust the code in WebDriverManager.java as follows:");
-            System.out.println("add line: System.set.Property(" + "webdriver.chrome.driver" + "; FileReaderManager.getInstance().getConfigReader.getDriverPath())" +
+            System.out.println("add line: System.set.Property(" + "webdriver.chrome.driver" + ", FileReaderManager.getInstance().getConfigReader.getDriverPath())" +
                     " before initializing new driver");
         }
     }
@@ -53,7 +53,6 @@ public class Hooks extends BaseClass {
         base.pageObjectManager = new PageObjectManager(base.webDriverManager.getDriver());
         Assert.assertNotNull("PageObjectManager created is emtpy", base.pageObjectManager);
         Assert.assertNotNull("driver is empty", base.webDriverManager.getDriver());
-        System.out.println("------------------------------------------------------start of scenario------------------------------------------------------");
     }
 
     /**
@@ -62,7 +61,6 @@ public class Hooks extends BaseClass {
     @After()
     public void afterScenario() {
         base.webDriverManager.closeDriver();
-        System.out.println("------------------------------------------------------end of scenario------------------------------------------------------");
     }
 
     /**

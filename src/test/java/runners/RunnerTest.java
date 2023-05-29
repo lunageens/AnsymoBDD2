@@ -6,6 +6,8 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
+import java.net.URL;
+
 // TODO Implement Extent reports and alter this class.
 // TODO BrowserStack? How with Config file?
 // TODO How to suppress the warnings I get?
@@ -28,6 +30,7 @@ import org.junit.runner.RunWith;
         })
 // For Extent reports: plugin= {..., "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/AdvancedReport.html"}
 public class RunnerTest {
+
     // this may be empty
 
     //For Extent Reports:

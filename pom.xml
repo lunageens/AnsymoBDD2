@@ -15,6 +15,7 @@
         <selenium.version>4.8.1</selenium.version>
         <cucumber.version>7.11.1</cucumber.version>
         <cucumber.jvm.deps.version>1.0.6</cucumber.jvm.deps.version>
+        <log4j.version>2.20.0</log4j.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,6 +61,12 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- Logging framework implementation-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>2.0.5</version>
+        </dependency>
         <!-- Extra reporting dependencies-->
     </dependencies>
 
@@ -83,9 +90,9 @@
                 <directory>src/test/resources</directory>
                 <includes>
                     <include>**/*.feature</include>
+                    <include>*.properties</include>
                 </includes>
             </resource>
         </resources>
     </build>
-
 </project>

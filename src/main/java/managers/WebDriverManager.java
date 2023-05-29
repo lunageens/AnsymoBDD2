@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 
+
 /**
  * Allows us to let the user specify different type of browser and environment and run the test correctly.
  * On top of that, it makes more sense to handle the logic of creating and quitting the WebDriver in a separate
@@ -101,6 +102,7 @@ public class WebDriverManager {
                 FirefoxOptions optionsFirefox = new FirefoxOptions();
                 if (FileReaderManager.getInstance().getConfigReader().getHeadLess())
                     optionsFirefox.setHeadless(true); // Run firefox in headless mode (without GUI)
+                System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");  // disable the logs by sending them to /dev/null via a system property
                 driver = new FirefoxDriver(optionsFirefox);
                 break;
             case CHROME:
