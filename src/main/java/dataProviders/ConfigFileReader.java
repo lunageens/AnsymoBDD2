@@ -26,6 +26,9 @@ public class ConfigFileReader {
      */
     private final String propertyFilePath = "configs//Configuration.properties";
 
+    /**
+     * Constructor of ConfigFileReader class.
+     */
     public ConfigFileReader() {
         BufferedReader reader;
         try {
@@ -182,7 +185,7 @@ public class ConfigFileReader {
     /**
      * Specifies the operating system on which the program should run.
      *
-     * @return
+     * @return OperatingSystemType Type of operating system to run test on
      */
     public OperatingSystemType getOperatingSystem(){
         String operatingSystemName = properties.getProperty("operatingSystem");

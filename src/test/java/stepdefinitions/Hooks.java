@@ -65,6 +65,9 @@ public class Hooks extends BaseClass {
         System.out.println("------------------------------------------------------end of scenario------------------------------------------------------");
     }
 
+    /**
+     * After all tests are ran, kill all processes related to that driver.
+     */
     @AfterAll
     public static void tearDownAll(){ WebDriverManager.killBrowserProcesses();}
 }

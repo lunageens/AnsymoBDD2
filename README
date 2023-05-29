@@ -53,7 +53,9 @@ BIV. LOGGING FRAMEWORKS
 // TODO Explanation of logging frameworks, own warnings versus other warnings
 
 BV. REPORTING
-// TODO Explanation of reporting frameworks and JavaDoc
+// TODO Explanation of reporting frameworks
+Using the JavaDoc Tools of IntelliJ IDEA, one can find the index.html file in the javadoc directory that describes
+the utility of each method, class and variable.
 
 C. EXPECTED BEHAVIOUR
 The program is set up to test certain behaviours of the Ansymo web-application (https://ansymore.uantwerpen.be). One

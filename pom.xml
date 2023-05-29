@@ -18,10 +18,12 @@
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.javadoc.plugin.version>3.5.0</maven.javadoc.plugin.version>
+        <maven.project.info.reports.plugin>3.4.1</maven.project.info.reports.plugin>
     </properties>
 
     <dependencies>
-        <!-- JUnit testing, idk if i need this -->
+        <!-- JUnit testing, I don't know if I need this -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -40,7 +42,7 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency> <!-- do i need this at all and which scope? -->
+        <dependency> <!-- do I need this at all and which scope? -->
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
@@ -74,8 +76,7 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
-            <!-- Maven Javadoc plugin -->
-           <!-- Maven surefire plugin, executes test in maven build process -->
+           <!-- Maven site plugin -->
         </plugins>
         <resources>
             <resource>
@@ -86,4 +87,5 @@
             </resource>
         </resources>
     </build>
+
 </project>

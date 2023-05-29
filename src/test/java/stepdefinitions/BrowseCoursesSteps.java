@@ -78,6 +78,7 @@ public class BrowseCoursesSteps extends BaseClass {
     /**
      * Implementation for the step 'When the user clicks the {string} link in the menu section'
      * Only implemented for String = 'Courses'
+     * @param linkText The text in homepage menu that one wants to press.
      */
     @When("the user clicks the {string} link in the menu section")
     public void clickCoursesLink(String linkText) {
@@ -126,7 +127,7 @@ public class BrowseCoursesSteps extends BaseClass {
 
     /**
      * Implementation for the step 'Then the user should verify the link format of each assignment link'.
-     * For each assignment listed, checks that the link is of the format  '/system/files/uploads/courses/Testing/assignment<NR>.pdf'
+     * For each assignment listed, checks that the link is of the format  '/system/files/uploads/courses/Testing/assignment[NR].pdf'
      * Gives assertion if the layout differs for one of the assignments.
      */
     @Then("the user should verify the link format of each assignment link")
