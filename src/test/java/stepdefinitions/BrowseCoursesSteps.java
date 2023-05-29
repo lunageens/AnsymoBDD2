@@ -169,7 +169,6 @@ public class BrowseCoursesSteps extends BaseClass {
         // Assert.assertFalse("The student is not in any group", softwareTestingPage.inAnyGroup());
     }
 
-    //TODO actual warning to implement instead of System.out.println()
     /**
      * Implementation for the step 'And the user should receive a warning when he does not belong to that student group number.'
      */

@@ -10,7 +10,6 @@ import java.net.URL;
 
 // TODO Implement Extent reports and alter this class.
 // TODO BrowserStack? How with Config file?
-// TODO How to suppress the warnings I get?
 /**
  * JUnit class that specifies how Cucumber should run tests.
  */

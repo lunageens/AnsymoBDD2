@@ -89,7 +89,7 @@ C2. SOFTWARE TESTING PAGE STEPS
 Firstly, in @Exercise6, a script should check the link existence and format of assignments of the software testing
 course. The test script is the following:
 
-// TODO Warning when the script does not exists
+// TODO Warning when the script does not exists, no error
 "Create a script that navigates to the “Software Testing” course. For each assignment, verify that the link to the
 assignment is: “/system/files/uploads/courses/Testing/assignment<NR>.pdf”. The script should fail when the link
 layout differs. Make sure that the script is dynamic! Adding or removing assignments should not result in a failure.
