@@ -59,7 +59,7 @@ public class Hooks extends BaseClass {
     /**
      * After each scenario, tear down the driver.
      */
-    @After
+    @After()
     public void afterScenario() {
         base.webDriverManager.closeDriver();
         System.out.println("------------------------------------------------------end of scenario------------------------------------------------------");

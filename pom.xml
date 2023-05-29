@@ -11,11 +11,13 @@
     <packaging>jar</packaging>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>4.13.2</junit.version>
+        <selenium.version>4.8.1</selenium.version>
+        <cucumber.version>7.11.1</cucumber.version>
+        <cucumber.jvm.deps.version>1.0.6</cucumber.jvm.deps.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <java.version>17</java.version>
-        <selenium.version>4.4.0</selenium.version>
-        <cucumber.version>7.2.3</cucumber.version>
-        <junit.version>4.12</junit.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -23,7 +25,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit.version}</version>
         </dependency>
         <!-- Selenium -->
         <dependency>
@@ -47,7 +49,7 @@
         <dependency> <!-- manages compatibilities of all these cucumber dependencies -->
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-jvm-deps</artifactId>
-            <version>1.0.6</version>
+            <version>${cucumber.jvm.deps.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -57,13 +59,6 @@
             <scope>test</scope>
         </dependency>
         <!-- Extra reporting dependencies-->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.11</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -72,11 +67,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <encoding>UTF-8</encoding>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
             <!-- Maven Javadoc plugin -->
@@ -91,5 +86,4 @@
             </resource>
         </resources>
     </build>
-
 </project>

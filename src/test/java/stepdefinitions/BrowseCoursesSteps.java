@@ -1,6 +1,5 @@
 package stepdefinitions;
 
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,7 +7,6 @@ import io.cucumber.java.en.When;
 import managers.PageObjectManager;
 import managers.WebDriverManager;
 import org.junit.Assert;
-import org.openqa.selenium.devtools.v85.page.Page;
 import pageObjects.CoursesPage;
 import pageObjects.HomePage;
 import pageObjects.SoftwareTestingPage;
@@ -53,6 +51,7 @@ public class BrowseCoursesSteps extends BaseClass {
      * Selenium page instance of the Software Testing page, following the pages pattern.
      */
     private SoftwareTestingPage softwareTestingPage;
+
 
     /**
      * Constructor of the BrowseCoursesSteps
@@ -163,6 +162,7 @@ public class BrowseCoursesSteps extends BaseClass {
         Assert.assertFalse("The student is not in any group", softwareTestingPage.inAnyGroup());
     }
 
+    //TODO actual warning to implement instead of System.out.println()
     /**
      * Implementation for the step 'And the user should receive a warning when he does not belong to that student group number.'
      */
