@@ -102,7 +102,7 @@
                                 <resource>
                                     <directory>netlifydocs</directory>
                                     <includes>
-                                        <include>_redirects.txt</include>
+                                        <include>_redirects</include>
                                     </includes>
                                 </resource>
                             </resources>
