@@ -4,13 +4,16 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
-// TODO Change name feature file, README file, in runner class, and where else is needed
+// TODO Change name feature file, README file, in runner class, and where else is needed ALSO relative path
 
 // TODO Menu items should be loaded, not all courses. Check that in Exercise 6 with script!!!
 // TODO Maybe remove the output For each course and professor? How can we see output in the reports?
 // TODO Warning when the assignment link does not exists in ex 7, no error. Check this
 // TODO Explanation input and output Exercise 7 in README?
 // TODO Change given step in @Exercise8 - only need name and no group number, need two dates as well (?)
+// TODO Add explanation warnings and errors of Log4j in the README file - keep assertions?
+
+// TODO Add explanation base - managers - ConfigFileReader - Hooks to README file?
 
 // TODO Make different step file for Exercise 6, 7 and 8. Give it appropriate name and adjust this here. Also in runner.
 // TODO TestContext for different step files?

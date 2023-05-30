@@ -2,16 +2,16 @@
 This program is set up to use Selenium to test the GUI of a web-application (and not the implementation).
 
 # 1. Use of different frameworks
-## 1.1 Selenium
+## 1.1 Selenium Webdriver
 Selenium is a powerful open-source framework for automated web testing. It has two different versions, 1) the WebDriver, and 2) the IDE. Using the Selenium IDE we can easily record and playback scripts. For this particular exercises, we could use the Selenium IDE to export code, but these scripts should be runnable java programs (which is why we will use maven). Therefore, i choose to use the **Selenium Webdriver** dependency (see `WebDriverManager.java` class).
 
 ## 1.2 BDD testing with Gherkin and Cucumber
 As often with Selenium, we will use it in combination with a framework for Behaviour-Driven Development (BDD). BDD focuses on defining and specifying desired behaviours of (the GUI of) the web-application in a common natural language. A framework for BDD provides the structure and set of guidelines for implementing BDD practices. It includes tools, libraries, and utilities to support the creation and execution of BDD tests.
 
-### 1.2.1 Scenario description
+### [1.2.1 Scenario description](src/main/test/resources/features/BrowseCourses.feature)
 An example of such a framework is **Gherkin**, Gherkin is a language used to write BDD scenarios in a structured, human-readable format. We used Gherkin to define scenarios in the `src/test/resources/BrowseCourses.feature` file. One could also use other languages, such as Jbehave, to write scenarios.
 
-### 1.2.2 Scenario implementation
+### [1.2.2 Scenario implementation](src/main/test/java/runners/RunnerTest.java)
 On top of that, **Cucumber** is another example of such a BDD framework. Cucumber supports various programming languages, such as Java (as in this project). It is used to create the executable specification written in Gherkin syntax. As seen in `BrowseCoursesSteps.java`, it is used to define the implementation of the scenarios we wrote in natural language.
 
  -  The actual implementation is written following the page pattern, where methods are categorized per page (see the package `pageObjects`).
@@ -28,11 +28,11 @@ If one would use JBehave, one could define those steps with the Jbehave framewor
 In combination with a BDD framework, we will use a scripting language. As said, the actual implementation in Step files and the Selenium Page Object files initially was fully written in Java. However, scripting languages like **Groovy** are often used for automating specific tasks or writing scripts. Groovy has more simplified syntax an automates tasks in comparison to Java (and its JUnit framework) in most cases. Groovy runs on the Java Virtual Machine (JVM), meaning that one can perfectly combine the two languages. Other scripting languages are for example Ruby. Some examples of how Groovy has improved the (readability of) the code:
 
  -  In `BrowseCoursesSteps.java`,
- -  In `xxxSteps.java`,
+ -  In `BrowseSoftwareTestingSteps.java`,
  -  In the package `pageObjects`,
  -
 
-## 1.4 Logging frameworks
+## 1.4 [Logging frameworks](src/test/resources/log4j.properties)
 **Log4j** and **SLF4J** are used to log application-related messages, such as the warnings were needed in some tests. Therefore, it is used in the Step files.
 
  -  Log4j is a logging library to log messages in Java applications. It allows developers to configure logging behavior dynamically and provides various logging levels (e.g., DEBUG, INFO, WARN, ERROR) to differentiate the severity of logged messages. Log4j also supports different output targets such as console, file, and database.
@@ -42,19 +42,19 @@ Browser-specific logs in Firefox were long and suppressed via the following line
 `System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");`
 
 ## 1.5 Reporting frameworks
-Using the **JavaDoc** Tools of IntelliJ IDEA, one can find the index.html file in the javadoc directory that describes the utility of each method, class and variable.
-URL Javadoc: [Ansymore site on Netlify](https://ansymo2site.netlify.app/).
+Using the **JavaDoc** Tools of IntelliJ IDEA, one can find the index.html file in the [`javadoc` directory](javadoc/index.html) that describes the utility of each method, class and variable.
+> URL Javadoc: [Ansymore site on Netlify](https://ansymo2site.netlify.app/).
 
-Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the `target/cucumber-reports` directory that gives us a short explanation of the test results. Because this html file was missing a SPA redirect rule and we wanted to deploy all the sites to **Netlify**, i created a `_redirects` file in the netlifydocs directory and automated copying it to the correct `target/cucumber-reports/cucumber-html-reports` directory with the support of the **maven-resources-plugin**.
-URL Cucumber reports: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
+Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`target/cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing a SPA redirect rule and we wanted to deploy all the sites to **Netlify**, i created a `_redirects` file in the netlifydocs directory and automated copying it to the correct `target/cucumber-reports/cucumber-html-reports` directory with the support of the **maven-resources-plugin**.
+> URL Cucumber reports: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
 
 For more detailed reporting, one can make use of the **Allure** reporting framework.
-URL Allure reports: [Ansymore Allure reports](  ).
+> URL Allure reports: [Ansymore Allure reports]( ).
 
 # 2 Expected behaviour
 The program is set up to test certain behaviours of the [Ansymo web-application](https://ansymore.uantwerpen.be). One could alter the `@CucumberOptions(tags = "...")` in the Runner class to only test the script from specific exercises.
 
-## 2.1 BrowseCoursesSteps
+## 2.1 [BrowseCoursesSteps](src/test/java/stepdefinitions/BrowseCoursesSteps.java)
 Refers to `@Exercise5`, where we browse courses from the homepage on to the overall courses page and then for each course, a detailed page with more information. The script is the following:
 
 > Create a test script that navigates to all the different courses from the menu.
@@ -86,7 +86,7 @@ In `@Exercise8`, we can use that function to create a function that shows the us
 >   B) Create a function that returns the date a student is an opponent.
 > Create a script that verifies when you needed to present/were the opponent using the above functions.
 
-# 3 Configurations
+# 3 [Configurations](configs/Configuration.properties)
 When using this program, alter the `Configuration.properties` file as you wish. The different keys have the following meaning:
 
  -  The urlHome is the URL to the home page of the application. In case this URL ever changes, please alter this value.
