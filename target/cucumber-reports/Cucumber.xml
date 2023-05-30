@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="79.356" tests="10" skipped="0" failures="1" errors="0">
-<testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors) - Example #1.1" time="23.597">
+<testsuite name="Cucumber" time="59.245" tests="10" skipped="0" failures="1" errors="0">
+<testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors) - Example #1.1" time="15.874">
 <failure type="java.lang.AssertionError" message="Course Master thesis does not have a professor.">
 <![CDATA[java.lang.AssertionError: Course Master thesis does not have a professor.
 	at org.junit.Assert.fail(Assert.java:89)
@@ -18,7 +18,7 @@ Then the user should see a page with all the courses listed.................pass
 And for each course, there should be a page that is loaded and there should be a professor.failed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="5.367">
+<testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="4.935">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user sees the links for each assignment............................passed
@@ -26,7 +26,7 @@ Then the user should verify the link format of each assignment link.........pass
 And the user should verify the document existence of each assignment link...passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.1" time="4.775">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.1" time="5.36">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 1...passed
@@ -34,7 +34,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.2" time="4.781">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.2" time="4.928">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 2...passed
@@ -42,7 +42,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.3" time="5.3">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.3" time="4.52">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 3...passed
@@ -50,7 +50,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.4" time="5.16">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.4" time="4.132">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Thimoty Smet" belongs to student group 1.passed
@@ -58,7 +58,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.1" time="4.919">
+<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.1" time="6.42">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 1...passed
@@ -66,7 +66,7 @@ Then the user should see his mandatory presence as presenter................pass
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.2" time="8.766">
+<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.2" time="4.76">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 2...passed
@@ -74,7 +74,7 @@ Then the user should see his mandatory presence as presenter................pass
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.3" time="7.546">
+<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.3" time="3.936">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student "Luna Geens" belongs to student group 3...passed
@@ -82,7 +82,7 @@ Then the user should see his mandatory presence as presenter................pass
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.4" time="8.501">
+<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.4" time="4.038">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student " Thimoty Smet" belongs to student group 1.passed

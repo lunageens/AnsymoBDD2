@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: runners.RunnerTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 83.17 sec <<< FAILURE!
-Verify all courses from homepages (names and professors)(Verify the Ansymo Web application)  Time elapsed: 23.911 sec  <<< FAILURE!
+Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 61.196 sec <<< FAILURE!
+Verify all courses from homepages (names and professors)(Verify the Ansymo Web application)  Time elapsed: 16.028 sec  <<< FAILURE!
 java.lang.AssertionError: Course Master thesis does not have a professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)

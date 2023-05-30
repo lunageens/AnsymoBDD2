@@ -84,6 +84,32 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
+            <!-- Maven Resource Plugin to copy _redirect file and deploy Cucumber.html to Netlify! -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-redirects-file</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/target/cucumber-reports/cucumber-html-reports</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>netlifydocs</directory>
+                                    <includes>
+                                        <include>_redirects.txt</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
            <!-- Allure maven plugin -->
         </plugins>
         <resources>
