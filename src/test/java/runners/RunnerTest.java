@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 
 // TODO Make different step file for Exercise 6, 7 and 8. Give it appropriate name and adjust this here. Also in runner.
 // TODO TestContext for different step files?
+// TODO Explain baseclass, hooks and test-context in README
 
 
 // TODO Implement Allure reports and alter Runner class. Add explanation in README. Deploy to Netlify.
