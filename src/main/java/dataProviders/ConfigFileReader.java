@@ -140,22 +140,6 @@ public class ConfigFileReader {
     }
 
     /**
-     * Gets value of driver path from the Configuration.properties file.
-     * Currently specified as the path to an installer driver for old versions of firefox
-     * If u want to use additional drivers, install them and specify in configuration file.
-     * Also adjust the code if needed in WebDriverManager.
-     * Gives exception when not specified in that file.
-     *
-     * @return String File path to driver.exe u want to use while running test
-     */
-    public String getDriverPath() {
-        String driverPath = properties.getProperty("driverPath");
-        if (driverPath != null) return driverPath;
-        else
-            throw new RuntimeException("Driver Path not specified in the Configuration.properties file for the Key:driverPath");
-    }
-
-    /**
      * Gets value of headless from the Configuration.properties file.
      * Gives exception when not specified in that file.
      * Note that running without head is not possible for all browsers, as specified in WebDriverManager.
