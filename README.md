@@ -14,12 +14,12 @@ An example of such a framework is **Gherkin**, Gherkin is a language used to wri
 ### 1.2.2 Scenario implementation
 On top of that, **Cucumber** is another example of such a BDD framework. Cucumber supports various programming languages, such as Java (as in this project). It is used to create the executable specification written in Gherkin syntax. As seen in [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) and other Step classes, it is used to define the implementation of the scenarios we wrote in natural language.
 
- -  The actual implementation is written following the page pattern, where methods are categorized per page (see the package `pageObjects`).
+ -  The actual implementation is written following the page pattern, where methods are categorized per page (see the package [`pageObjects`](src/main/java/pageObjects).
  -  The actual implementation is written in **Java**.
  -  The **JUnit** testing framework for Java is used to support the implementation of assertions in the test, to check if the tests pass or fails.
  -  **Pico-container** is used as a lightweight dependency injection container for Java, which can be used in BDD frameworks for managing dependencies in test scenarios.
 
-Cucumber also supports [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java), that tell the program what to do before and after the execution of each scenario for example. The [`BaseClass.java`](src/test/java/stepdefinitions/BaseClass.java) provides two manager objects, so that we can share them between the `BrowseCoursesSteps.java` and `Hooks.java` classes. The [`RunnerTest.java`](src/test/java/runners/RunnerTest.java) is the overall class used to run the test.
+Cucumber also supports [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java), that tell the program what to do before and after the execution of each scenario for example. The [`BaseClass.java`](src/test/java/stepdefinitions/BaseClass.java) provides two manager objects, so that we can share them between the [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) and [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java) classes. The [`RunnerTest.java`](src/test/java/runners/RunnerTest.java) is the overall class used to run the test.
 
 ### 1.2.3 Combination of scenario description and implementation in other projects
 If one would use JBehave, one could define those steps with the Jbehave framework as well. One would make a runner class with the support of JUnit framework.
@@ -27,9 +27,9 @@ If one would use JBehave, one could define those steps with the Jbehave framewor
 ## 1.3 Groovy
 In combination with a BDD framework, we will use a scripting language. As said, the actual implementation in Step files and the Selenium Page Object files initially was fully written in Java. However, scripting languages like **Groovy** are often used for automating specific tasks or writing scripts. Groovy has more simplified syntax an automates tasks in comparison to Java (and its JUnit framework) in most cases. Groovy runs on the Java Virtual Machine (JVM), meaning that one can perfectly combine the two languages. Other scripting languages are for example Ruby. Some examples of how Groovy has improved the (readability of) the code:
 
- -  In `BrowseCoursesSteps.java`,
+ -  In [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java),
  -  In `BrowseSoftwareTestingSteps.java`,
- -  In the package `pageObjects`,
+ -  In the package [`pageObjects`](src/main/java/pageObjects),
  -
 
 ## 1.4 Logging frameworks
@@ -45,7 +45,7 @@ Browser-specific logs in Firefox were long and suppressed via the following line
 Using the **JavaDoc** Tools of IntelliJ IDEA, one can find the index.html file in the [`javadoc`](javadoc/index.html) directory that describes the utility of each method, class and variable.
 > URL Javadoc: [Ansymore site on Netlify](https://ansymo2site.netlify.app/).
 
-Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing a SPA redirect rule and we wanted to deploy all the sites to **Netlify**, i created a [`_redirects`](netlifydocs/_redirects)file in the netlifydocs directory and automated copying it to the correct `cucumber-html-reports` directory with the support of the **maven-resources-plugin**.
+Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing a SPA redirect rule and we wanted to deploy all the sites to **Netlify**, i created a [`_redirects`](netlifydocs/_redirects)file in the netlifydocs directory and automated copying it to the correct [`cucumber-html-reports`](target/cucumber-reports/cucumber-html-reports) directory with the support of the **maven-resources-plugin**.
 > URL Cucumber reports: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
 
 For more detailed reporting, one can make use of the **Allure** reporting framework.
@@ -100,7 +100,7 @@ When using this program, alter the [`Configuration.properties`](configs/Configur
  -  The headless key is set to true if u do not want to see the browser GUI while running the tests.
  -  The operatingSystem key can have values as specified in the [`OperatingSystemType`](src/main/java/enums/OperatingSystemType.java) enum file.
 
-The `Configuration.properties` file is read in with the [`ConfigFileReader.java`](src/main/java/dataProviders/ConfigFileReader.java) class, which is managed by the [`FileReaderManager.java`](src/main/java/managers/FileReaderManager.java) class using the Singleton pattern.
+The [`Configuration.properties`](configs/Configuration.properties) file is read in with the [`ConfigFileReader.java`](src/main/java/dataProviders/ConfigFileReader.java) class, which is managed by the [`FileReaderManager.java`](src/main/java/managers/FileReaderManager.java) class using the Singleton pattern.
 
 # 4 Technicalities
 In the project, several managers and other technical classes have been implemented.
@@ -112,7 +112,7 @@ The [`ConfigFileReader.java`](src/main/java/dataProviders/ConfigFileReader.java)
 
 If we continued using this Cucumber Selenium Framework, we would have multiple file readers. Therefore, it is better to have an overall [`FileReaderManager.java`](src/main/java/managers/FileReaderManager.java) class above all File Readers.
 It is also better to make the file manager class as singleton. This limits the number of objects of this class to one. We then have a method `FileReaderManager.getInstance()` that is our global access point for that one object. 
-For each FileReader, we call the get method on that one instance of the 'FileReaderManager' class. Logically, we can only have one configReader (for example). The `FileReaderManager.getInstance().getConfigReader()` is our global point of access for configuration variables throughout the whole system. By implementing the Singleton Design Pattern, the file is only read once, and we limit object creation. 
+For each FileReader, we call the get method on that one instance of the 'FileReaderManager' class. Logically, we can only have one configReader (for example). The `FileReaderManager.getInstance().getConfigReader()` is our global point of access for configuration variables throughout the whole system. By implementing the **Singleton Design Pattern**, the file is only read once, and we limit object creation. 
 
 ## 4.2 Managing WebDrivers
 One could initiate the webdriver in the constructor of the Step file and close the driver in the implementation of the last step in the step file. However, there are multiple reasons to implement a [`WebDriverManager.java`](src/main/java/managers/WebDriverManager.java) class:
@@ -122,8 +122,8 @@ One could initiate the webdriver in the constructor of the Step file and close t
  -  Most importantly, the `WebDriverManager.getDriver()` method allows us to share a driver over different steps of a scenario instead of creating one for each page of each step needed.
 
 ## 4.3 Managing Selenium Object pages
-We want to avoid having one really long Step file with thousands of steps in. We would want to reuse some code for different steps. To better manage the code and to improve re-usability, the Page Object Design Pattern suggests programmers to divide an application in different web pages. In the [`pageObjects`](src/main/java/pageObjects) package , every page in our application will be represented by a unique class of its own.
-The Selenium PageFactory is an inbuilt tool for Selenium WebDriver and allows us to better optimize the code in classes related to the page pattern.
+We want to avoid having one really long Step file with thousands of steps in. We would want to reuse some code for different steps. To better manage the code and to improve re-usability, the **Page Object Design Pattern** suggests programmers to divide an application in different web pages. In the [`pageObjects`](src/main/java/pageObjects) package , every page in our application will be represented by a unique class of its own.
+The **Selenium PageFactory** is an inbuilt tool for Selenium WebDriver and allows us to better optimize the code in classes related to the page pattern.
 
 One could make new objects of pages for every (step of) scenario. We do not want to create the same pages over and over again. To avoid this situation, a [`PageObjectManager`](src/main/java/managers/PageObjectManager.java) is implemented. It creates a single object of each page for all the step definition files. 
 
