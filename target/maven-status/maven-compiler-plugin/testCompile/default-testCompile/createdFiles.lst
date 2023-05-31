@@ -1,4 +1,5 @@
+stepdefinitions\BrowseSoftwareTestingSteps.class
+stepdefinitions\Hooks.class
 stepdefinitions\BrowseCoursesSteps.class
 stepdefinitions\BaseClass.class
 runners\RunnerTest.class
-stepdefinitions\Hooks.class

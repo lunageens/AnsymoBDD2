@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="3" name="runners.RunnerTest" time="56.261" errors="0" skipped="0">
+<testsuite tests="10" failures="3" name="runners.RunnerTest" time="58.774" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,12 +61,12 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="18.784">
+  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="20.236">
     <failure message="The course Master thesis has no professor." type="java.lang.AssertionError">java.lang.AssertionError: The course Master thesis has no professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:119)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:116)
+	at pageObjects.CoursesPage.verifyCourseDetailsForAllCourses(CoursesPage.java:125)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseDetailsForAllCourses(BrowseCoursesSteps.java:94)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:12)
 </failure>
     <system-out>When using an old version of firefox, specify path to geckodriver in Configuration file.
@@ -77,67 +77,67 @@ add line: System.set.Property(webdriver.chrome.driver, FileReaderManager.getInst
 @CompleteTest @Exercise5
 Scenario Outline: Verify all courses from homepages (names and professors)                   # src/test/resources/features/Ansymore.feature:15
   Given the user is on the Ansymo homepage                                                   # stepdefinitions.BrowseCoursesSteps.navigateToHomepage()
-  When the user clicks the &quot;Courses&quot; link in the menu section                                # stepdefinitions.BrowseCoursesSteps.clickCoursesLink(java.lang.String)
-  Then the user should see a page with all the courses listed                                # stepdefinitions.BrowseCoursesSteps.verifyCoursesPage()
-  And for each course, there should be a page that is loaded and there should be a professor # stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames()
+  When the user clicks the &quot;Courses&quot; link in the menu section                                # stepdefinitions.BrowseCoursesSteps.clickMenuLink(java.lang.String)
+  Then the user should see a page with all the courses listed                                # stepdefinitions.BrowseCoursesSteps.verifyAllCoursesListed()
+  And for each course, there should be a page that is loaded and there should be a professor # stepdefinitions.BrowseCoursesSteps.verifyCourseDetailsForAllCourses()
       java.lang.AssertionError: The course Master thesis has no professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:119)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:116)
+	at pageObjects.CoursesPage.verifyCourseDetailsForAllCourses(CoursesPage.java:125)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseDetailsForAllCourses(BrowseCoursesSteps.java:94)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:12)
 
 </system-out>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.078"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="3.952"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="3.879"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="3.982"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="3.851"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #5" time="3.963">
+  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="5.728"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="4.021"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="3.873"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="4.531"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="3.958"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #5" time="4.57">
     <failure message="The student is not in any group." type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:177)
+	at stepdefinitions.BrowseSoftwareTestingSteps.verifyStudentGroupMembership(BrowseSoftwareTestingSteps.java:121)
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:28)
 </failure>
     <system-out>
 @CompleteTest @Exercise7
 Scenario Outline: Verify Student Groups in Software Testing Course                           # src/test/resources/features/Ansymore.feature:36
-  Given the user is on the Software Testing course page                                      # stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage()
-  When the user says that a student Mieke Hans belongs to student group 2                    # stepdefinitions.BrowseCoursesSteps.userInput(java.lang.String,java.lang.String)
-  Then the user should be in a student group                                                 # stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup()
+  Given the user is on the Software Testing course page                                      # stepdefinitions.BrowseSoftwareTestingSteps.navigateToSoftwareTestingPage()
+  When the user says that a student Mieke Hans belongs to student group 2                    # stepdefinitions.BrowseSoftwareTestingSteps.provideStudentGroup(java.lang.String,java.lang.String)
+  Then the user should be in a student group                                                 # stepdefinitions.BrowseSoftwareTestingSteps.verifyStudentGroupMembership()
       java.lang.AssertionError: The student is not in any group.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:177)
+	at stepdefinitions.BrowseSoftwareTestingSteps.verifyStudentGroupMembership(BrowseSoftwareTestingSteps.java:121)
 	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:28)
 
-  And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
+  And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseSoftwareTestingSteps.verifyStudentGroupWarning()
 </system-out>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="3.904"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="3.94"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="3.928">
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="4.132"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="3.882"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="3.843">
     <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at stepdefinitions.BrowseCoursesSteps.PresenceAsPresenter(BrowseCoursesSteps.java:205)
+	at stepdefinitions.BrowseSoftwareTestingSteps.presencePresenter(BrowseSoftwareTestingSteps.java:154)
 	at ✽.the user should see his mandatory presence as presenter(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:43)
 </failure>
     <system-out>
 @CompleteTest @Exercise8
 Scenario Outline: Verify Mandatory Presence of a student in Software Testing Course # src/test/resources/features/Ansymore.feature:49
-  Given the user is on the Software Testing course page                             # stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage()
-  When the user says a student Mieke Hans                                           # stepdefinitions.BrowseCoursesSteps.userInput(java.lang.String)
-  Then the user should see his mandatory presence as presenter                      # stepdefinitions.BrowseCoursesSteps.PresenceAsPresenter()
+  Given the user is on the Software Testing course page                             # stepdefinitions.BrowseSoftwareTestingSteps.navigateToSoftwareTestingPage()
+  When the user says a student Mieke Hans                                           # stepdefinitions.BrowseSoftwareTestingSteps.provideStudent(java.lang.String)
+  Then the user should see his mandatory presence as presenter                      # stepdefinitions.BrowseSoftwareTestingSteps.presencePresenter()
       java.lang.AssertionError: The student is not in any group
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at stepdefinitions.BrowseCoursesSteps.PresenceAsPresenter(BrowseCoursesSteps.java:205)
+	at stepdefinitions.BrowseSoftwareTestingSteps.presencePresenter(BrowseSoftwareTestingSteps.java:154)
 	at ✽.the user should see his mandatory presence as presenter(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:43)
 
-  And the user should see his mandatory presence as opponent                        # stepdefinitions.BrowseCoursesSteps.PresenceAsOpponent()
+  And the user should see his mandatory presence as opponent                        # stepdefinitions.BrowseSoftwareTestingSteps.presenceOpponent()
 </system-out>
   </testcase>
 </testsuite>

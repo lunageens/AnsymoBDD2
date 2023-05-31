@@ -12,14 +12,14 @@ As often with Selenium, we will use it in combination with a framework for Behav
 An example of such a framework is **Gherkin**, Gherkin is a language used to write BDD scenarios in a structured, human-readable format. We used Gherkin to define scenarios in the [`Ansymore.feature`](src/test/resources/features/Ansymore.feature) file. One could also use other languages, such as Jbehave, to write scenarios.
 
 ### 1.2.2 Scenario implementation
-On top of that, **Cucumber** is another example of such a BDD framework. Cucumber supports various programming languages, such as Java (as in this project). It is used to create the executable specification written in Gherkin syntax. As seen in [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) and other Step classes, it is used to define the implementation of the scenarios we wrote in natural language.
+On top of that, **Cucumber** is another example of such a BDD framework. Cucumber supports various programming languages, such as Java (as in this project). It is used to create the executable specification written in Gherkin syntax. As seen in the step files [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) and [`BrowseSoftwareTestingSteps.java`](src/test/java/stepdefinitions/BrowseSoftwareTestingSteps.java), it is used to define the implementation of the scenarios we wrote in natural language.
 
  -  The actual implementation is written following the page pattern, where methods are categorized per page (see the package [`pageObjects`](src/main/java/pageObjects).
  -  The actual implementation is written in **Java**.
  -  The **JUnit** testing framework for Java is used to support the implementation of assertions in the test, to check if the tests pass or fails.
  -  **Pico-container** is used as a lightweight dependency injection container for Java, which can be used in BDD frameworks for managing dependencies in test scenarios.
 
-Cucumber also supports [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java), that tell the program what to do before and after the execution of each scenario for example. The [`BaseClass.java`](src/test/java/stepdefinitions/BaseClass.java) provides two manager objects, so that we can share them between the [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) and [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java) classes. The [`RunnerTest.java`](src/test/java/runners/RunnerTest.java) is the overall class used to run the test.
+Cucumber also supports [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java), that tell the program what to do before and after the execution of each scenario for example. The [`BaseClass.java`](src/test/java/stepdefinitions/BaseClass.java) provides two manager objects, so that we can share them between the two Step and [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java) classes. The [`RunnerTest.java`](src/test/java/runners/RunnerTest.java) is the overall class used to run the test.
 
 ### 1.2.3 Combination of scenario description and implementation in other projects
 If one would use JBehave, one could define those steps with the Jbehave framework as well. One would make a runner class with the support of JUnit framework.
@@ -28,14 +28,14 @@ If one would use JBehave, one could define those steps with the Jbehave framewor
 In combination with a BDD framework, we will use a scripting language. As said, the actual implementation in Step files and the Selenium Page Object files initially was fully written in Java. However, scripting languages like **Groovy** are often used for automating specific tasks or writing scripts. Groovy has more simplified syntax an automates tasks in comparison to Java (and its JUnit framework) in most cases. Groovy runs on the Java Virtual Machine (JVM), meaning that one can perfectly combine the two languages. Other scripting languages are for example Ruby. Some examples of how Groovy has improved the (readability of) the code:
 
  -  In [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java),
- -  In `BrowseSoftwareTestingSteps.java`,
+ -  In [`BrowseSoftwareTestingSteps.java`](src/test/java/stepdefinitions/BrowseSoftwareTestingSteps.java),
  -  In the package [`pageObjects`](src/main/java/pageObjects),
  -
 
 ## 1.4 Logging frameworks
 **Log4j** and **SLF4J** are used to log application-related messages, such as the warnings were needed in some tests. Therefore, it is used in the Step files.
 
- -  Log4j is a logging library to log messages in Java applications. It allows developers to configure logging behavior dynamically and provides various logging levels (e.g., DEBUG, INFO, WARN, ERROR) to differentiate the severity of logged messages. Log4j also supports different output targets such as console, file, and database. The logging messages are configured in the [`log4j.properties`](src/test/resources/log4j.properties) file. We use this framework in the steps classes to give warnings and informational messages to the user.
+ -  Log4j is a logging library to log messages in Java applications. It allows developers to configure logging behavior dynamically and provides various logging levels (e.g., DEBUG, INFO, WARN, ERROR) to differentiate the severity of logged messages. Log4j also supports different output targets such as console, file, and database. The logging messages are configured in the [`log4j.properties`](src/test/resources/log4j.properties) file. We use this framework in the Step classes to give warnings and informational messages to the user.
  -  SLF4J (Simple Logging Facade for Java) provides a common API for various logging frameworks, including Log4j.
 
 Browser-specific logs in Firefox were long and suppressed via the following line in the [`WebDriverManager.java`](src/main/java/managers/WebDriverManager.java) class:
@@ -60,7 +60,7 @@ The [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps
 > The script should only fail when a page cannot be loaded or when the course does not have a professor.
 
 ## 2.2 BrowseSoftwareTestingSteps
-The [`BrowseSoftwareTestingSteps.java`]() file includes the rest of the exercises. 
+The [`BrowseSoftwareTestingSteps.java`](src/test/java/stepdefinitions/BrowseSoftwareTestingSteps.java) file includes the rest of the exercises. 
 Firstly, in `@Exercise6`, a script should check the link existence and format of assignments of the software testing
 course. The test script is the following:
 
@@ -124,11 +124,10 @@ The **Selenium PageFactory** is an inbuilt tool for Selenium WebDriver and allow
 
 One could make new objects of pages for every (step of) scenario. We do not want to create the same pages over and over again. To avoid this situation, a [`PageObjectManager`](src/main/java/managers/PageObjectManager.java) is implemented. It creates a single object of each page for all the step definition files. 
 
-## 4.4 BaseClass, TestContext and Hooks
+## 4.4 BaseClass and Hooks
 The Hooks class helps us to avoid code duplication. It allows us to do certain things before and after each scenario, and close all browser processes after all scenarios are tested.
 
 The BaseClass allows us to share the same WebDriverManager and PageObjectManager in a scenario between the Hooks class and the Step classes.
 
-The TextContext class 
 
 

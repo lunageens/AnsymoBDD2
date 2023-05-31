@@ -36,13 +36,12 @@ public class Hooks extends BaseClass {
     public static void beforeTesting() {
         if (FileReaderManager.getInstance().getConfigReader().getBrowser() == DriverType.FIREFOX) {
             System.out.println("When using an old version of firefox, specify path to geckodriver in Configuration file.");
-            System.out.println("This means there is a need for an additional geckodriver (such as installed in for windows 64 in the drivers directory). ");
+            System.out.println("This means there is a need for an additional geckodriver (such as installed for windows 64 in the drivers directory). ");
             System.out.println("Adjust the code in WebDriverManager.java as follows:");
             System.out.println("add line: System.set.Property(" + "webdriver.chrome.driver" + ", FileReaderManager.getInstance().getConfigReader.getDriverPath())" +
                     " before initializing new driver");
         }
     }
-
     /**
      * Before each scenario, initiate new WebDriverManager and PageObjectManager.
      */

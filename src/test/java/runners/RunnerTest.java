@@ -5,8 +5,6 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 // TODO Extra reporting?
-// TODO Make different step file for Exercise 6, 7 and 8. Give it appropriate name and adjust this here. Also in runner.
-// TODO TestContext for different step files? Explain in  README.md
 
 /**
  * JUnit class that specifies how Cucumber should run tests.
