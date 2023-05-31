@@ -188,12 +188,22 @@ public class BrowseCoursesSteps extends BaseClass {
     }
 
     /**
+     * Implementation for the step 'When the user says student {} '.
+     * @param name Full Name with capital letters like one should from the student.
+     */
+    @When("the user says a student {}")
+    public void userInput(String name) {
+        softwareTestingPage.userInput(name, "0");
+    }
+
+    /**
      * Implementation for the step 'Then the user should see his mandatory presence as presenter'.
      * Prints the date that the student needs to present a lecture.
      */
     @Then("the user should see his mandatory presence as presenter")
     public void PresenceAsPresenter() {
-        softwareTestingPage.presencePresenter();
+        Assert.assertTrue("The student is not in any group", softwareTestingPage.inAnyGroup());
+        logger.info(softwareTestingPage.presencePresenter());
     }
 
     /**
@@ -202,6 +212,7 @@ public class BrowseCoursesSteps extends BaseClass {
      */
     @And("the user should see his mandatory presence as opponent")
     public void PresenceAsOpponent() {
-        softwareTestingPage.presenceOpponent();
+        Assert.assertTrue("The student is not in any group", softwareTestingPage.inAnyGroup());
+        logger.info(softwareTestingPage.presenceOpponent());
     }
 }

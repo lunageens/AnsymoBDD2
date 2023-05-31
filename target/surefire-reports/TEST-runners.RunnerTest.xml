@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="11" failures="2" name="runners.RunnerTest" time="61.514" errors="0" skipped="0">
+<testsuite tests="10" failures="3" name="runners.RunnerTest" time="56.261" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,7 +61,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="18.942">
+  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="18.784">
     <failure message="The course Master thesis has no professor." type="java.lang.AssertionError">java.lang.AssertionError: The course Master thesis has no professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -89,12 +89,12 @@ Scenario Outline: Verify all courses from homepages (names and professors)      
 
 </system-out>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="5.346"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="4.366"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="4.053"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="4.097"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="4.344"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #5" time="3.93">
+  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.078"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="3.952"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="3.879"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="3.982"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="3.851"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #5" time="3.963">
     <failure message="The student is not in any group." type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -116,8 +116,28 @@ Scenario Outline: Verify Student Groups in Software Testing Course              
   And the user should receive a warning when he does not belong to that student group number # stepdefinitions.BrowseCoursesSteps.theUserIsInThatStudentGroup()
 </system-out>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="4.022"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="4.014"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="4.45"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #4" time="3.95"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="3.904"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="3.94"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="3.928">
+    <failure message="The student is not in any group" type="java.lang.AssertionError">java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at stepdefinitions.BrowseCoursesSteps.PresenceAsPresenter(BrowseCoursesSteps.java:205)
+	at ✽.the user should see his mandatory presence as presenter(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:43)
+</failure>
+    <system-out>
+@CompleteTest @Exercise8
+Scenario Outline: Verify Mandatory Presence of a student in Software Testing Course # src/test/resources/features/Ansymore.feature:49
+  Given the user is on the Software Testing course page                             # stepdefinitions.BrowseCoursesSteps.navigateToSoftwareTestingPage()
+  When the user says a student Mieke Hans                                           # stepdefinitions.BrowseCoursesSteps.userInput(java.lang.String)
+  Then the user should see his mandatory presence as presenter                      # stepdefinitions.BrowseCoursesSteps.PresenceAsPresenter()
+      java.lang.AssertionError: The student is not in any group
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at stepdefinitions.BrowseCoursesSteps.PresenceAsPresenter(BrowseCoursesSteps.java:205)
+	at ✽.the user should see his mandatory presence as presenter(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:43)
+
+  And the user should see his mandatory presence as opponent                        # stepdefinitions.BrowseCoursesSteps.PresenceAsOpponent()
+</system-out>
+  </testcase>
 </testsuite>

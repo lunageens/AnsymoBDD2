@@ -39,13 +39,12 @@ Feature: Verify the Ansymo Web application
   @Exercise8
   Scenario Outline: Verify Mandatory Presence of a student in Software Testing Course
     Given the user is on the Software Testing course page
-    When the user says that a student <name> belongs to student group <number>
+    When the user says a student <name>
     Then the user should see his mandatory presence as presenter
     And the user should see his mandatory presence as opponent
     Examples:
-      | name           | number |
-      | "Luna Geens"   | 1      |
-      | "Luna Geens"   | 2      |
-      | "Luna Geens"   | 3      |
-      | "Thimoty Smet" | 1      |
+      | name         |
+      | Luna Geens   |
+      | Thimoty Smet |
+      | Mieke Hans   |
 

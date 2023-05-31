@@ -15,8 +15,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Applying the page pattern, all the methods related to the page where the details of the software testing course
@@ -100,7 +98,7 @@ public class SoftwareTestingPage extends CourseDetailsPage {
     /**
      * Check for each assignment link that the link exists.
      * Give warning when link does not exist in Step
-     * @return List where each item is a integer, that is the number of the assignments with non-existent links
+     * @return List where each item is an integer, that is the number of the assignments with non-existent links
      */
     public List<Integer> verifyAssignmentsLinkExistence() {
         List<WebElement> Links = getAssignmentsLinkElements();
@@ -238,16 +236,14 @@ public class SoftwareTestingPage extends CourseDetailsPage {
     public LocalDate getDate(int groupNumber ){
         WebElement fullDateWebElement = allDatesWebElements.get(groupNumber -1);
         String fullDate = fullDateWebElement.getText();
-        System.out.println("getDate - for group number " + groupNumber + " is full text " + fullDate);
 
         // Extract the date portion from the full date string
-        String dateString = fullDate.replaceAll("Presentation date: ", "");
+        String dateString = fullDate.replaceAll("Presentation Date: ", "");
         // Define the formatter for parsing the date
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH);
         // Parse the date string into a LocalDate object
         LocalDate date = LocalDate.parse(dateString, inputFormatter);
 
-        System.out.println("getDate - for group number " + groupNumber + "is date " + date);
         return date;
     }
 
@@ -258,19 +254,17 @@ public class SoftwareTestingPage extends CourseDetailsPage {
         String fullPresenters = fullPresentersWebElement.getText();
 
         fullPresenters = fullPresenters.replace("Presenters: ", "");
-        List<String> presenters = List.of(fullPresenters.split(", "));
-        return presenters;
+        return List.of(fullPresenters.split(", "));
     }
 
     @FindAll(@FindBy(css = "html > body > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul:nth-of-type(7) > ul > li:nth-of-type(3)"))
     List<WebElement> allOpponentsWebElements;
-    public List<String> getOpponents(int groupNumber ){
-        WebElement fullOpponentsWebElement = allOpponentsWebElements.get(groupNumber -1);
+    public List<String> getOpponents(int groupNumber ) {
+        WebElement fullOpponentsWebElement = allOpponentsWebElements.get(groupNumber - 1);
         String fullOpponents = fullOpponentsWebElement.getText();
 
         fullOpponents = fullOpponents.replace("Opponents: ", "");
-        List<String> opponents = List.of(fullOpponents.split(", "));
-        return opponents;
+        return List.of(fullOpponents.split(", "));
     }
 
     public List<Integer> getGroupNumbers(String studentName){
@@ -302,11 +296,23 @@ public class SoftwareTestingPage extends CourseDetailsPage {
         return (getPresenters(inputGroupNumber).contains(inputStudentName)) || (getOpponents(inputGroupNumber).contains(inputStudentName));
     }
 
-    public void presencePresenter() {
-        // TODO actual implementation of this method
+    public String presencePresenter() {
+        List<Integer> groupNums = getGroupNumbers(inputStudentName);
+        LocalDate presenterDate = getDate(groupNums.get(0));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        String formattedDate = presenterDate.format(formatter);
+
+        return "The student " + inputStudentName + " should present on " + formattedDate;
     }
 
-    public void presenceOpponent() {
-        // TODO actual implementation of this method
+    public String presenceOpponent() {
+        List<Integer> groupNums = getGroupNumbers(inputStudentName);
+        LocalDate opponentDate = getDate(groupNums.get(1));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        String formattedDate = opponentDate.format(formatter);
+
+        return "The student " + inputStudentName + " should play the role of opponent on " + formattedDate;
     }
 }
