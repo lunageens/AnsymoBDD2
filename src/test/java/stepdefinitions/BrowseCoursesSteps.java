@@ -13,10 +13,8 @@ import pageObjects.CoursesPage;
 import pageObjects.HomePage;
 import pageObjects.SoftwareTestingPage;
 
-import java.util.ArrayList;
 import java.util.List;
 
-// TODO Different step files? Ex5 versus Ex6 7 and 8. If so, alter Runner clas as well.
 // TODO Do i still need to use Groovy as a scripting language, since these are just plain java files. Or is my assignment okay already?
 // Dit kan dus ook in Groovy ipv java
 // To enable to creat step definitions in Groovy, the Cucumber for groovy plugin must be installed and enabled. Also extra
@@ -26,11 +24,6 @@ import java.util.List;
  * Cucumber step file for specifying methods that are needed for steps in .feature files
  */
 public class BrowseCoursesSteps extends BaseClass {
-
-    /**
-     * Baseclass currently in use.
-     */
-    private BaseClass base;
 
     /**
      * WebDriverManager used for this scenario.
@@ -67,7 +60,6 @@ public class BrowseCoursesSteps extends BaseClass {
      * @param base Instance of Baseclass where webDriverManager and pageObjectManager are that must be used in this class.
      */
     public BrowseCoursesSteps(BaseClass base){
-        this.base = base;
         webDriverManager = base.webDriverManager;
         Assert.assertNotNull("Webdrivermanager created is empty", webDriverManager);
         pageObjectManager = base.pageObjectManager;
@@ -76,7 +68,8 @@ public class BrowseCoursesSteps extends BaseClass {
     }
 
     /**
-     * Implementation for the step 'Given the user is on the Ansymo homepage'
+     * Scenario: 'Verify all courses from homepages (names and professors)'
+     * Step: 'Given the user is on the Ansymore homepage'
      */
     @Given("the user is on the Ansymo homepage")
     public void navigateToHomepage() {
@@ -85,61 +78,69 @@ public class BrowseCoursesSteps extends BaseClass {
     }
 
     /**
-     * Implementation for the step 'When the user clicks the {string} link in the menu section'
-     * Only implemented for String = 'Courses'
+     * Scenario: 'Verify all courses from homepages (names and professors)'
+     * Step: 'When the user clicks the {string} link in the menu section'.
+     * Only implemented for String = 'Courses'.
      * @param linkText The text in homepage menu that one wants to press.
      */
     @When("the user clicks the {string} link in the menu section")
-    public void clickCoursesLink(String linkText) {
-        homePage.clickMenuItem(linkText);
+    public void clickMenuLink(String linkText) {
+        homePage.clickMenuLink(linkText);
     }
 
     /**
-     * Implementation for the step 'Then the user should see a page with all the courses listed'.
-     * Checks if there are any courses listed at all. Gives assertion if there are no courses listed.
+     * Scenario: 'Verify all courses from homepages (names and professors)'.
+     * Step: 'Then the user should see a page with all the courses listed'.
+     * Gives assertion if there are no courses listed on the over-all Courses page.
      */
     @Then("the user should see a page with all the courses listed")
-    public void verifyCoursesPage() {
-        // TODO In some steps asserted in step methods, in other steps different method in page
+    public void verifyAllCoursesListed() {
         coursesPage = pageObjectManager.getCoursesPage(); // instead of creating new courses page every single time
-        Assert.assertTrue("There are no courses", coursesPage.areCoursesListed());
+        Assert.assertTrue("There are no courses.", coursesPage.verifyAllCoursesListed());
     }
 
     /**
-     * Implementation for the step 'Then for each course, there should be a page that is loaded and there should be a professor'
+     * Scenario: 'Verify all courses from homepages (names and professors)'
+     * Step: 'Then for each course, there should be a page that is loaded and there should be a professor'
      * Clicks link of all the courses on the Course pages. Give assertion if for one of these courses, the details page doesn't load.
      * Checks on that detailed page if there are any professors specified. Gives assertion if for one of these courses, there is no professor specified.
-     * Prints professor(s) of each course.
      */
     @Then("for each course, there should be a page that is loaded and there should be a professor")
-    public void verifyCourseAndProfessorNames() {
-        coursesPage.selectEachCourseAndVerifyDetails(pageObjectManager);
+    public void verifyCourseDetailsForAllCourses() {
+        coursesPage.verifyCourseDetailsForAllCourses(pageObjectManager);
     }
 
     /**
-     * Implementation for the step 'The user is on the Software Testing course page.'
+     * Scenario: 'Verify Assignment Links in Software Testing Course'
+     * Scenario: 'Verify Student Groups in Software Testing Course'
+     * Scenario: 'Verify Mandatory Presence of a student in Software Testing Course'
+     * Step: 'Given the user is on the Software Testing course page.'
      */
     @Given("the user is on the Software Testing course page")
     public void navigateToSoftwareTestingPage(){
         softwareTestingPage = pageObjectManager.getSoftwareTestingPage();
-        softwareTestingPage.navigateToSoftWareTesting();
+        softwareTestingPage.navigateToSoftWareTestingPage();
     }
 
     /**
-     * Implementation for the step 'Then the user sees the links for each assignment'.
-     * Checks if there are any assignments links listed at all. Gives assertion if there are no assignments listed.
+     * Scenario: 'Verify Assignment Links in Software Testing Course'
+     * Step: 'Then the user sees the links for each assignment'.
+     * Checks if there are any assignments links listed at all.
+     * Gives assertion if there are no assignments listed.
      */
     @When("the user sees the links for each assignment")
-    public void areThereAssignmentsLinksPresent(){
+    public void verifyAssignmentLinksPresent(){
         Assert.assertTrue("There are no assignment links.", softwareTestingPage.verifyAssignmentsLinkPresent());
     }
 
     /**
-     * Implementation for the step 'Then the user receive a warning when an assignment link doesn't exist.'.
-     * For each assignment listed, verify that the document (link) exists on the server. Gives a warning when it does not exist.
+     * Scenario: 'Verify Assignment Links in Software Testing Course'
+     * Step: 'Then the user receive a warning when an assignment link doesn't exist.'.
+     * For each assignment listed, verify that the document (link) exists on the server.
+     * Gives warning when it does not exist.
      */
     @Then("the user should receive a warning when an assignment link doesn't exist")
-    public void verifyAssignmentsLinkExistence(){
+    public void verifyAssignmentsLinkExistenceWarning(){
         List<Integer> nonExistentLinks = softwareTestingPage.verifyAssignmentsLinkExistence();
         if (!nonExistentLinks.isEmpty()) { // only give warning when there is a link that does not exist
             String warningText = softwareTestingPage.formatLinkExistenceWarning(nonExistentLinks);
@@ -148,7 +149,8 @@ public class BrowseCoursesSteps extends BaseClass {
     }
 
     /**
-     * Implementation for the step 'Then the user should verify the link format of each assignment link'.
+     * Scenario:'Verify Assignment Links in Software Testing Course'
+     * Step: 'Then the user should verify the link format of each assignment link'.
      * For each assignment listed, checks that the link is of the format  '/system/files/uploads/courses/Testing/assignment[NR].pdf'
      * Gives assertion if the layout differs for one of the assignments.
      */
@@ -159,59 +161,68 @@ public class BrowseCoursesSteps extends BaseClass {
     }
 
     /**
-     * Implementation for the step 'When the user says that a student {} belongs to student group'.
+     * Scenario: 'Verify Student Groups in Software Testing Course'
+     * Step 'When the user says that a student {} belongs to student group {}'.
      * @param name Full Name with capital letters like one should from the student.
      * @param group Number of One (of the) student group(s) the student believes he is in.
      */
     @When("the user says that a student {} belongs to student group {}")
-    public void userInput(String name, String group) {
-        softwareTestingPage.userInput(name, group);
+    public void provideStudentGroup(String name, String group) {
+        softwareTestingPage.provideStudentGroup(name, group);
     }
 
     /**
-     * Implementation for the step 'Then the user should be in a student group'.
+     * Scenario: 'Verify Student Groups in Software Testing Course'
+     * Step: 'Then the user should be in a student group'.
      * Gives an assertion when the student cannot be found in any group.
      */
     @Then("the user should be in a student group")
-    public void theUserShouldBeInAStudentGroup() {
+    public void verifyStudentGroupMembership() {
         Assert.assertTrue("The student is not in any group.", softwareTestingPage.inAnyGroup());
     }
 
     /**
-     * Implementation for the step 'And the user should receive a warning when he does not belong to that student group number.'
+     * Scenario: 'Verify Student Groups in Software Testing Course'
+     * Step: 'And the user should receive a warning when he does not belong to that student group number.'
+     * Gives warning when the student is not in that group.
      */
     @And("the user should receive a warning when he does not belong to that student group number")
-    public void theUserIsInThatStudentGroup() {
-        boolean isInThatStudentGroup = softwareTestingPage.verifyStudentGroup();
+    public void verifyStudentGroupWarning() {
+        boolean isInThatStudentGroup = softwareTestingPage.verifyStudentGroupWarning();
         if (!isInThatStudentGroup) {
             logger.warn("Student is not in a group with that student number.");}
     }
 
     /**
-     * Implementation for the step 'When the user says student {} '.
+     * Scenario: 'Verify Mandatory Presence of a student in Software Testing Course'
+     * Step: 'When the user says student {} '.
      * @param name Full Name with capital letters like one should from the student.
      */
     @When("the user says a student {}")
-    public void userInput(String name) {
-        softwareTestingPage.userInput(name, "0");
+    public void provideStudent(String name) {
+        softwareTestingPage.provideStudentGroup(name, "0");
     }
 
     /**
-     * Implementation for the step 'Then the user should see his mandatory presence as presenter'.
+     * Scenario: 'Verify Mandatory Presence of a student in Software Testing Course'
+     * Step: 'Then the user should see his mandatory presence as presenter'.
+     * Gives assertion if the student is not in any group.
      * Prints the date that the student needs to present a lecture.
      */
     @Then("the user should see his mandatory presence as presenter")
-    public void PresenceAsPresenter() {
+    public void presencePresenter() {
         Assert.assertTrue("The student is not in any group", softwareTestingPage.inAnyGroup());
         logger.info(softwareTestingPage.presencePresenter());
     }
 
     /**
-     * Implementation for the step 'Then the user should see his mandatory presence as opponent'.
+     * Scenario: 'Verify Mandatory Presence of a student in Software Testing Course'
+     * Step: 'Then the user should see his mandatory presence as opponent'.
+     * Gives assertion if the student is not in any group.
      * Prints the date that the student is an opponent.
      */
     @And("the user should see his mandatory presence as opponent")
-    public void PresenceAsOpponent() {
+    public void presenceOpponent() {
         Assert.assertTrue("The student is not in any group", softwareTestingPage.inAnyGroup());
         logger.info(softwareTestingPage.presenceOpponent());
     }

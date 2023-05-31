@@ -35,7 +35,7 @@ In combination with a BDD framework, we will use a scripting language. As said, 
 ## 1.4 Logging frameworks
 **Log4j** and **SLF4J** are used to log application-related messages, such as the warnings were needed in some tests. Therefore, it is used in the Step files.
 
- -  Log4j is a logging library to log messages in Java applications. It allows developers to configure logging behavior dynamically and provides various logging levels (e.g., DEBUG, INFO, WARN, ERROR) to differentiate the severity of logged messages. Log4j also supports different output targets such as console, file, and database. The logging messages are configured in the [`log4j.properties`](src/test/resources/log4j.properties) file.
+ -  Log4j is a logging library to log messages in Java applications. It allows developers to configure logging behavior dynamically and provides various logging levels (e.g., DEBUG, INFO, WARN, ERROR) to differentiate the severity of logged messages. Log4j also supports different output targets such as console, file, and database. The logging messages are configured in the [`log4j.properties`](src/test/resources/log4j.properties) file. We use this framework in the steps classes to give warnings and informational messages to the user.
  -  SLF4J (Simple Logging Facade for Java) provides a common API for various logging frameworks, including Log4j.
 
 Browser-specific logs in Firefox were long and suppressed via the following line in the [`WebDriverManager.java`](src/main/java/managers/WebDriverManager.java) class:
@@ -69,7 +69,7 @@ course. The test script is the following:
 > The script should fail when the link layout differs. Make sure that the script is dynamic! Adding or removing assignments should not result in a failure.
 > Verify that the document (link) exists on the server. Give a warning when it does not exist.
 
-Secondly, in `@Exercise7` and `@Exercise8`, the user gives a student group number and student name as input.
+Secondly, in `@Exercise7` and `@Exercise8`, the user gives a student group number and student name as input. A student group has one date, and then different presenters and opponents. A student that is in any group, should be in one group as opponent and one group as presenter. 
 
 A student name can be in no, or two groups (one time as a presenter, and one time as opponent). In `@Exercise7`, this is checked. The script goes as follows:
 
@@ -125,8 +125,10 @@ The **Selenium PageFactory** is an inbuilt tool for Selenium WebDriver and allow
 One could make new objects of pages for every (step of) scenario. We do not want to create the same pages over and over again. To avoid this situation, a [`PageObjectManager`](src/main/java/managers/PageObjectManager.java) is implemented. It creates a single object of each page for all the step definition files. 
 
 ## 4.4 BaseClass, TestContext and Hooks
+The Hooks class helps us to avoid code duplication. It allows us to do certain things before and after each scenario, and close all browser processes after all scenarios are tested.
 
+The BaseClass allows us to share the same WebDriverManager and PageObjectManager in a scenario between the Hooks class and the Step classes.
 
-
+The TextContext class 
 
 

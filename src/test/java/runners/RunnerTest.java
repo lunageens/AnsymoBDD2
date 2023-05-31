@@ -4,15 +4,9 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
-// TODO Explanation input and output Exercise 7 in README?
-// TODO Change given step in @Exercise8 - only need name and no group number, need two dates as well (?)
-// TODO Add explanation warnings and errors of Log4j in the README file - keep assertions?
-
+// TODO Extra reporting?
 // TODO Make different step file for Exercise 6, 7 and 8. Give it appropriate name and adjust this here. Also in runner.
-// TODO TestContext for different step files?
-// TODO Explain baseclass, hooks and test-context in README
-
-
+// TODO TestContext for different step files? Explain in  README.md
 
 /**
  * JUnit class that specifies how Cucumber should run tests.

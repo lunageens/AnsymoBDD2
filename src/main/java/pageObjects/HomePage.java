@@ -49,7 +49,7 @@ public class HomePage {
      *
      * @param linkText Text in menu on homepage u want to click on. Only implemented for 'Courses'.
      */
-    public void clickMenuItem(String linkText) { // will always navigate to courses and not other menu items, only works for our string
+    public void clickMenuLink(String linkText) { // will always navigate to courses and not other menu items, only works for our string
         linkCourses.click();
     }
 }

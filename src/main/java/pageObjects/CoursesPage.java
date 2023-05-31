@@ -65,35 +65,41 @@ public class CoursesPage {
     }
 
     /**
-     * Checks if there are any courses listed at all on the CoursesPage
+     * Checks if there are any courses listed at all on the CoursesPage.
      *
      * @return boolean True if there are 1 or more courses listed on the CoursesPage.
      */
-    public boolean areCoursesListed() {
+    public boolean verifyAllCoursesListed() {
         List<WebElement> courseNameElements = getAllCourses();
         return !courseNameElements.isEmpty();
     }
 
     /**
-     * Checks for each course on the coursesPage if the details page of that course loads. Gives assertion if that's not the case.
-     * Checks for each course on that details page if there is 1 or more professor specified. Gives assertion if that's not the case.
-     * Prints the names of the professor for each course.
+     * Checks for each course on the coursesPage if the details page of that course loads.
+     * Gives assertion if that's not the case.
+     * Checks for each course on that details page if there is 1 or more professor specified.
+     * Gives assertion if that's not the case.
      *
      * @param pageObjectManager Instance of pageObjectManager that is currently in use.
      */
-    public void selectEachCourseAndVerifyDetails(PageObjectManager pageObjectManager) {
+    public void verifyCourseDetailsForAllCourses(PageObjectManager pageObjectManager) {
         // First, calculate number of courses if we are on the Courses Page the first time.
         List<WebElement> courseElements = getAllCourses();
+
+        // Initiate result variables
         List<String> courseTitlesNotLoaded = new ArrayList<>();
         List<String> courseTitlesNoProfessor = new ArrayList<>();
+
+        // Loop trough Each course
         int index;
         int numberOfCourses = courseElements.size();
         for (index = 0; index < numberOfCourses; index++) {
-            // Get web-element of this course with correct ID
+
+            // Get web-element of this course with correct ID (The x time that we are on course page)
             List<WebElement> courseElementsThisDom = getAllCourses();
             WebElement courseElement = courseElementsThisDom.get(index);
 
-            // Go to specific course page
+            // Go to specific course details page
             courseElement.click();
             CourseDetailsPage courseDetailsPage = pageObjectManager.getNewCourseDetailsPage();
 
@@ -102,8 +108,7 @@ public class CoursesPage {
                 courseTitlesNotLoaded.add(courseDetailsPage.getCourseTitle());
             }
 
-            //Verify professor information for each course
-            // TODO Give assertion for all courses that do not have a professor, not just one.
+            // Verify professor information for each course
             List<String> professorNames = courseDetailsPage.getProfessorName();
             if (professorNames.isEmpty()) {
                 courseTitlesNoProfessor.add(courseDetailsPage.getCourseTitle());
@@ -115,6 +120,7 @@ public class CoursesPage {
             // Shall not find the element in the dom of the new courses page since it does not have identical ID.
             navigateToCoursesPage();
         }
+
         Assert.assertTrue(formatListToText(courseTitlesNotLoaded, "not loaded"), courseTitlesNotLoaded.isEmpty());
         Assert.assertTrue(formatListToText(courseTitlesNoProfessor, "no professor"), courseTitlesNoProfessor.isEmpty());
     }
