@@ -153,20 +153,6 @@ public class ConfigFileReader {
     }
 
     /**
-     * Gets path to configuration file of Extent report, named extent-config.xml, from the Configuration.properties file.
-     * Gives exception when not specified in that file.
-     *
-     * @return String File path to configuration file of Extent reports
-     */
-    public String getReportConfigPath() {
-        // TODO Use this when doing Extent report
-        String reportConfigPath = properties.getProperty("reportConfigPath");
-        if (reportConfigPath != null) return reportConfigPath;
-        else
-            throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");
-    }
-
-    /**
      * Specifies the operating system on which the program should run.
      *
      * @return OperatingSystemType Type of operating system to run test on

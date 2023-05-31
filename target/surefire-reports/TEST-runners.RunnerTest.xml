@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="1" name="runners.RunnerTest" time="53.557" errors="0" skipped="0">
+<testsuite tests="10" failures="1" name="runners.RunnerTest" time="57.227" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,14 +61,13 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="16.094">
-    <failure message="Course Master thesis does not have a professor." type="java.lang.AssertionError">java.lang.AssertionError: Course Master thesis does not have a professor.
+  <testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors)" time="19.574">
+    <failure message="The course Master thesis has no professor." type="java.lang.AssertionError">java.lang.AssertionError: The course Master thesis has no professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:111)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:113)
-	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:12)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:119)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:116)
+	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:12)
 </failure>
     <system-out>When using an old version of firefox, specify path to geckodriver in Configuration file.
 This means there is a need for an additional geckodriver (such as installed in for windows 64 in the drivers directory). 
@@ -76,30 +75,29 @@ Adjust the code in WebDriverManager.java as follows:
 add line: System.set.Property(webdriver.chrome.driver, FileReaderManager.getInstance().getConfigReader.getDriverPath()) before initializing new driver
 
 @CompleteTest @Exercise5
-Scenario Outline: Verify all courses from homepages (names and professors)                   # src/test/resources/features/BrowseCourses.feature:15
+Scenario Outline: Verify all courses from homepages (names and professors)                   # src/test/resources/features/Ansymore.feature:15
   Given the user is on the Ansymo homepage                                                   # stepdefinitions.BrowseCoursesSteps.navigateToHomepage()
   When the user clicks the &quot;Courses&quot; link in the menu section                                # stepdefinitions.BrowseCoursesSteps.clickCoursesLink(java.lang.String)
   Then the user should see a page with all the courses listed                                # stepdefinitions.BrowseCoursesSteps.verifyCoursesPage()
-For the course Master thesis:
-The professor(s) teaching this course is (are) : None
   And for each course, there should be a page that is loaded and there should be a professor # stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames()
-      java.lang.AssertionError: Course Master thesis does not have a professor.
+      java.lang.AssertionError: The course Master thesis has no professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertFalse(Assert.java:65)
-	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:111)
-	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:113)
-	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/BrowseCourses.feature:12)
+	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:119)
+	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:116)
+	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:12)
 
 </system-out>
+    <system-err>log4j:ERROR Unexpected char [h] at position 2 in conversion patterrn.
+</system-err>
   </testcase>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="4"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="4.199"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="3.973"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="3.933"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="4.053"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="4.232"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="4.235"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="4.75"/>
-  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #4" time="4.088"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.187"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #1" time="3.889"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #2" time="3.852"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #3" time="3.909"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course #4" time="3.89"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #1" time="3.879"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #2" time="4.043"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #3" time="4.079"/>
+  <testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course #4" time="3.925"/>
 </testsuite>

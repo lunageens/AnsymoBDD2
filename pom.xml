@@ -12,7 +12,8 @@
 
     <properties>
         <junit.version>4.13.2</junit.version>
-        <allure.junit4.version>2.21.0</allure.junit4.version>
+        <allure.version>2.21.0</allure.version>
+        <aspectj.version>1.9.1</aspectj.version>
         <selenium.version>4.8.1</selenium.version>
         <cucumber.version>7.11.1</cucumber.version>
         <allure.cucumber7.version>2.21.0</allure.cucumber7.version>
@@ -69,7 +70,7 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-        <!-- Extra reporting dependencies-->
+        <!-- Extra reporting dependencies for Allure-->
     </dependencies>
     <build>
         <plugins>
@@ -110,7 +111,8 @@
                     </execution>
                 </executions>
             </plugin>
-           <!-- Allure maven plugin -->
+            <!-- Maven surefire plugin to configure the test execution and the Allure listener -->
+            <!-- Allure maven plugin -->
         </plugins>
         <resources>
             <resource>

@@ -18,8 +18,8 @@ Feature: Verify the Ansymo Web application
   Scenario: Verify Assignment Links in Software Testing Course
     Given the user is on the Software Testing course page
     When the user sees the links for each assignment
-    Then the user should verify the link format of each assignment link
-    And the user should verify the document existence of each assignment link
+    Then the user should receive a warning when an assignment link doesn't exist
+    And the user should verify the link format of each assignment link
 
   @Exercise7
   Scenario Outline: Verify Student Groups in Software Testing Course
@@ -42,9 +42,9 @@ Feature: Verify the Ansymo Web application
     Then the user should see his mandatory presence as presenter
     And the user should see his mandatory presence as opponent
     Examples:
-      | name            | number |
-      | "Luna Geens"    | 1      |
-      | "Luna Geens"    | 2      |
-      | "Luna Geens"    | 3      |
-      | " Thimoty Smet" | 1      |
+      | name           | number |
+      | "Luna Geens"   | 1      |
+      | "Luna Geens"   | 2      |
+      | "Luna Geens"   | 3      |
+      | "Thimoty Smet" | 1      |
 

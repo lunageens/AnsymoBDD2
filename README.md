@@ -9,7 +9,7 @@ Selenium is a powerful open-source framework for automated web testing. It has t
 As often with Selenium, we will use it in combination with a framework for Behaviour-Driven Development (BDD). BDD focuses on defining and specifying desired behaviours of (the GUI of) the web-application in a common natural language. A framework for BDD provides the structure and set of guidelines for implementing BDD practices. It includes tools, libraries, and utilities to support the creation and execution of BDD tests.
 
 ### 1.2.1 Scenario description
-An example of such a framework is **Gherkin**, Gherkin is a language used to write BDD scenarios in a structured, human-readable format. We used Gherkin to define scenarios in the [`BrowseCourses.feature`](src/test/resources/features/BrowseCourses.feature) file. One could also use other languages, such as Jbehave, to write scenarios.
+An example of such a framework is **Gherkin**, Gherkin is a language used to write BDD scenarios in a structured, human-readable format. We used Gherkin to define scenarios in the [`Ansymore.feature`](src/test/resources/features/Ansymore.feature) file. One could also use other languages, such as Jbehave, to write scenarios.
 
 ### 1.2.2 Scenario implementation
 On top of that, **Cucumber** is another example of such a BDD framework. Cucumber supports various programming languages, such as Java (as in this project). It is used to create the executable specification written in Gherkin syntax. As seen in [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) and other Step classes, it is used to define the implementation of the scenarios we wrote in natural language.
@@ -47,9 +47,6 @@ Using the **JavaDoc** Tools of IntelliJ IDEA, one can find the index.html file i
 
 Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing a SPA redirect rule and we wanted to deploy all the sites to **Netlify**, i created a [`_redirects`](netlifydocs/_redirects)file in the netlifydocs directory and automated copying it to the correct [`cucumber-html-reports`](target/cucumber-reports/cucumber-html-reports) directory with the support of the **maven-resources-plugin**.
 > URL Cucumber reports: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
-
-For more detailed reporting, one can make use of the **Allure** reporting framework.
-> URL Allure reports: [Ansymore Allure reports]( ).
 
 # 2 Expected behaviour
 The program is set up to test certain behaviours of the [Ansymo web-application](https://ansymore.uantwerpen.be). One could alter the `@CucumberOptions(tags = "...")` in the Runner class to only test the script from specific exercises.

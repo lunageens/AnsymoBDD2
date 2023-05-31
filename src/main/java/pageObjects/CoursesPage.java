@@ -84,6 +84,8 @@ public class CoursesPage {
     public void selectEachCourseAndVerifyDetails(PageObjectManager pageObjectManager) {
         // First, calculate number of courses if we are on the Courses Page the first time.
         List<WebElement> courseElements = getAllCourses();
+        List<String> courseTitlesNotLoaded = new ArrayList<>();
+        List<String> courseTitlesNoProfessor = new ArrayList<>();
         int index;
         int numberOfCourses = courseElements.size();
         for (index = 0; index < numberOfCourses; index++) {
@@ -94,21 +96,18 @@ public class CoursesPage {
             // Go to specific course page
             courseElement.click();
             CourseDetailsPage courseDetailsPage = pageObjectManager.getNewCourseDetailsPage();
-            System.out.println("For the course " + courseDetailsPage.getCourseTitle() + ":");
 
             // Verify course page load for each course
-            Assert.assertTrue("Course Page is not loaded successfully", courseDetailsPage.isCoursePageLoaded());
+            if (!courseDetailsPage.isCoursePageLoaded()) {
+                courseTitlesNotLoaded.add(courseDetailsPage.getCourseTitle());
+            }
 
             //Verify professor information for each course
+            // TODO Give assertion for all courses that do not have a professor, not just one.
             List<String> professorNames = courseDetailsPage.getProfessorName();
-            String formattedNames;
-            if (professorNames.isEmpty()) { formattedNames = " None"; }
-            else if (professorNames.size() == 1) {formattedNames = professorNames.get(0);}
-            else {  formattedNames = String.join(", ", professorNames.subList(0, professorNames.size() - 1));
-                formattedNames += " and " + professorNames.get(professorNames.size() - 1); }
-            System.out.println("The professor(s) teaching this course is (are) :" + formattedNames);
-            String assertionText = "Course " + courseDetailsPage.getCourseTitle() + " does not have a professor.";
-            Assert.assertFalse(assertionText, professorNames.isEmpty());
+            if (professorNames.isEmpty()) {
+                courseTitlesNoProfessor.add(courseDetailsPage.getCourseTitle());
+            }
 
             // Back to courses page
             // if we navigate 'back' to other page, web-element shall not be found anymore.
@@ -116,5 +115,39 @@ public class CoursesPage {
             // Shall not find the element in the dom of the new courses page since it does not have identical ID.
             navigateToCoursesPage();
         }
+        Assert.assertTrue(formatListToText(courseTitlesNotLoaded, "not loaded"), courseTitlesNotLoaded.isEmpty());
+        Assert.assertTrue(formatListToText(courseTitlesNoProfessor, "no professor"), courseTitlesNoProfessor.isEmpty());
+    }
+
+    /**
+     * Formats course Titles in to the right type of assertionText
+     * @param stringList Titles that did not comply to assertion
+     * @param typeAssertion String that can be "not loaded", or "no professor". Otherwise, assertion error.
+     * @return String AssertionText that will be given.
+     */
+    public String formatListToText(List<String> stringList, String typeAssertion) {
+        String assertionText;
+        Assert.assertTrue("Formatting assertion texts for this type of assertion is not yet implemented.", typeAssertion.equals("not loaded") || typeAssertion.equals("no professor"));
+
+        if (stringList.isEmpty()) {
+            assertionText = null;
+        } else if (stringList.size() == 1) {
+            if (typeAssertion.equals("not loaded")) {
+                assertionText = "The page of the course " + stringList.get(0) + " has not loaded successfully.";
+            } else {
+                assertionText = "The course " + stringList.get(0) + " has no professor.";
+            }
+        } else {
+            // last name with and, others with comma: e.g., Assignments 1, 2, and 3 ...
+            String lastTitle = stringList.remove(stringList.size() - 1);
+            String otherTitlesJoined = String.join(", ", stringList);
+            String allTitlesJointed = otherTitlesJoined + " and " + lastTitle;
+            if (typeAssertion.equals("not loaded")) {
+                assertionText = "The pages of the courses " + allTitlesJointed + " have not loaded successfully.";
+            } else {
+                assertionText = "The courses " + allTitlesJointed + " have no professor";
+            }
+        }
+        return assertionText;
     }
 }

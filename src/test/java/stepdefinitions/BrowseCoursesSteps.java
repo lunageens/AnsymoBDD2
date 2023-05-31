@@ -13,6 +13,9 @@ import pageObjects.CoursesPage;
 import pageObjects.HomePage;
 import pageObjects.SoftwareTestingPage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // TODO Different step files? Ex5 versus Ex6 7 and 8. If so, alter Runner clas as well.
 // TODO Do i still need to use Groovy as a scripting language, since these are just plain java files. Or is my assignment okay already?
 // Dit kan dus ook in Groovy ipv java
@@ -132,22 +135,27 @@ public class BrowseCoursesSteps extends BaseClass {
     }
 
     /**
+     * Implementation for the step 'Then the user receive a warning when an assignment link doesn't exist.'.
+     * For each assignment listed, verify that the document (link) exists on the server. Gives a warning when it does not exist.
+     */
+    @Then("the user should receive a warning when an assignment link doesn't exist")
+    public void verifyAssignmentsLinkExistence(){
+        List<Integer> nonExistentLinks = softwareTestingPage.verifyAssignmentsLinkExistence();
+        if (!nonExistentLinks.isEmpty()) { // only give warning when there is a link that does not exist
+            String warningText = softwareTestingPage.formatLinkExistenceWarning(nonExistentLinks);
+            logger.warn(warningText);
+        }
+    }
+
+    /**
      * Implementation for the step 'Then the user should verify the link format of each assignment link'.
      * For each assignment listed, checks that the link is of the format  '/system/files/uploads/courses/Testing/assignment[NR].pdf'
      * Gives assertion if the layout differs for one of the assignments.
      */
     @Then("the user should verify the link format of each assignment link")
     public void verifyAssignmentsLinkFormat(){
-        softwareTestingPage.verifyAssignmentsLinkFormat();
-    }
-
-    /**
-     * Implementation for the step 'Then the user should verify the document existence of each assignment link'.
-     * For each assignment listed, verify that the document (link) exists on the server. Gives a warning when it does not exist.
-     */
-    @Then("the user should verify the document existence of each assignment link")
-    public void verifyAssignmentsLinkExistence(){
-        softwareTestingPage.verifyAssignmentsLinkExistence();
+        List<Integer> nonFormattedLinks = softwareTestingPage.verifyAssignmentsLinkFormat();
+        Assert.assertNotNull(softwareTestingPage.formatLinkFormatAssertion(nonFormattedLinks), nonFormattedLinks);
     }
 
     /**
@@ -175,7 +183,8 @@ public class BrowseCoursesSteps extends BaseClass {
     @And("the user should receive a warning when he does not belong to that student group number")
     public void theUserIsInThatStudentGroup() {
         boolean isInThatStudentGroup = softwareTestingPage.verifyStudentGroup();
-        if (!isInThatStudentGroup) { logger.warn("Student is not in a group with that student number.");}
+        if (!isInThatStudentGroup) {
+            logger.warn("Student is not in a group with that student number.");}
     }
 
     /**
