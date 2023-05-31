@@ -28,11 +28,12 @@ Feature: Verify the Ansymo Web application
     Then the user should be in a student group
     And the user should receive a warning when he does not belong to that student group number
     Examples:
-      | name           | number |
-      | "Luna Geens"   | 1      |
-      | "Luna Geens"   | 2      |
-      | "Luna Geens"   | 3      |
-      | "Thimoty Smet" | 1      |
+      | name         | number |
+      | Luna Geens   | 1      |
+      | Luna Geens   | 2      |
+      | Luna Geens   | 3      |
+      | Thimoty Smet | 1      |
+      | Mieke Hans   | 2      |
 
 
   @Exercise8

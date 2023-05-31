@@ -174,7 +174,7 @@ public class BrowseCoursesSteps extends BaseClass {
      */
     @Then("the user should be in a student group")
     public void theUserShouldBeInAStudentGroup() {
-        // Assert.assertFalse("The student is not in any group", softwareTestingPage.inAnyGroup());
+        Assert.assertTrue("The student is not in any group.", softwareTestingPage.inAnyGroup());
     }
 
     /**

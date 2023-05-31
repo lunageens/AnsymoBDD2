@@ -10,8 +10,13 @@ import org.openqa.selenium.support.FindBy;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Applying the page pattern, all the methods related to the page where the details of the software testing course
@@ -25,6 +30,16 @@ public class SoftwareTestingPage extends CourseDetailsPage {
      * WebDriver used to create page and execute methods.
      */
     WebDriver driver;
+
+    /**
+     * The full name with capitalization of the student that needs to be verified.
+     */
+    String inputStudentName;
+
+    /**
+     * The student group number that needs to be verified.
+     */
+    Integer inputGroupNumber;
 
     /**
      * Constructor of SoftwareTestingPage
@@ -197,18 +212,94 @@ public class SoftwareTestingPage extends CourseDetailsPage {
         return assertionText;
     }
 
+    /**
+     * Save the input that the user has given as class variables.
+     * @param name Full student name that needs to be verified.
+     * @param group  Group number that needs to be verified.
+     */
     public void userInput(String name, String group) {
-        // TODO actual implementation of this method
+        this.inputStudentName = name;
+        this.inputGroupNumber = Integer.parseInt(group);
     }
 
+    @FindAll(@FindBy(css = "html > body > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul:nth-of-type(7) > ul"))
+    List<WebElement> fullGroups;
+    /**
+     * Number of groups in total.
+     * @return int The number of groups that there are in total.
+     */
+    public int getNumberOfGroups(){
+        return fullGroups.size();
+    }
+
+    @FindAll(@FindBy(css = "html > body > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul:nth-of-type(7) > ul > li:nth-of-type(1)"))
+    List<WebElement> allDatesWebElements;
+    // TODO Check this implementation
+    public LocalDate getDate(int groupNumber ){
+        WebElement fullDateWebElement = allDatesWebElements.get(groupNumber -1);
+        String fullDate = fullDateWebElement.getText();
+        System.out.println("getDate - for group number " + groupNumber + " is full text " + fullDate);
+
+        // Extract the date portion from the full date string
+        String dateString = fullDate.replaceAll("Presentation date: ", "");
+        // Define the formatter for parsing the date
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH);
+        // Parse the date string into a LocalDate object
+        LocalDate date = LocalDate.parse(dateString, inputFormatter);
+
+        System.out.println("getDate - for group number " + groupNumber + "is date " + date);
+        return date;
+    }
+
+    @FindAll(@FindBy(css = "html > body > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul:nth-of-type(7) > ul > li:nth-of-type(2)"))
+    List<WebElement> allPresentersWebElements;
+    public List<String> getPresenters(int groupNumber){
+        WebElement fullPresentersWebElement = allPresentersWebElements.get(groupNumber -1);
+        String fullPresenters = fullPresentersWebElement.getText();
+
+        fullPresenters = fullPresenters.replace("Presenters: ", "");
+        List<String> presenters = List.of(fullPresenters.split(", "));
+        return presenters;
+    }
+
+    @FindAll(@FindBy(css = "html > body > div > div:nth-of-type(3) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > ul:nth-of-type(7) > ul > li:nth-of-type(3)"))
+    List<WebElement> allOpponentsWebElements;
+    public List<String> getOpponents(int groupNumber ){
+        WebElement fullOpponentsWebElement = allOpponentsWebElements.get(groupNumber -1);
+        String fullOpponents = fullOpponentsWebElement.getText();
+
+        fullOpponents = fullOpponents.replace("Opponents: ", "");
+        List<String> opponents = List.of(fullOpponents.split(", "));
+        return opponents;
+    }
+
+    public List<Integer> getGroupNumbers(String studentName){
+        List<Integer> groupNumbers = new ArrayList<>();
+        int presenterGroup = 0;
+        int opponentGroup = 0;
+        int totalNumberOfGroups = getNumberOfGroups();
+        for (int i = 0; i < totalNumberOfGroups; i++) {
+            int groupNum = i + 1;
+            List<String> presenters = getPresenters(groupNum);
+            if (presenters.contains(studentName)){presenterGroup = groupNum;}
+            List<String> opponents = getOpponents(groupNum);
+            if (opponents.contains(studentName)){opponentGroup = groupNum;}
+        }
+        if (presenterGroup != 0){groupNumbers.add(presenterGroup);}
+        if (opponentGroup != 0){groupNumbers.add(opponentGroup);}
+        return groupNumbers;
+    }
+
+    /**
+     * Check if the student is in any group.
+     * @return boolean True if the student is in one or more groups.
+     */
     public boolean inAnyGroup() {
-        // TODO actual implementation of this method
-        return true;
+        return !getGroupNumbers(inputStudentName).isEmpty();
     }
 
     public boolean verifyStudentGroup() {
-        // TODO actual implementation of this method
-        return false;
+        return (getPresenters(inputGroupNumber).contains(inputStudentName)) || (getOpponents(inputGroupNumber).contains(inputStudentName));
     }
 
     public void presencePresenter() {

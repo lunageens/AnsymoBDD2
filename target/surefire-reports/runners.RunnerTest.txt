@@ -1,12 +1,19 @@
 -------------------------------------------------------------------------------
 Test set: runners.RunnerTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 59.297 sec <<< FAILURE!
-Verify all courses from homepages (names and professors)(Verify the Ansymo Web application)  Time elapsed: 19.574 sec  <<< FAILURE!
+Tests run: 11, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 63.647 sec <<< FAILURE!
+Verify all courses from homepages (names and professors)(Verify the Ansymo Web application)  Time elapsed: 18.942 sec  <<< FAILURE!
 java.lang.AssertionError: The course Master thesis has no professor.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at pageObjects.CoursesPage.selectEachCourseAndVerifyDetails(CoursesPage.java:119)
 	at stepdefinitions.BrowseCoursesSteps.verifyCourseAndProfessorNames(BrowseCoursesSteps.java:116)
 	at ✽.for each course, there should be a page that is loaded and there should be a professor(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:12)
+
+Verify Student Groups in Software Testing Course #5(Verify the Ansymo Web application)  Time elapsed: 3.93 sec  <<< FAILURE!
+java.lang.AssertionError: The student is not in any group.
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at stepdefinitions.BrowseCoursesSteps.theUserShouldBeInAStudentGroup(BrowseCoursesSteps.java:177)
+	at ✽.the user should be in a student group(file:///C:/ST/AnsymoBDD2/src/test/resources/features/Ansymore.feature:28)
 
