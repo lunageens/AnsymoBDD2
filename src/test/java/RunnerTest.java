@@ -1,5 +1,6 @@
 import io.cucumber.junit.platform.engine.*;
 
+//TODO Read me properties of junit - explain junit 4 versus 5
 
 /**
  * JUnit class that specifies how Cucumber should run tests.

@@ -1,9 +1,9 @@
 
-This program is set up to use Selenium to test the GUI of a web-application (and not the implementation).
+**This maven project is set up to use Selenium WebDriver to test the GUI of a web-application (and not the implementation). It uses testing framework JUnit 5, in combination with Behaviour-Driven Development framework Cucumber to do so. It can be tested on different browsers and operating programs. The implementation of the tests is written in Java en uses logging framework log4j. The scenarios are written in Gherkin.**
 
 # 1 Use of different frameworks
 ## 1.1 Selenium Webdriver
-Selenium is a powerful open-source framework for automated web testing. It has two different versions, 1) the WebDriver, and 2) the IDE. Using the Selenium IDE we can easily record and playback scripts. For this particular exercises, we could use the Selenium IDE to export code, but these scripts should be runnable java programs (which is why we will use maven). Therefore, i choose to use the **Selenium Webdriver** dependency (see [`WebDriverManager.java`](src/main/java/managers/WebDriverManager.java) class).
+Selenium is a powerful open-source framework for automated web testing. It has two different versions, 1) the WebDriver, and 2) the IDE. Using the Selenium IDE we can easily record and playback scripts. For this particular exercises, we could use the Selenium IDE to export code, but these scripts should be runnable java programs (which is why we will use maven). Therefore, I choose to use the **Selenium Webdriver** dependency (see [`WebDriverManager.java`](src/main/java/managers/WebDriverManager.java) class).
 
 ## 1.2 BDD testing with Gherkin and Cucumber
 As often with Selenium, we will use it in combination with a framework for Behaviour-Driven Development (BDD). BDD focuses on defining and specifying desired behaviours of (the GUI of) the web-application in a common natural language. A framework for BDD provides the structure and set of guidelines for implementing BDD practices. It includes tools, libraries, and utilities to support the creation and execution of BDD tests.
@@ -14,12 +14,12 @@ An example of such a framework is **Gherkin**, Gherkin is a language used to wri
 ### 1.2.2 Scenario implementation
 On top of that, **Cucumber** is another example of such a BDD framework. Cucumber supports various programming languages, such as Java (as in this project). It is used to create the executable specification written in Gherkin syntax. As seen in the step files [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) and [`BrowseSoftwareTestingSteps.java`](src/test/java/stepdefinitions/BrowseSoftwareTestingSteps.java), it is used to define the implementation of the scenarios we wrote in natural language.
 
- -  The actual implementation is written following the page pattern, where methods are categorized per page (see the package [`pageObjects`](src/main/java/pageObjects).
+ -  The actual implementation is written following the page pattern, where methods are categorized per page (see the package [`pageObjects`](src/main/java/pageObjects)).
  -  The actual implementation is written in **Java**.
- -  The **JUnit** testing framework for Java is used to support the implementation of assertions in the test, to check if the tests pass or fails.
+ -  The **JUnit** testing framework for Java is used to support the implementation of assertions in the test, to check if the tests pass or fails. We have opted for JUnit 5, which has different modules in the pom.xml file (in contradiction to JUnit 4). With the help of Cucumber, the test are run by JUnit with the `mvn install` command. Specific configurations about that process are specified in the [`junit-platform.properties`](src/test/resources/junit-platform.properties) file. 
  -  **Pico-container** is used as a lightweight dependency injection container for Java, which can be used in BDD frameworks for managing dependencies in test scenarios.
 
-Cucumber also supports [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java), that tell the program what to do before and after the execution of each scenario for example. The [`BaseClass.java`](src/test/java/stepdefinitions/BaseClass.java) provides two manager objects, so that we can share them between the two Step and [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java) classes. The [`RunnerTest.java`](src/test/java/runners/RunnerTest.java) is the overall class used to run the test.
+Cucumber also supports [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java), that tell the program what to do before and after the execution of each scenario for example. The [`BaseClass.java`](src/test/java/stepdefinitions/BaseClass.java) provides two manager objects, so that we can share them between the two Step and [`Hooks.java`](src/test/java/stepdefinitions/Hooks.java) classes. The [`RunnerTest.java`](src/test/java/RunnerTest.java) is the overall class used to run the test.
 
 ### 1.2.3 Combination of scenario description and implementation in other projects
 If one would use JBehave, one could define those steps with the Jbehave framework as well. One would make a runner class with the support of JUnit framework.
@@ -45,11 +45,13 @@ Browser-specific logs in Firefox were long and suppressed via the following line
 Using the **JavaDoc** Tools of IntelliJ IDEA, one can find the index.html file in the [`javadoc`](javadoc/index.html) directory that describes the utility of each method, class and variable.
 > URL Javadoc: [Ansymore site on Netlify](https://ansymo2site.netlify.app/).
 
-Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing a SPA redirect rule and we wanted to deploy all the sites to **Netlify**, i created a [`_redirects`](netlifydocs/_redirects)file in the netlifydocs directory and automated copying it to the correct [`cucumber-html-reports`](target/cucumber-reports/cucumber-html-reports) directory with the support of the **maven-resources-plugin**.
+Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing an SPA redirect rule, and we wanted to deploy all the sites to **Netlify**, I created a [`_redirects`](netlifydocs/_redirects)file in the netlifydocs directory and automated copying it to the correct [`cucumber-html-reports`](target/cucumber-reports/cucumber-html-reports) directory with the support of the **maven-resources-plugin**. The over-all creation of these reports happens during the running process, when the test are ran with the help of JUnit. Therefor, the reports are partly configured in the [`junit-platform.properties`](src/test/resources/junit-platform.properties) file. 
 > URL Cucumber reports: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
 
+Note that there are also [`surefire-reports`](target/surefire-reports) created during the running process by the `maven-surefire-plugin`. This is a result of the console output. 
+
 # 2 Expected behaviour
-The program is set up to test certain behaviours of the [Ansymo web-application](https://ansymore.uantwerpen.be). One could alter the `@CucumberOptions(tags = "...")` in the Runner class to only test the script from specific exercises.
+The program is set up to test certain behaviours of the [Ansymo web-application](https://ansymore.uantwerpen.be). One could alter the `cucumber.tags` key in the [`junit-platform.properties`](src/test/resources/junit-platform.properties) file to only test the script from specific exercises.
 
 ## 2.1 BrowseCoursesSteps
 The [`BrowseCoursesSteps.java`](src/test/java/stepdefinitions/BrowseCoursesSteps.java) file refers to `@Exercise5`, where we browse courses from the homepage on to the overall courses page and then for each course, a detailed page with more information. The script is the following:

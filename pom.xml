@@ -11,19 +11,20 @@
     <packaging>jar</packaging>
 
     <properties>
-        <junit.version>4.13.2</junit.version>
-        <allure.version>2.21.0</allure.version>
-        <aspectj.version>1.9.1</aspectj.version>
-        <selenium.version>4.8.1</selenium.version>
-        <cucumber.version>7.11.1</cucumber.version>
-        <allure.cucumber7.version>2.21.0</allure.cucumber7.version>
-        <cucumber.jvm.deps.version>1.0.6</cucumber.jvm.deps.version>
-        <log4j.version>2.0.5</log4j.version>
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.javadoc.plugin.version>3.5.0</maven.javadoc.plugin.version>
-        <maven.project.info.reports.plugin>3.4.1</maven.project.info.reports.plugin>
+        <!-- Dependencies -->
+        <junit.platform.version>1.9.2</junit.platform.version>
+        <junit.jupiter.engine.version>5.9.2</junit.jupiter.engine.version>
+        <selenium.version>4.8.1</selenium.version>
+        <cucumber.version>7.11.1</cucumber.version>
+        <cucumber.jvm.deps.version>1.0.6</cucumber.jvm.deps.version>
+        <log4j.version>2.0.5</log4j.version>
+        <!-- Build plugins -->
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.resources.plugin.version>3.3.0</maven.resources.plugin.version>
+        <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
+        <junit.platform.surefire.provider.version>1.2.0</junit.platform.surefire.provider.version>
     </properties>
 
     <dependencies>
@@ -33,14 +34,14 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-runner</artifactId>
-            <version>1.9.2</version>
+            <version>${junit.platform.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- Junit Jupiter: write the test in JUnit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.2</version>
+            <version>${junit.jupiter.engine.version}</version>
         </dependency>
 
 
@@ -109,7 +110,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>${maven.resources.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>copy-redirects-file</id>
@@ -137,12 +138,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
+                <version>${maven.surefire.plugin.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>1.2.0</version>
+                        <version>${junit.platform.surefire.provider.version}</version>
                     </dependency>
                 </dependencies>
                 <configuration>
@@ -150,7 +151,7 @@
                         <additionalClasspathElement>src/test/java/</additionalClasspathElement>
                     </additionalClasspathElements>
                     <properties>
-                        <configurationParameters> <!-- Include feature name -->
+                        <configurationParameters> <!-- Include feature name in console output -->
                             cucumber.junit-platform.naming-strategy=long
                         </configurationParameters>
                     </properties>
