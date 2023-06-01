@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import managers.PageObjectManager;
 import managers.WebDriverManager;
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pageObjects.SoftwareTestingPage;
@@ -44,10 +44,10 @@ public class BrowseSoftwareTestingSteps {
      */
     public BrowseSoftwareTestingSteps(BaseClass base){
         webDriverManager = base.webDriverManager;
-        Assert.assertNotNull("Webdrivermanager created is empty", webDriverManager);
+        assertNotNull(webDriverManager, "Webdrivermanager created is empty.");
         pageObjectManager = base.pageObjectManager;
-        Assert.assertNotNull("PageObjectManager created is emtpy", pageObjectManager);
-        Assert.assertNotNull("Driver is empty", webDriverManager.getDriver());
+        assertNotNull(pageObjectManager, "PageObjectManager created is emtpy. ");
+        assertNotNull(webDriverManager.getDriver(), "Driver is empty.");
     }
 
     /**
@@ -70,7 +70,7 @@ public class BrowseSoftwareTestingSteps {
      */
     @When("the user sees the links for each assignment")
     public void verifyAssignmentLinksPresent(){
-        Assert.assertTrue("There are no assignment links.", softwareTestingPage.verifyAssignmentsLinkPresent());
+        assertTrue(softwareTestingPage.verifyAssignmentsLinkPresent(), "There are no assignment links.");
     }
 
     /**
@@ -97,7 +97,7 @@ public class BrowseSoftwareTestingSteps {
     @Then("the user should verify the link format of each assignment link")
     public void verifyAssignmentsLinkFormat(){
         List<Integer> nonFormattedLinks = softwareTestingPage.verifyAssignmentsLinkFormat();
-        Assert.assertNotNull(softwareTestingPage.formatLinkFormatAssertion(nonFormattedLinks), nonFormattedLinks);
+        assertNotNull(nonFormattedLinks, softwareTestingPage.formatLinkFormatAssertion(nonFormattedLinks));
     }
 
     /**
@@ -118,7 +118,7 @@ public class BrowseSoftwareTestingSteps {
      */
     @Then("the user should be in a student group")
     public void verifyStudentGroupMembership() {
-        Assert.assertTrue("The student is not in any group.", softwareTestingPage.inAnyGroup());
+        assertTrue(softwareTestingPage.inAnyGroup(), "The student is not in any group.");
     }
 
     /**
@@ -151,7 +151,7 @@ public class BrowseSoftwareTestingSteps {
      */
     @Then("the user should see his mandatory presence as presenter")
     public void presencePresenter() {
-        Assert.assertTrue("The student is not in any group", softwareTestingPage.inAnyGroup());
+        assertTrue(softwareTestingPage.inAnyGroup(), "The student is not in any group.");
         logger.info(softwareTestingPage.presencePresenter());
     }
 
@@ -163,7 +163,7 @@ public class BrowseSoftwareTestingSteps {
      */
     @And("the user should see his mandatory presence as opponent")
     public void presenceOpponent() {
-        Assert.assertTrue("The student is not in any group", softwareTestingPage.inAnyGroup());
+        assertTrue(softwareTestingPage.inAnyGroup(), "The student is not in any group.");
         logger.info(softwareTestingPage.presenceOpponent());
     }
 }

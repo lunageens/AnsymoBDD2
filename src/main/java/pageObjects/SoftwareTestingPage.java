@@ -1,7 +1,7 @@
 package pageObjects;
 
 import managers.FileReaderManager;
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -47,7 +47,7 @@ public class SoftwareTestingPage extends CourseDetailsPage {
     public SoftwareTestingPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        Assert.assertNotNull("The webdriver in SoftwareTestingPage constructor is null", driver);
+        assertNotNull(driver, "The webdriver in SoftwareTestingPage constructor is null.");
     }
 
     /**
@@ -148,7 +148,7 @@ public class SoftwareTestingPage extends CourseDetailsPage {
      * @return String WarningText with formatted numbers (comma's, and, ...)
      */
     public String formatLinkExistenceWarning(List<Integer> nonExistentLinks){
-        Assert.assertNotNull("There should be at least one non-existent link to format a warning message", nonExistentLinks);
+        assertNotNull(nonExistentLinks, "There should be at least one non-existent link to format a warning message.");
         String warningText;
         if (nonExistentLinks.size() == 1){ // singular
             warningText = "Assignment " + nonExistentLinks.get(0).toString() + " has a link that does not exists on the server.";
@@ -166,7 +166,7 @@ public class SoftwareTestingPage extends CourseDetailsPage {
      * @return String Formatted integers in text form
      */
     public String formatNumListToText(List<Integer> numList) {
-        Assert.assertTrue("There should be at least two numbers to format", numList.size() > 1);
+        assertTrue(numList.size() > 1, "There should be at least two numbers to format.");
         // From integer list to string list
         List<String> formattedList = new ArrayList<>();
         for (Object num : numList) {

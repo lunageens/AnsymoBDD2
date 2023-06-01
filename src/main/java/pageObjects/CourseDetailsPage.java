@@ -1,6 +1,6 @@
 package pageObjects;
 
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +35,7 @@ public class CourseDetailsPage {
     public CourseDetailsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
-        Assert.assertNotNull("The webdriver in CourseDetailsPage constructor is null", driver);
+        assertNotNull(driver, "The webdriver in CourseDetailsPage constructor is null.");
     }
 
     /**

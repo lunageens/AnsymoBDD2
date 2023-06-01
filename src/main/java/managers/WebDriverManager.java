@@ -3,7 +3,8 @@ package managers;
 import enums.DriverType;
 import enums.EnvironmentType;
 import enums.OperatingSystemType;
-import org.junit.Assert;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -59,7 +60,7 @@ public class WebDriverManager {
      */
     public WebDriver getDriver() {
         if (driver == null) driver = createDriver();
-        Assert.assertNotNull("Driver is empty", this.driver);
+        assertNotNull(this.driver, "driver is empty");
         return driver;
     }
 
@@ -74,7 +75,7 @@ public class WebDriverManager {
             case LOCAL -> driver = createLocalDriver();
             case REMOTE -> driver = createRemoteDriver();
         }
-        Assert.assertNotNull("Driver is empty", this.driver);
+        assertNotNull(this.driver, "driver is empty");
         return driver;
     }
 
@@ -133,7 +134,7 @@ public class WebDriverManager {
             driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait()));
 
-        Assert.assertNotNull("The driver at the end of createLocalDriver() is null", driver);
+        assertNotNull(driver, "The driver at the end of createLocalDriver() is null");
         return driver;
     }
 

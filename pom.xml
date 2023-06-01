@@ -27,49 +27,68 @@
     </properties>
 
     <dependencies>
-        <!-- JUnit testing, I don't know if I need this -->
+        <!-- JUnit testing -->
+        <!-- Unlike JUnit 4, Different components to testing with JUnit 5 -->
+        <!-- Junit Platform: foundation, defines testEngine and maven integration -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>1.9.2</version>
+            <scope>test</scope>
         </dependency>
-        <!-- Selenium -->
+        <!-- Junit Jupiter: write the test in JUnit -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.2</version>
+        </dependency>
+
+
+        <!-- Selenium Webdriver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-        <!--> Cucumber language -->
+
+        <!-- Cucumber language -->
+        <!-- For integration with java -->
+        <!-- When using Groovy, change this to cucumber-groovy -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency> <!-- do I need this at all and which scope? -->
+        <!-- For testing with JUnit -->
+        <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency> <!-- manages compatibilities of all these cucumber dependencies -->
+        <!-- Manages compatibilities of all these cucumber dependencies -->
+        <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-jvm-deps</artifactId>
             <version>${cucumber.jvm.deps.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- Container -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+
         <!-- Logging framework implementation-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+
         <!-- Extra reporting dependencies for Allure-->
     </dependencies>
     <build>
@@ -85,6 +104,7 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
+
             <!-- Maven Resource Plugin to copy _redirect file and deploy Cucumber.html to Netlify! -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -111,7 +131,33 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Maven surefire plugin to configure the test execution and the Allure listener -->
+
+            <!-- Maven surefire plugin to configure the test execution Junit and the Allure listener -->
+            <!-- This way, the test can be executed during maven build -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.2.0</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>src/test/java/</additionalClasspathElement>
+                    </additionalClasspathElements>
+                    <properties>
+                        <configurationParameters> <!-- Include feature name -->
+                            cucumber.junit-platform.naming-strategy=long
+                        </configurationParameters>
+                    </properties>
+                </configuration>
+            </plugin>
+
+
             <!-- Allure maven plugin -->
         </plugins>
         <resources>
@@ -124,4 +170,5 @@
             </resource>
         </resources>
     </build>
+
 </project>

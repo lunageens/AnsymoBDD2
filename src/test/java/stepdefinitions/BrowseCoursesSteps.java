@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import managers.PageObjectManager;
 import managers.WebDriverManager;
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import pageObjects.CoursesPage;
 import pageObjects.HomePage;
 
@@ -45,10 +45,10 @@ public class BrowseCoursesSteps extends BaseClass {
      */
     public BrowseCoursesSteps(BaseClass base){
         webDriverManager = base.webDriverManager;
-        Assert.assertNotNull("Webdrivermanager created is empty", webDriverManager);
+        assertNotNull(webDriverManager, "Webdrivermanager created is empty.");
         pageObjectManager = base.pageObjectManager;
-        Assert.assertNotNull("PageObjectManager created is emtpy", pageObjectManager);
-        Assert.assertNotNull("Driver is empty", webDriverManager.getDriver());
+        assertNotNull(pageObjectManager, "PageObjectManager created is emtpy. ");
+        assertNotNull(webDriverManager.getDriver(), "Driver is empty.");
     }
 
     /**
@@ -80,7 +80,7 @@ public class BrowseCoursesSteps extends BaseClass {
     @Then("the user should see a page with all the courses listed")
     public void verifyAllCoursesListed() {
         coursesPage = pageObjectManager.getCoursesPage(); // instead of creating new courses page every single time
-        Assert.assertTrue("There are no courses.", coursesPage.verifyAllCoursesListed());
+        assertTrue(coursesPage.verifyAllCoursesListed(), "There are no courses.");
     }
 
     /**

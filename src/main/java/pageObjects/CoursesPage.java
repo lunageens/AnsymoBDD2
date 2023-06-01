@@ -2,7 +2,7 @@ package pageObjects;
 
 import managers.FileReaderManager;
 import managers.PageObjectManager;
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -33,7 +33,7 @@ public class CoursesPage {
     public CoursesPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
-        Assert.assertNotNull("The webdriver in CoursesPage constructor is null", driver);
+        assertNotNull(driver, "The webdriver in CoursesPage constructor is null" );
     }
 
     /**
@@ -121,8 +121,8 @@ public class CoursesPage {
             navigateToCoursesPage();
         }
 
-        Assert.assertTrue(formatListToText(courseTitlesNotLoaded, "not loaded"), courseTitlesNotLoaded.isEmpty());
-        Assert.assertTrue(formatListToText(courseTitlesNoProfessor, "no professor"), courseTitlesNoProfessor.isEmpty());
+        assertTrue(courseTitlesNotLoaded.isEmpty(), formatListToText(courseTitlesNotLoaded, "not loaded"));
+        assertTrue(courseTitlesNoProfessor.isEmpty(), formatListToText(courseTitlesNoProfessor, "no professor"));
     }
 
     /**
@@ -133,7 +133,7 @@ public class CoursesPage {
      */
     public String formatListToText(List<String> stringList, String typeAssertion) {
         String assertionText;
-        Assert.assertTrue("Formatting assertion texts for this type of assertion is not yet implemented.", typeAssertion.equals("not loaded") || typeAssertion.equals("no professor"));
+        assertTrue( typeAssertion.equals("not loaded") || typeAssertion.equals("no professor"), "Formatting assertion texts for this type of assertion is not yet implemented.");
 
         if (stringList.isEmpty()) {
             assertionText = null;

@@ -1,6 +1,6 @@
 package managers;
 
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.WebDriver;
 import pageObjects.CourseDetailsPage;
 import pageObjects.CoursesPage;
@@ -54,7 +54,7 @@ public class PageObjectManager {
      */
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
-        Assert.assertNotNull("driver is empty", this.driver);
+        assertNotNull(this.driver, "driver is empty");
     }
 
     /**
@@ -65,7 +65,7 @@ public class PageObjectManager {
      * @return HomePage The one instance of this class that is used in the scenario.
      */
     public HomePage getHomePage() {
-        Assert.assertNotNull("driver is empty", this.driver);
+        assertNotNull(this.driver, "driver is empty");
         return (homePage == null) ? homePage = new HomePage(driver) : homePage;
     }
 
@@ -77,7 +77,7 @@ public class PageObjectManager {
      * @return CoursesPage The one instance of this class that is used in the scenario.
      */
     public CoursesPage getCoursesPage() {
-        Assert.assertNotNull("driver is empty", this.driver);
+        assertNotNull(this.driver, "driver is empty");
         return (coursesPage == null) ? coursesPage = new CoursesPage(driver) : coursesPage;
     }
 
@@ -88,7 +88,7 @@ public class PageObjectManager {
      * @return CourseDetailsPage new instance of the CourseDetailsPage the driver is currently on.
      */
     public CourseDetailsPage getNewCourseDetailsPage() {
-        Assert.assertNotNull("driver is empty", this.driver);
+        assertNotNull(this.driver, "driver is empty");
         courseDetailsPage = new CourseDetailsPage(driver); // do make new page every time -> changes url per course
         return courseDetailsPage;
     }
@@ -101,7 +101,7 @@ public class PageObjectManager {
      * @return SoftwareTestingPage The one instance of this class that is used in the scenario.
      */
     public SoftwareTestingPage getSoftwareTestingPage() {
-        Assert.assertNotNull("driver is empty", this.driver);
+        assertNotNull(this.driver, "driver is empty");
         return (softwareTestingPage == null) ? softwareTestingPage = new SoftwareTestingPage(driver) : softwareTestingPage;
     }
 }
