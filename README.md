@@ -48,7 +48,21 @@ Using the **JavaDoc** Tools of IntelliJ IDEA, one can find the index.html file i
 Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing an SPA redirect rule, and we wanted to deploy all the sites to **Netlify**, I created a [`_redirects`](netlifydocs/_redirects)file in the netlifydocs directory and automated copying it to the correct [`cucumber-html-reports`](target/cucumber-reports/cucumber-html-reports) directory with the support of the **maven-resources-plugin**. The over-all creation of these reports happens during the running process, when the test are ran with the help of JUnit. Therefor, the reports are partly configured in the [`junit-platform.properties`](src/test/resources/junit-platform.properties) file. 
 > URL Cucumber reports: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
 
-Note that there are also [`surefire-reports`](target/surefire-reports) created during the running process by the `maven-surefire-plugin`. This is a result of the console output. 
+Note that there are also [`surefire-reports`](target/surefire-reports) created during the running process by the `maven-surefire-plugin`. This is a result of the console output. With these surefire reports, u can also generate additional **Allure** reports that are more detailed. For Windows operating systems, Allure needs to be downloaded via the PowerShell Command Prompt. In case u haven't installed Scope already, run the following commands first:
+
+``` 
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+irm get.scoop.sh | iex
+```
+
+To generate the Allure reports and open it in your default browser, use the following command:
+
+```
+allure serve "path\to\target\surefire-reports"
+```
+
+Don't forget to replace the path with the path to the project on your local device. 
+
 
 # 2 Expected behaviour
 The program is set up to test certain behaviours of the [Ansymo web-application](https://ansymore.uantwerpen.be). One could alter the `cucumber.tags` key in the [`junit-platform.properties`](src/test/resources/junit-platform.properties) file to only test the script from specific exercises.

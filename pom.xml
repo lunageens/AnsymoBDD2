@@ -90,7 +90,6 @@
             <version>${log4j.version}</version>
         </dependency>
 
-        <!-- Extra reporting dependencies for Allure-->
     </dependencies>
     <build>
         <plugins>
@@ -151,7 +150,7 @@
                         <additionalClasspathElement>src/test/java/</additionalClasspathElement>
                     </additionalClasspathElements>
                     <properties>
-                        <configurationParameters> <!-- Include feature name in console output -->
+                        <configurationParameters> <!-- Include feature name -->
                             cucumber.junit-platform.naming-strategy=long
                         </configurationParameters>
                     </properties>

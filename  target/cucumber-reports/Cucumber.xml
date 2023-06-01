@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="78.97" tests="10" skipped="0" failures="3" errors="0">
-<testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors) - Example #1.1" time="21.98">
+<testsuite name="Cucumber" time="60.856" tests="10" skipped="0" failures="3" errors="0">
+<testcase classname="Verify the Ansymo Web application" name="Verify all courses from homepages (names and professors) - Example #1.1" time="22.07">
 <failure type="org.opentest4j.AssertionFailedError" message="The course Master thesis has no professor. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;">
 <![CDATA[org.opentest4j.AssertionFailedError: The course Master thesis has no professor. ==> expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
@@ -20,7 +20,7 @@ Then the user should see a page with all the courses listed.................pass
 And for each course, there should be a page that is loaded and there should be a professor.failed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="7.634">
+<testcase classname="Verify the Ansymo Web application" name="Verify Assignment Links in Software Testing Course" time="6.385">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user sees the links for each assignment............................passed
@@ -28,7 +28,7 @@ Then the user should receive a warning when an assignment link doesn't exist.pas
 And the user should verify the link format of each assignment link..........passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.1" time="5.628">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.1" time="4.023">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student Luna Geens belongs to student group 1.....passed
@@ -36,7 +36,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.2" time="6.218">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.2" time="4.078">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student Luna Geens belongs to student group 2.....passed
@@ -44,7 +44,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.3" time="7.263">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.3" time="3.903">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student Luna Geens belongs to student group 3.....passed
@@ -52,7 +52,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.4" time="5.4">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.4" time="4.099">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says that a student Thimoty Smet belongs to student group 1...passed
@@ -60,7 +60,7 @@ Then the user should be in a student group..................................pass
 And the user should receive a warning when he does not belong to that student group number.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.5" time="5.585">
+<testcase classname="Verify the Ansymo Web application" name="Verify Student Groups in Software Testing Course - Example #1.5" time="3.979">
 <failure type="org.opentest4j.AssertionFailedError" message="The student is not in any group. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;">
 <![CDATA[org.opentest4j.AssertionFailedError: The student is not in any group. ==> expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
@@ -79,7 +79,7 @@ Then the user should be in a student group..................................fail
 And the user should receive a warning when he does not belong to that student group number.skipped
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.1" time="6.039">
+<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.1" time="4.071">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says a student Luna Geens.....................................passed
@@ -87,7 +87,7 @@ Then the user should see his mandatory presence as presenter................pass
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.2" time="5.926">
+<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.2" time="3.986">
 <system-out><![CDATA[
 Given the user is on the Software Testing course page.......................passed
 When the user says a student Thimoty Smet...................................passed
@@ -95,7 +95,7 @@ Then the user should see his mandatory presence as presenter................pass
 And the user should see his mandatory presence as opponent..................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.3" time="6.773">
+<testcase classname="Verify the Ansymo Web application" name="Verify Mandatory Presence of a student in Software Testing Course - Example #1.3" time="3.846">
 <failure type="org.opentest4j.AssertionFailedError" message="The student is not in any group. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;">
 <![CDATA[org.opentest4j.AssertionFailedError: The student is not in any group. ==> expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
