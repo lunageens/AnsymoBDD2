@@ -78,7 +78,9 @@ Using the **JavaDoc** Tools of IntelliJ IDEA, one can find the index.html file i
 > URL Javadoc: [Ansymore site on Netlify](https://ansymo2site.netlify.app/).
 
 Using the reports produced by **Cucumber**, we can find the Cucumber.html file in the [`cucumber-reports`](target/cucumber-reports/cucumber-html-reports/Cucumber.html) directory that gives us a short explanation of the test results. Because this html file was missing an SPA redirect rule, and we wanted to deploy all the sites to **Netlify**, I created a [`_redirects`](netlifydocs/_redirects)file in the netlifydocs directory and automated copying it to the correct [`cucumber-html-reports`](target/cucumber-reports/cucumber-html-reports) directory with the support of the **maven-resources-plugin**. The over-all creation of these reports happens during the running process, when the test are ran with the help of JUnit. Therefor, the reports are partly configured in the [`junit-platform.properties`](src/test/resources/junit-platform.properties) file. 
-> URL Cucumber reports: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
+> URL Cucumber report of the latest GitHub commit: [Ansymore Cucumber reports](https://anysmo2cucumberresults.netlify.app/).
+> 
+> URL History of all Cucumber reports: [Ansymore Cucumber reports history](https://reports.cucumber.io/report-collections/6baeefd4-76f5-484c-a3d3-773814517678). 
 
 Note that there are also [`surefire-reports`](target/surefire-reports) created during the running process by the `maven-surefire-plugin`. 
 This is a result of the console output. With these surefire reports, u can also generate additional **Allure** reports that are more detailed. 
