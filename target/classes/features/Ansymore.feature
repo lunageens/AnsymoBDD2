@@ -28,12 +28,12 @@ Feature: Verify the Ansymo Web application
     Then the user should be in a student group
     And the user should receive a warning when he does not belong to that student group number
     Examples:
-      | name         | number |
-      | Luna Geens   | 1      |
-      | Luna Geens   | 2      |
-      | Luna Geens   | 3      |
-      | Thimoty Smet | 1      |
-      | Mieke Hans   | 2      |
+      | name           | number |
+      | "Luna Geens"   | "1"    |
+      | "Luna Geens"   | "2"    |
+      | "Luna Geens"   | "3"    |
+      | "Thimoty Smet" | "1"    |
+      | "Mieke Hans"   | "2"    |
 
 
   @Exercise8
@@ -43,8 +43,8 @@ Feature: Verify the Ansymo Web application
     Then the user should see his mandatory presence as presenter
     And the user should see his mandatory presence as opponent
     Examples:
-      | name         |
-      | Luna Geens   |
-      | Thimoty Smet |
-      | Mieke Hans   |
+      | name           |
+      | "Luna Geens"   |
+      | "Thimoty Smet" |
+      | "Mieke Hans"   |
 

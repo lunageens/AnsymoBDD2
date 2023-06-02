@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: Verify the Ansymo Web application
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 38.383 s <<< FAILURE! - in Verify the Ansymo Web application
-Verify the Ansymo Web application - Verify Student Groups in Software Testing Course - Examples - Example #1.5  Time elapsed: 3.986 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: The student is not in any group. ==> expected: <true> but was: <false>
+Tests run: 9, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 43.309 s <<< FAILURE! - in Verify the Ansymo Web application
+Verify the Ansymo Web application - Verify Student Groups in Software Testing Course - Examples - Example #1.5  Time elapsed: 4.27 s  <<< FAILURE!
+java.lang.AssertionError: The student is not in any group. Expression: softwareTestingPage.inAnyGroup()
 
-Verify the Ansymo Web application - Verify Mandatory Presence of a student in Software Testing Course - Examples - Example #1.3  Time elapsed: 3.85 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: The student is not in any group. ==> expected: <true> but was: <false>
+Verify the Ansymo Web application - Verify Mandatory Presence of a student in Software Testing Course - Examples - Example #1.3  Time elapsed: 4.208 s  <<< FAILURE!
+java.lang.AssertionError: The student is not in any group. Expression: softwareTestingPage.inAnyGroup()
 

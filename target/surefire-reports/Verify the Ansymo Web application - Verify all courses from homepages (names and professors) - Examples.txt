@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: Verify the Ansymo Web application - Verify all courses from homepages (names and professors) - Examples
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.245 s <<< FAILURE! - in Verify the Ansymo Web application - Verify all courses from homepages (names and professors) - Examples
-Verify the Ansymo Web application - Verify all courses from homepages {names and professors} - Examples - Example #1.1  Time elapsed: 22.238 s  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 21.502 s <<< FAILURE! - in Verify the Ansymo Web application - Verify all courses from homepages (names and professors) - Examples
+Verify the Ansymo Web application - Verify all courses from homepages {names and professors} - Examples - Example #1.1  Time elapsed: 21.497 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: The course Master thesis has no professor. ==> expected: <true> but was: <false>
 

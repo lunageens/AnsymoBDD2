@@ -44,7 +44,6 @@
             <version>${junit.jupiter.engine.version}</version>
         </dependency>
 
-
         <!-- Selenium Webdriver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -88,6 +87,13 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- Groovy language -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>3.0.16</version>
         </dependency>
 
     </dependencies>
@@ -147,7 +153,7 @@
                 </dependencies>
                 <configuration>
                     <additionalClasspathElements>
-                        <additionalClasspathElement>src/test/java/</additionalClasspathElement>
+                        <additionalClasspathElement>src/test/groovy/</additionalClasspathElement>
                     </additionalClasspathElements>
                     <properties>
                         <configurationParameters> <!-- Include feature name -->
@@ -157,8 +163,39 @@
                 </configuration>
             </plugin>
 
+            <!-- Groovy compiler and execution plugin -->
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>2.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compileTests</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <fileset>
+                            <directory>${project.basedir}/src/main/groovy</directory>
+                            <includes>
+                                <include>**/*.groovy</include>
+                            </includes>
+                        </fileset>
+                    </sources>
+                    <testSources>
+                        <fileset>
+                            <directory>${project.basedir}/src/test/groovy</directory>
+                            <includes>
+                                <include>**/*.groovy</include>
+                            </includes>
+                        </fileset>
+                    </testSources>
+                </configuration>
+            </plugin>
 
-            <!-- Allure maven plugin -->
         </plugins>
         <resources>
             <resource>

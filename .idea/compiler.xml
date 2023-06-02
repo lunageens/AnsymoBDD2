@@ -10,8 +10,5 @@
         <module name="AnsymoBDD2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="AnsymoBDD" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
