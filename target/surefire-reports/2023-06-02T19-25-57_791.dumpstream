@@ -1,0 +1,30 @@
+# Created at 2023-06-02T19:25:57.792
+jun. 02, 2023 7:25:57 P.M. org.junit.platform.launcher.core.LauncherConfigurationParameters loadClasspathResource
+
+# Created at 2023-06-02T19:25:57.796
+WARNING: Discovered 2 'junit-platform.properties' configuration files in the classpath; only the first will be used.
+
+# Created at 2023-06-02T19:25:57.824
+jun. 02, 2023 7:25:57 P.M. org.junit.platform.launcher.core.LauncherConfigurationParameters loadClasspathResource
+
+# Created at 2023-06-02T19:25:57.829
+WARNING: Discovered 2 'junit-platform.properties' configuration files in the classpath; only the first will be used.
+
+# Created at 2023-06-02T19:25:57.959
+jun. 02, 2023 7:25:57 P.M. io.cucumber.junit.platform.engine.DiscoverySelectorResolver warnWhenCucumberFeaturesPropertyIsUsed
+
+# Created at 2023-06-02T19:25:57.962
+WARNING: Discovering tests using the cucumber.features property. Other discovery selectors are ignored!
+
+# Created at 2023-06-02T19:25:57.964
+Please request/upvote/sponsor/ect better support for JUnit 5 discovery selectors.
+
+# Created at 2023-06-02T19:25:57.967
+See: https://github.com/cucumber/cucumber-jvm/pull/2498
+
+# Created at 2023-06-02T19:25:58.302
+jun. 02, 2023 7:25:58 P.M. org.junit.platform.launcher.core.LauncherConfigurationParameters loadClasspathResource
+
+# Created at 2023-06-02T19:25:58.304
+WARNING: Discovered 2 'junit-platform.properties' configuration files in the classpath; only the first will be used.
+

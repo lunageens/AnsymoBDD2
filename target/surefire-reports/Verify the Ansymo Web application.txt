@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: Verify the Ansymo Web application
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 55.13 s <<< FAILURE! - in Verify the Ansymo Web application
-Verify the Ansymo Web application - Verify Student Groups in Software Testing Course - Examples - Example #1.5  Time elapsed: 6.676 s  <<< FAILURE!
+Tests run: 9, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 46.702 s <<< FAILURE! - in Verify the Ansymo Web application
+Verify the Ansymo Web application - Verify Student Groups in Software Testing Course - Examples - Example #1.5  Time elapsed: 6.841 s  <<< FAILURE!
 java.lang.AssertionError: The student is not in any group. Expression: softwareTestingPage.inAnyGroup()
 
-Verify the Ansymo Web application - Verify Mandatory Presence of a student in Software Testing Course - Examples - Example #1.3  Time elapsed: 5.959 s  <<< FAILURE!
+Verify the Ansymo Web application - Verify Mandatory Presence of a student in Software Testing Course - Examples - Example #1.3  Time elapsed: 4.183 s  <<< FAILURE!
 java.lang.AssertionError: The student is not in any group. Expression: softwareTestingPage.inAnyGroup()
 

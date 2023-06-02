@@ -153,7 +153,6 @@ class SoftwareTestingPage extends CourseDetailsPage {
         } else { // plural. Use formatNumListToText for numbers
             warningText = "Assignments " + formatNumListToText(nonExistentLinks) + " have a link that does not exist on the server."
         }
-        assertNotNull(warningText, "warningText is null")
         return warningText
     }
 

@@ -34,7 +34,7 @@ class BrowseSoftwareTestingSteps {
     /**
      * Logger used for this class. Enables the warnings we need to implement for some tests.
      */
-    private static final Logger logger = LoggerFactory.getLogger(BrowseCoursesSteps.class)
+    private static final Logger logger = LoggerFactory.getLogger(BrowseSoftwareTestingSteps.class)
 
     /**
      * Constructor of the BrowseSoftwareTestingSteps.groovy
@@ -68,7 +68,11 @@ class BrowseSoftwareTestingSteps {
      */
     @When("the user sees the links for each assignment")
     void verifyAssignmentLinksPresent() {
-        assert softwareTestingPage.verifyAssignmentsLinkPresent() : "There are no assignment links."
+        try{assert softwareTestingPage.verifyAssignmentsLinkPresent() : "There are no assignment links."}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + e.getMessage())
+            throw e; // Rethrow the exception to mark the test as failed
+        }
     }
 
     /**
@@ -95,7 +99,11 @@ class BrowseSoftwareTestingSteps {
     @Then("the user should verify the link format of each assignment link")
     void verifyAssignmentsLinkFormat() {
         List<Integer> nonFormattedLinks = softwareTestingPage.verifyAssignmentsLinkFormat()
-        assert nonFormattedLinks != null : softwareTestingPage.formatLinkFormatAssertion(nonFormattedLinks)
+        try{assert nonFormattedLinks != null : softwareTestingPage.formatLinkFormatAssertion(nonFormattedLinks)}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + e.getMessage())
+            throw e; // Rethrow the exception to mark the test as failed
+        }
     }
 
     /**
@@ -116,7 +124,11 @@ class BrowseSoftwareTestingSteps {
      */
     @Then("the user should be in a student group")
     void verifyStudentGroupMembership() {
-        assert softwareTestingPage.inAnyGroup() : "The student is not in any group"
+        try{assert softwareTestingPage.inAnyGroup() : "The student is not in any group"}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + "The student is not in any group.")
+            throw e; // Rethrow the exception to mark the test as failed
+        }
     }
 
     /**
@@ -150,7 +162,11 @@ class BrowseSoftwareTestingSteps {
      */
     @Then("the user should see his mandatory presence as presenter")
     void presencePresenter() {
-        assert softwareTestingPage.inAnyGroup() : "The student is not in any group"
+        try{assert softwareTestingPage.inAnyGroup() : "The student is not in any group"}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + "The student is not in any group.")
+            throw e; // Rethrow the exception to mark the test as failed
+        }
         logger.info(softwareTestingPage.presencePresenter())
     }
 
@@ -162,7 +178,11 @@ class BrowseSoftwareTestingSteps {
      */
     @And("the user should see his mandatory presence as opponent")
     void presenceOpponent() {
-        assert softwareTestingPage.inAnyGroup() : "The student is not in any group"
+        try{assert softwareTestingPage.inAnyGroup() : "The student is not in any group"}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + e.getMessage())
+            throw e; // Rethrow the exception to mark the test as failed
+        }
         logger.info(softwareTestingPage.presenceOpponent())
     }
 }

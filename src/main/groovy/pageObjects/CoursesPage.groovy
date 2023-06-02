@@ -7,11 +7,15 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindAll
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.PageFactory
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 import static org.junit.jupiter.api.Assertions.*
 
 class CoursesPage {
     private WebDriver driver
+
+    private static final Logger logger = LoggerFactory.getLogger(CoursesPage.class)
 
     CoursesPage(WebDriver driver) {
         this.driver = driver
@@ -21,7 +25,6 @@ class CoursesPage {
 
     void navigateToCoursesPage() {
         def configReader = FileReaderManager.getInstance().getConfigReader()
-        assertEquals("https://ansymore.uantwerpen.be/courses", configReader.getApplicationCoursesUrl())
         driver.get(configReader.getApplicationCoursesUrl())
     }
 
@@ -63,9 +66,17 @@ class CoursesPage {
             navigateToCoursesPage()
         }
         def assertionMessageNotLoaded = formatListToText(courseTitlesNotLoaded, "not loaded")
-        assertTrue(courseTitlesNotLoaded.isEmpty(), assertionMessageNotLoaded)
+        try{assertTrue(courseTitlesNotLoaded.isEmpty(), assertionMessageNotLoaded)}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + assertionMessageNotLoaded)
+            throw e; // Rethrow the exception to mark the test as failed
+        }
         def assertionMessageNoProfessor = formatListToText(courseTitlesNoProfessor, "no professor")
-        assertTrue(courseTitlesNoProfessor.isEmpty(), assertionMessageNoProfessor)
+        try{assertTrue(courseTitlesNoProfessor.isEmpty(), assertionMessageNoProfessor)}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + assertionMessageNoProfessor)
+            throw e; // Rethrow the exception to mark the test as failed
+        }
     }
 
     String formatListToText(List<String> stringList, String typeAssertion) {

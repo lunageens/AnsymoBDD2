@@ -5,6 +5,8 @@ import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import managers.PageObjectManager
 import managers.WebDriverManager
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import pageObjects.CoursesPage
 import pageObjects.HomePage
 import static org.junit.jupiter.api.Assertions.*
@@ -39,6 +41,11 @@ class BrowseCoursesSteps extends BaseClass {
      * Selenium page instance of the coursesPage, following the pages pattern.
      */
     private CoursesPage coursesPage
+
+    /**
+     * Logger used for this class. Enables the warnings we need to implement for some tests.
+     */
+    private static final Logger logger = LoggerFactory.getLogger(BrowseCoursesSteps.class)
 
     /**
      * Constructor of the BrowseCoursesSteps
@@ -81,7 +88,11 @@ class BrowseCoursesSteps extends BaseClass {
     @Then("the user should see a page with all the courses listed")
     void verifyAllCoursesListed() {
         coursesPage = pageObjectManager.getCoursesPage() // instead of creating new courses page every single time
-        assertTrue(coursesPage.verifyAllCoursesListed(), "There are no courses.")
+        try{assertTrue(coursesPage.verifyAllCoursesListed(), "There are no courses.")}
+        catch(AssertionError e){
+            logger.error("Assertion error: " + e.getMessage())
+            throw e; // Rethrow the exception to mark the test as failed
+        }
     }
 
     /**

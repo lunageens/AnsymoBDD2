@@ -1,8 +1,6 @@
 import org.junit.platform.suite.api.IncludeEngines
 import org.junit.platform.suite.api.Suite
 
-// TODO Assertion error -> to logger frameworks errors
-// TODO Allure reports
 // TODO Plain Java and Junit files?
 // TODO Assertion Error and answers about warnings - Implementation versus testing?
 
