@@ -1,9 +1,6 @@
 import org.junit.platform.suite.api.IncludeEngines
 import org.junit.platform.suite.api.Suite
 
-// TODO Plain Java and Junit files?
-// TODO Assertion Error and answers about warnings - Implementation versus testing?
-
 /**
  * JUnit class that specifies how Cucumber should run tests.
  * Make sure to add Test in the name at the end for JUnit to find them
