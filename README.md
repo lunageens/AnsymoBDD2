@@ -58,24 +58,24 @@ that are compatible with Java such as Cucumber, JUnit, Pico-container, and other
 Other scripting languages are for example Ruby. 
 Some examples of how Groovy has improved the (readability of) the code are:
 
- 1. Overall, keywords such as 'return', 'public' and 'void' can be ommited in methods and the semicolon is not needed after every line of code.
+ 1. Overall, keywords such as `return`, `public` and `void` can be ommited in methods and the semicolon is not needed after every line of code.
 
  2. Assertion statements can be simplified and used without importing statements. In [`BrowseSoftwareTestingSteps.groovy`](src/test/groovy/stepdefinitions/BrowseSoftwareTestingSteps.groovy), the constructor previously needed a JUnit import for the line `Assert.AssertnotNull(...)`, whereas Groovy just used the assertion assert without the need of importing statements.
 
  ```
  import static org.junit.jupiter.api.Assertions.*;
  public BrowseSoftwareTestingSteps(BaseClass base){
-        webDriverManager = base.webDriverManager;
+        // ...
         assertNotNull(webDriverManager, "Webdrivermanager created is empty.");
-        // Rest of implementation
+        // ...
  }
 ```
 
 ```
  BrowseSoftwareTestingSteps(BaseClass base) {
-        webDriverManager = base.webDriverManager
+        // ...
         assert webDriverManager != null : "Webdrivermanager created is empty."
-        // Rest of implementation
+        // ...
  }
  ```
 
@@ -83,81 +83,67 @@ Some examples of how Groovy has improved the (readability of) the code are:
 
 ```
 public void provideStudentGroup(String name, String group) {
-        this.inputStudentName = name;
+        // ...
         this.inputGroupNumber = Integer.parseInt(group);
  }
 ```
  
 ```
  void provideStudentGroup(String name, String group) {
-        this.inputStudentName = name
+        // ...
         this.inputGroupNumber = group as Integer
  }
  ```
 
- 4.  Getting items of a list is written more intuitive. On top of that. the formatting of strings can be compacter. For example, when the assertiontext is formed in the [`SoftwareTestingsPage.formatLinkFormatAssertion()`](src/main/groovy/pageObjects/SoftwareTestingPage.groovy) method. 
+ 4.  Getting items of a list is written more intuitive. On top of that. the formatting of strings can be compacter. For example, when the assertiontext is formed in the [`SoftwareTestingsPage.formatLinkFormatAssertion(List<Integer> nonFormattedLinks)`](src/main/groovy/pageObjects/SoftwareTestingPage.groovy) method. 
 
 ```
  public String formatLinkFormatAssertion(List<Integer> nonFormattedLinks) {
-        String assertionText;
-        if (nonFormattedLinks.isEmpty()) {  // Implementation for no assertion 
-        } else if (nonFormattedLinks.size() == 1) { // Singular
+        // ...
             assertionText = "Assignment " + nonFormattedLinks.get(0).toString() + " has a link with an incorrect format.";
-        } else { // Implementation for assertiontext in plural
-        } return assertionText;
+       // ...
  }
  ```
  
  ```
  String formatLinkFormatAssertion(List<Integer> nonFormattedLinks) {
-        String assertionText
-        if (nonFormattedLinks.isEmpty()) { // Implementation for no assertion 
-        } else if (nonFormattedLinks.size() == 1) { // Singular
+        // ...
             assertionText = "Assignment ${nonFormattedLinks[0]} has a link with an incorrect format."
-        } else { // Implementation for assertiontext in plural
-        } return assertionText
+        // ...
     }
  ```
  
- 5. One can make use of operators in if-statements, avoiding the use of the `.equals()` method. This can be seen in the `SoftwareTestingPage.verifyAssignmentsLinkFormat()` [src/main/groovy/pageObjects/SoftwareTestingPage.groovy] method.
+ 5. One can make use of operators in if-statements, avoiding the use of the `.equals()` method. This can be seen in the [`SoftwareTestingPage.verifyAssignmentsLinkFormat()`](src/main/groovy/pageObjects/SoftwareTestingPage.groovy) method.
 
 ```
  public List<Integer> verifyAssignmentsLinkFormat() {
-        // Other implemenation
+        // ...
             if (!urlText.equals(correctText)){ // Not the right format
-                nonFormattedLinks.add(i+1); // Then add assignment number to result
-            }
-        }
-       return nonFormattedLinks;
+        // ...
 }
 ```
 
 ```
 List<Integer> verifyAssignmentsLinkFormat() {
-        // Other implemenation
+         // ...
             if (urlText != correctText) { // Not the right format
-                nonFormattedLinks.add(i + 1) // Then add assignment number to result
-            }
-        }
-        return nonFormattedLinks
+         // ...
 } 
 ```
 
-6. One can omit the keyword new when declaring variables in some places, such as in the method . 
+6. One can omit the keyword new when declaring variables in some places, such as in the method [`SoftWareTestingPage.getGroupNumbers(String studentName)`](src/main/groovy/pageObjects/SoftwareTestingPage.groovy). 
 
 ```
 public List<Integer> getGroupNumbers(String studentName) {
-        // Initiate result variables
         List<Integer> groupNumbers = new ArrayList<>(); 
-        // Other implementation
+        // ...
 }
 ```
 
 ```
 List<Integer> getGroupNumbers(String studentName) {
-        // Initiate result variables
         List<Integer> groupNumbers = []
-        // Other implemenation
+         // ...
 }
 ```
 
